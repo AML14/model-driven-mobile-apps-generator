@@ -1,0 +1,2 @@
+# model-driven-mobile-apps-generator
+This is a project for the Model Driven and Aspect Oriented Software Development course. Its main purpose is enabling the design of multiplatform mobile applications thanks to Eugenia, a GMF editor creator present in Eclipse Epsilon. For the moment, it will allow automatic code generation for the React Native framework, but may be compatible with others in the future, such as Ionic or Xamarin.
