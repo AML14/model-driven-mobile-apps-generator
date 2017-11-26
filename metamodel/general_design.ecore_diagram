@@ -11,10 +11,6 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_jLCptdKJEee1tpFIdlqd2w"/>
     </children>
     <children xmi:type="notation:BasicCompartment" xmi:id="_jLCpttKJEee1tpFIdlqd2w" type="7003">
-      <children xmi:type="notation:Node" xmi:id="_nbzUQNKJEee1tpFIdlqd2w" type="3003">
-        <element xmi:type="ecore:EAnnotation" href="general_design.ecore#//MobileApp/%will%20do%20as%20canvas%"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_nbz7UNKJEee1tpFIdlqd2w"/>
-      </children>
       <styles xmi:type="notation:SortingStyle" xmi:id="_jLCpt9KJEee1tpFIdlqd2w"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_jLCpuNKJEee1tpFIdlqd2w"/>
     </children>
@@ -170,7 +166,7 @@
       <layoutConstraint xmi:type="notation:Location" xmi:id="_Y7eo8NKKEee1tpFIdlqd2w" x="1" y="14"/>
     </children>
     <styles xmi:type="notation:FontStyle" xmi:id="_Y7eB4dKKEee1tpFIdlqd2w" fontName=".SF NS Text"/>
-    <element xmi:type="ecore:EReference" href="general_design.ecore#//MobileApp/composed%20of"/>
+    <element xmi:type="ecore:EReference" href="general_design.ecore#//MobileApp/composedOf"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Y7eB4tKKEee1tpFIdlqd2w" points="[-6, 31, -4, -61]$[-6, 66, -4, -26]"/>
   </edges>
   <edges xmi:type="notation:Connector" xmi:id="_fAVHUNKKEee1tpFIdlqd2w" type="4003" source="_D7pZANKKEee1tpFIdlqd2w" target="_EwmEANKKEee1tpFIdlqd2w" routing="Rectilinear">
@@ -181,7 +177,7 @@
       <layoutConstraint xmi:type="notation:Location" xmi:id="_fAVHVtKKEee1tpFIdlqd2w" x="-1" y="14"/>
     </children>
     <styles xmi:type="notation:FontStyle" xmi:id="_fAVHUdKKEee1tpFIdlqd2w" fontName=".SF NS Text"/>
-    <element xmi:type="ecore:EReference" href="general_design.ecore#//Screen/composed%20of"/>
+    <element xmi:type="ecore:EReference" href="general_design.ecore#//Screen/composedOf"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_fAVHUtKKEee1tpFIdlqd2w" points="[1, 26, 2, -66]$[1, 66, 2, -26]"/>
   </edges>
   <edges xmi:type="notation:Connector" xmi:id="_0eqbsNKLEee1tpFIdlqd2w" type="4004" source="_XNp_wNKLEee1tpFIdlqd2w" target="_EwmEANKKEee1tpFIdlqd2w" routing="Rectilinear">

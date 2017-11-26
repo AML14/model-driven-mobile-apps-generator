@@ -1,2 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"/>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="rnAppGenerator" nsURI="http://rnappgen" nsPrefix="rnAppGen">
+  <eClassifiers xsi:type="ecore:EClass" name="MobileApp">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="composedOf" lowerBound="1"
+        eType="#//Navigator" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Navigator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//NavigatorType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="composedOf" upperBound="-1"
+        eType="#//Navigator" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="composedOf" lowerBound="1"
+        upperBound="-1" eType="#//Screen" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="NavigatorType">
+    <eLiterals name="Stack"/>
+    <eLiterals name="Tab"/>
+    <eLiterals name="Drawer"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Screen" eSuperTypes="#//Component">
+    <eOperations name="navigateTo"/>
+    <eOperations name="goBackTo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="composedOf" upperBound="-1"
+        eType="#//RNComponent" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="composedOf" upperBound="-1"
+        eType="#//NBComponent" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Component" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NBComponent" eSuperTypes="#//Component"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RNComponent" eSuperTypes="#//Component"/>
+</ecore:EPackage>
