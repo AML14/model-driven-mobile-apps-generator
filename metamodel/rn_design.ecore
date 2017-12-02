@@ -2,14 +2,14 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="rnAppGenerator" nsURI="http://rnappgen" nsPrefix="rnAppGen">
   <eClassifiers xsi:type="ecore:EClass" name="MobileApp">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="composedOf" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="navigator" lowerBound="1"
         eType="#//Navigator" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Navigator">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//NavigatorType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="composedOf" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nestedNavigators" upperBound="-1"
         eType="#//Navigator" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="composedOf" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="screens" lowerBound="1"
         upperBound="-1" eType="#//Screen" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="NavigatorType">
@@ -17,15 +17,65 @@
     <eLiterals name="Tab"/>
     <eLiterals name="Drawer"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Screen" eSuperTypes="#//Component">
+  <eClassifiers xsi:type="ecore:EClass" name="Screen">
     <eOperations name="navigateTo"/>
     <eOperations name="goBackTo"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="composedOf" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rnComponents" upperBound="-1"
         eType="#//RNComponent" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="composedOf" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nbComponents" upperBound="-1"
         eType="#//NBComponent" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="screenState" eType="#//State"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Component" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="NBComponent" eSuperTypes="#//Component"/>
-  <eClassifiers xsi:type="ecore:EClass" name="RNComponent" eSuperTypes="#//Component"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Component" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="flexHorizontalStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="flexHorizontalEnd" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="flexVerticalStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="flexVerticalEnd" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NBComponent" abstract="true" eSuperTypes="#//Component"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RNComponent" abstract="true" eSuperTypes="#//Component"/>
+  <eClassifiers xsi:type="ecore:EClass" name="State">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialState" eType="#//JSObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="JSObject" instanceTypeName="JSObject"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Image" eSuperTypes="#//RNComponent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Button" eSuperTypes="#//NBComponent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="theme" eType="#//ButtonTheme"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ButtonType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="#//ButtonSize"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="disabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="List" eSuperTypes="#//NBComponent">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="2" upperBound="-1"
+        eType="#//ListItem" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ListItem" eSuperTypes="#//NBComponent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//NBComponent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InputText" eSuperTypes="#//NBComponent"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="ButtonTheme">
+    <eLiterals name="light"/>
+    <eLiterals name="primary"/>
+    <eLiterals name="success"/>
+    <eLiterals name="info"/>
+    <eLiterals name="danger"/>
+    <eLiterals name="warning"/>
+    <eLiterals name="dark"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ButtonType">
+    <eLiterals name="transparent"/>
+    <eLiterals name="outline"/>
+    <eLiterals name="rounded"/>
+    <eLiterals name="block"/>
+    <eLiterals name="full"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ButtonSize">
+    <eLiterals name="small"/>
+    <eLiterals name="regular"/>
+    <eLiterals name="large"/>
+  </eClassifiers>
 </ecore:EPackage>
