@@ -26,6 +26,8 @@
         eType="#//NBComponent" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="screenState" eType="#//State"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scrollable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Component" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="flexHorizontalStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -54,9 +56,20 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="2" upperBound="-1"
         eType="#//ListItem" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ListItem" eSuperTypes="#//NBComponent"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//NBComponent"/>
-  <eClassifiers xsi:type="ecore:EClass" name="InputText" eSuperTypes="#//NBComponent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ListItem" eSuperTypes="#//NBComponent">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftIcon" eType="#//Icon"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightIcon" eType="#//Icon"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//NBComponent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InputText" eSuperTypes="#//NBComponent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//InputType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="placeholder" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ButtonTheme">
     <eLiterals name="light"/>
     <eLiterals name="primary"/>
@@ -77,5 +90,15 @@
     <eLiterals name="small"/>
     <eLiterals name="regular"/>
     <eLiterals name="large"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Card" eSuperTypes="#//NBComponent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="header" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="body" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Icon" eSuperTypes="#//NBComponent"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="InputType">
+    <eLiterals name="regular"/>
+    <eLiterals name="rounded"/>
+    <eLiterals name="underlined"/>
   </eClassifiers>
 </ecore:EPackage>
