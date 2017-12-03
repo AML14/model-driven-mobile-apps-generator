@@ -15,7 +15,6 @@
   <eClassifiers xsi:type="ecore:EEnum" name="NavigatorType">
     <eLiterals name="Stack"/>
     <eLiterals name="Tab"/>
-    <eLiterals name="Drawer"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Screen">
     <eOperations name="navigateTo"/>
@@ -30,10 +29,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="scrollable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Component" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="flexHorizontalStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="flexHorizontalEnd" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="flexVerticalStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="flexVerticalEnd" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="flexVerticalPosition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="flexVerticalSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="flexHorizontalPosition"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="flexHorizontalSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="margin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="padding" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="verticalAlignment" eType="#//AlignmentType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="horizontalAlignment" eType="#//AlignmentType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NBComponent" abstract="true" eSuperTypes="#//Component"/>
   <eClassifiers xsi:type="ecore:EClass" name="RNComponent" abstract="true" eSuperTypes="#//Component"/>
@@ -95,10 +100,17 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="header" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="body" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Icon" eSuperTypes="#//NBComponent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Icon" eSuperTypes="#//NBComponent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="InputType">
     <eLiterals name="regular"/>
     <eLiterals name="rounded"/>
     <eLiterals name="underlined"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AlignmentType">
+    <eLiterals name="flex-start"/>
+    <eLiterals name="flex-end"/>
+    <eLiterals name="center"/>
   </eClassifiers>
 </ecore:EPackage>
