@@ -4,6 +4,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="MobileApp">
     <eStructuralFeatures xsi:type="ecore:EReference" name="navigator" lowerBound="1"
         eType="#//Navigator" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Navigator">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//NavigatorType"/>
@@ -34,8 +35,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="flexHorizontalPosition"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="flexHorizontalSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="margin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="margin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="padding" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="verticalAlignment" eType="#//AlignmentType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="horizontalAlignment" eType="#//AlignmentType"/>
@@ -52,6 +52,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Button" eSuperTypes="#//NBComponent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="theme" eType="#//ButtonTheme"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ButtonType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="#//ButtonSize"/>
@@ -76,8 +77,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="placeholder" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ButtonTheme">
-    <eLiterals name="light"/>
     <eLiterals name="primary"/>
+    <eLiterals name="light"/>
     <eLiterals name="success"/>
     <eLiterals name="info"/>
     <eLiterals name="danger"/>
@@ -85,6 +86,7 @@
     <eLiterals name="dark"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ButtonType">
+    <eLiterals name="default"/>
     <eLiterals name="transparent"/>
     <eLiterals name="outline"/>
     <eLiterals name="rounded"/>
@@ -92,8 +94,8 @@
     <eLiterals name="full"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ButtonSize">
-    <eLiterals name="small"/>
     <eLiterals name="regular"/>
+    <eLiterals name="small"/>
     <eLiterals name="large"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Card" eSuperTypes="#//NBComponent">
@@ -102,6 +104,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Icon" eSuperTypes="#//NBComponent">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="InputType">
     <eLiterals name="regular"/>
@@ -109,9 +112,9 @@
     <eLiterals name="underlined"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="AlignmentType">
-    <eLiterals name="flex-start"/>
-    <eLiterals name="flex-end"/>
     <eLiterals name="center"/>
+    <eLiterals name="flexStart"/>
+    <eLiterals name="flexEnd"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LoginForm" eSuperTypes="#//NBComponent">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="userPlaceholder" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

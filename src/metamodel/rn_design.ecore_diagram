@@ -3,6 +3,10 @@
   <children xmi:type="notation:Shape" xmi:id="_OXU3cNK7EeeVud-sjBzr9w" type="2001" fontName=".SF NS Text">
     <children xmi:type="notation:DecorationNode" xmi:id="_OXWFkNK7EeeVud-sjBzr9w" type="5001"/>
     <children xmi:type="notation:BasicCompartment" xmi:id="_OXWFkdK7EeeVud-sjBzr9w" type="7001">
+      <children xmi:type="notation:Node" xmi:id="_nRCaUNkOEeemIr1SiTFagQ" type="3001">
+        <element xmi:type="ecore:EAttribute" href="rn_design.ecore#//MobileApp/name"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_nRCaUdkOEeemIr1SiTFagQ"/>
+      </children>
       <styles xmi:type="notation:SortingStyle" xmi:id="_OXWFktK7EeeVud-sjBzr9w"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_OXWFk9K7EeeVud-sjBzr9w"/>
       <layoutConstraint xmi:type="notation:Ratio" xmi:id="_WTvlINeBEeeLuNJVamj6QQ" value="0.23076923076923078"/>
@@ -256,6 +260,10 @@
         <element xmi:type="ecore:EAttribute" href="rn_design.ecore#//Button/disabled"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_fPPW8dd1EeeKuYCRO4sFlg"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_pB0kANklEeemIr1SiTFagQ" type="3001">
+        <element xmi:type="ecore:EAttribute" href="rn_design.ecore#//Button/text"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_pB0kAdklEeemIr1SiTFagQ"/>
+      </children>
       <styles xmi:type="notation:SortingStyle" xmi:id="_e2sA9NddEeeKuYCRO4sFlg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_e2sA9dddEeeKuYCRO4sFlg"/>
     </children>
@@ -436,6 +444,10 @@
         <element xmi:type="ecore:EEnumLiteral" href="rn_design.ecore#//ButtonType/full"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_MA0aQdd1EeeKuYCRO4sFlg"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_6GJCoNkPEeemIr1SiTFagQ" type="3009">
+        <element xmi:type="ecore:EEnumLiteral" href="rn_design.ecore#//ButtonType/default"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_6GJCodkPEeemIr1SiTFagQ"/>
+      </children>
       <styles xmi:type="notation:SortingStyle" xmi:id="_Gc6Fwdd1EeeKuYCRO4sFlg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_Gc6Fwtd1EeeKuYCRO4sFlg"/>
     </children>
@@ -503,6 +515,10 @@
         <element xmi:type="ecore:EAttribute" href="rn_design.ecore#//Icon/name"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_KzOtcdiAEeekVf_i_rvtmA"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_lvOh8NkREeemIr1SiTFagQ" type="3001">
+        <element xmi:type="ecore:EAttribute" href="rn_design.ecore#//Icon/color"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_lvPJANkREeemIr1SiTFagQ"/>
+      </children>
       <styles xmi:type="notation:SortingStyle" xmi:id="_FG2aVNeMEeeKuYCRO4sFlg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_FG2aVdeMEeeKuYCRO4sFlg"/>
     </children>
@@ -545,14 +561,6 @@
   <children xmi:type="notation:Shape" xmi:id="_9EqZwNiBEeekVf_i_rvtmA" type="2005" fontName=".SF NS Text">
     <children xmi:type="notation:DecorationNode" xmi:id="_9Ern4NiBEeekVf_i_rvtmA" type="5005"/>
     <children xmi:type="notation:BasicCompartment" xmi:id="_9Ern4diBEeekVf_i_rvtmA" type="7011">
-      <children xmi:type="notation:Node" xmi:id="__0HCkNiBEeekVf_i_rvtmA" type="3009">
-        <element xmi:type="ecore:EEnumLiteral" href="rn_design.ecore#//AlignmentType/flex-start"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="__0HCkdiBEeekVf_i_rvtmA"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_A6JdkNiCEeekVf_i_rvtmA" type="3009">
-        <element xmi:type="ecore:EEnumLiteral" href="rn_design.ecore#//AlignmentType/flex-end"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_A6JdkdiCEeekVf_i_rvtmA"/>
-      </children>
       <children xmi:type="notation:Node" xmi:id="_A8CT8NiCEeekVf_i_rvtmA" type="3009">
         <element xmi:type="ecore:EEnumLiteral" href="rn_design.ecore#//AlignmentType/center"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_A8CT8diCEeekVf_i_rvtmA"/>
@@ -565,7 +573,7 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_9Ern5tiBEeekVf_i_rvtmA"/>
     </children>
     <element xmi:type="ecore:EEnum" href="rn_design.ecore#//AlignmentType"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9EqZwdiBEeekVf_i_rvtmA" x="92" y="364" width="93"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9EqZwdiBEeekVf_i_rvtmA" x="92" y="380" width="93"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_Wt00kNjrEeefvfePFikg3Q" type="2001" fontName=".SF NS Text">
     <children xmi:type="notation:DecorationNode" xmi:id="_Wt2CsNjrEeefvfePFikg3Q" type="5001"/>
