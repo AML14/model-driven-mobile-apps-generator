@@ -6,9 +6,21 @@
     xmlns:rnAppGen="http://rnappgen"
     xsi:schemaLocation="http://rnappgen ../metamodel/rn_design.ecore"
     name="Aplicacion ejemplo 1">
-  <navigator>
+  <navigator
+      initialScreen="//@navigator/@screens.0"
+      name="Navegador1">
+    <nestedNavigators
+        type="Tab"
+        initialScreen="//@navigator/@nestedNavigators.0/@screens.0"
+        name="Navegador2">
+      <screens
+          title="Segunda Pantalla"/>
+      <screens
+          title="Tercera Pantalla"
+          scrollable="true"/>
+    </nestedNavigators>
     <screens
-        title="Primera pantalla">
+        title="Primera Pantalla">
       <nbComponents
           xsi:type="rnAppGen:Text"
           flexVerticalPosition="1"

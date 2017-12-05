@@ -1,0 +1,81 @@
+«IMPORT rnAppGenerator»
+«EXTENSION template::auxiliares»
+«DEFINE main FOR rnAppGenerator::MobileApp-»
+«FILE 'index.js'-»
+«EXPAND appIndexTemplate FOR this»
+«ENDFILE»
+«FILE 'App/App.js'-»
+«EXPAND appMainTemplate FOR this»
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE appIndexTemplate FOR rnAppGenerator::MobileApp-»
+import { AppRegistry } from 'react-native';
+import App from './App';
+
+AppRegistry.registerComponent('AppTemplate', () => App);
+
+«ENDDEFINE»
+
+«DEFINE appMainTemplate FOR rnAppGenerator::MobileApp-»
+import React, { Component } from 'react';
+import { Platform } from 'react-native';
+import { StackNavigator, TabNavigator } from 'react-navigation';
+
+«EXPAND importScenesNavigatorTemplate FOR navigator-»
+
+const tabBarOptions = (Platform.OS === 'android') ?
+  {
+    style: { backgroundColor: '#303F9F' },
+    indicatorStyle: { backgroundColor: '#FF4081' },
+  } :
+  {};
+
+const tabNavigatorConfig = {
+  backBehavior: 'none',
+  tabBarPosition: 'bottom',
+  tabBarOptions,
+};
+
+«EXPAND defineNavigatorTemplate FOR navigator-»
+
+export default class App extends Component {
+  render() {
+    return (
+      <«navigator.name» />
+    );
+  }
+}
+
+«ENDDEFINE»
+
+«DEFINE importScenesNavigatorTemplate FOR rnAppGenerator::Navigator-»
+«EXPAND importScenesTemplate FOREACH screens-»
+«EXPAND importScenesNavigatorTemplate FOREACH nestedNavigators-»
+«ENDDEFINE»
+
+«DEFINE importScenesTemplate FOR Screen-»
+import «title.replaceAll(' ','')» from './scenes/«title.replaceAll(' ','')»'
+«ENDDEFINE»
+
+«DEFINE defineNavigatorTemplate FOR rnAppGenerator::Navigator-»
+const «name.replaceAll(' ','')» = «IF type == NavigatorType::Stack»StackNavigator«ELSE»TabNavigator«ENDIF»(
+  {
+    «EXPAND scenesInNavigator FOREACH screens-»
+    «EXPAND navigatorsInNavigator FOREACH nestedNavigators-»
+  },
+  {
+    initialRouteName: '«initialScreen.title.replaceAll(' ','')»',
+    «IF type == NavigatorType::Tab»tabNavigatorConfig,«ENDIF»
+  },
+);
+«EXPAND defineNavigatorTemplate FOREACH nestedNavigators-»
+«ENDDEFINE»
+
+«DEFINE scenesInNavigator FOR rnAppGenerator::Screen-»
+    «title.replaceAll(' ','')»: { screen: «title.replaceAll(' ','')» },
+«ENDDEFINE»
+
+«DEFINE navigatorsInNavigator FOR rnAppGenerator::Navigator-»
+    «name.replaceAll(' ','')»: { screen: «name.replaceAll(' ','')» },
+«ENDDEFINE»
