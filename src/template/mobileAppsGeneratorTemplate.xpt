@@ -7,6 +7,7 @@
 «FILE 'App/App.js'-»
 «EXPAND appMainTemplate FOR this»
 «ENDFILE»
+«EXPAND scenesGeneratorTemplate FOR this.navigator»
 «ENDDEFINE»
 
 «DEFINE appIndexTemplate FOR rnAppGenerator::MobileApp-»
@@ -47,6 +48,113 @@ export default class App extends Component {
   }
 }
 
+«ENDDEFINE»
+
+«DEFINE scenesGeneratorTemplate FOR rnAppGenerator::Navigator-»
+«EXPAND scenesInNavigatorGeneratorTemplate FOREACH screens-»
+«EXPAND scenesGeneratorTemplate FOREACH nestedNavigators-»
+«ENDDEFINE»
+
+«DEFINE scenesInNavigatorGeneratorTemplate FOR rnAppGenerator::Screen-»
+«FILE 'App/scenes/'+title.replaceAll(' ','')+'/index.js'-»
+import React, { Component } from 'react';
+import {
+  Image,
+  View,
+  ScrollView,
+} from 'react-native';
+import {
+  Container,
+  Header,
+  Title,
+  Content,
+  Icon,
+  Button,
+  Left,
+  Right,
+  Body,
+  Text,
+  Card,
+  CardItem,
+  List,
+  ListItem,
+  Item,
+  Input,
+  Radio,
+  Picker,
+  Form,
+} from 'native-base';
+import { NavigationActions } from 'react-navigation';
+«IF hasPreviousScreen»
+const navBack = NavigationActions.back();
+«ENDIF»
+class «title.replaceAll(' ','')» extends Component {
+  static navigationOptions = {
+    header: null,
+  }
+
+  render() {
+    return (
+      <Container>
+        <Header>
+          <Left style={{ flex: 1 }} />
+          <Body style={{ flex: 6 }}>
+            <Title>«title»</Title>
+          </Body>
+          <Right style={{ flex: 1 }}>
+            <Button transparent>
+              <Icon name="menu" />
+            </Button>
+          </Right>
+        </Header>
+        «IF scrollable == false-»
+        <Content scrollEnabled={false} style={{ flex: 1 }} contentContainerStyle={{ flex: 1 }}>
+          <View style={{ flex: 12 }}>
+            «FOREACH components AS c-»
+            «IF c.flexHorizontalSize < 4 && c.flexHorizontalPosition == 1-»
+            <View style={{ flex: '«c.flexVerticalSize»', flexDirection: 'row' }}>
+            «ENDIF-»
+            «IF c.flexHorizontalSize == 4-»
+            <View style={{
+                flex: '«c.flexVerticalSize»',
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+            «ELSE-»
+            <View style={{
+                flex: '«c.flexHorizontalSize»',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+            «ENDIF-»
+            «IF c.metaType == Text-»
+            «ELSEIF c.metaType == Button-»
+            «ELSEIF c.metaType == List-»
+            «ELSEIF c.metaType == Icon-»
+            «ELSEIF c.metaType == InputText-»
+            «ELSEIF c.metaType == Card-»
+            «ELSEIF c.metaType == LoginForm-»
+            «ELSEIF c.metaType == Picker-»
+            «ELSEIF c.metaType == RadioButton-»
+            «ENDIF-»
+            </View>
+            «IF c.flexHorizontalSize < 4 && c.isLastHorizontal == true-»
+            </View>
+            «ENDIF-»
+            «ENDFOREACH-»
+          </View>
+        </Content>
+        «ENDIF-»
+      </Container>
+    );
+  }
+}
+
+export default «title.replaceAll(' ','')»;
+«ENDFILE»
 «ENDDEFINE»
 
 «DEFINE importScenesNavigatorTemplate FOR rnAppGenerator::Navigator-»

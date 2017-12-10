@@ -14,14 +14,17 @@
         initialScreen="//@navigator/@nestedNavigators.0/@screens.0"
         name="Navegador2">
       <screens
-          title="Segunda Pantalla"/>
+          title="Segunda Pantalla"
+          hasPreviousScreen="true"/>
       <screens
           title="Tercera Pantalla"
-          scrollable="true"/>
+          scrollable="true"
+          hasPreviousScreen="true"/>
     </nestedNavigators>
     <screens
-        title="Primera Pantalla">
-      <nbComponents
+        title="Primera Pantalla"
+        nextScreen="//@navigator/@nestedNavigators.0/@screens.0">
+      <components
           xsi:type="rnAppGen:Text"
           flexVerticalPosition="1"
           flexVerticalSize="2.0"
@@ -29,7 +32,7 @@
           flexHorizontalSize="4.0"
           margin="10"
           text="Esto es texto de ejemplo, lo que aparece arriba del todo de la pantalla"/>
-      <nbComponents
+      <components
           xsi:type="rnAppGen:Card"
           flexVerticalPosition="2"
           flexVerticalSize="2.0"
@@ -37,7 +40,7 @@
           flexHorizontalSize="4.0"
           header="Carta de ejemplo"
           body="Otro componente de ejemplo"/>
-      <nbComponents
+      <components
           xsi:type="rnAppGen:InputText"
           flexVerticalPosition="3"
           flexVerticalSize="2.0"
@@ -46,15 +49,16 @@
           margin="10"
           type="underlined"
           placeholder="Enter text"/>
-      <nbComponents
+      <components
           xsi:type="rnAppGen:Button"
           flexVerticalPosition="3"
           flexVerticalSize="2.0"
           flexHorizontalPosition="2"
           flexHorizontalSize="1.0"
           margin="10"
+          isLastHorizontal="true"
           text="Enviar"/>
-      <nbComponents
+      <components
           xsi:type="rnAppGen:List"
           flexVerticalPosition="4"
           flexVerticalSize="6.0"
@@ -110,7 +114,7 @@
           <rightIcon
               name="arrow-forward"/>
         </items>
-      </nbComponents>
+      </components>
     </screens>
   </navigator>
 </rnAppGen:MobileApp>

@@ -21,16 +21,14 @@
     <eLiterals name="Tab"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Screen">
-    <eOperations name="navigateTo"/>
-    <eOperations name="goBackTo"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rnComponents" upperBound="-1"
-        eType="#//RNComponent" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="nbComponents" upperBound="-1"
-        eType="#//NBComponent" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="screenState" eType="#//State"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="scrollable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasPreviousScreen" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nextScreen" eType="#//Screen"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
+        eType="#//Component" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Component" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="flexVerticalPosition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -42,40 +40,40 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="padding" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="verticalAlignment" eType="#//AlignmentType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="horizontalAlignment" eType="#//AlignmentType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isLastHorizontal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NBComponent" abstract="true" eSuperTypes="#//Component"/>
-  <eClassifiers xsi:type="ecore:EClass" name="RNComponent" abstract="true" eSuperTypes="#//Component"/>
   <eClassifiers xsi:type="ecore:EClass" name="State">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialState" eType="#//JSObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="JSObject" instanceTypeName="JSObject"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Image" eSuperTypes="#//RNComponent">
+  <eClassifiers xsi:type="ecore:EClass" name="Image" eSuperTypes="#//Component">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Button" eSuperTypes="#//NBComponent">
+  <eClassifiers xsi:type="ecore:EClass" name="Button" eSuperTypes="#//Component">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="theme" eType="#//ButtonTheme"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ButtonType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="#//ButtonSize"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="disabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="List" eSuperTypes="#//NBComponent">
+  <eClassifiers xsi:type="ecore:EClass" name="List" eSuperTypes="#//Component">
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="2" upperBound="-1"
         eType="#//ListItem" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ListItem" eSuperTypes="#//NBComponent">
+  <eClassifiers xsi:type="ecore:EClass" name="ListItem" eSuperTypes="#//Component">
     <eStructuralFeatures xsi:type="ecore:EReference" name="leftIcon" eType="#//Icon"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rightIcon" eType="#//Icon"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//NBComponent">
+  <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//Component">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InputText" eSuperTypes="#//NBComponent">
+  <eClassifiers xsi:type="ecore:EClass" name="InputText" eSuperTypes="#//Component">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//InputType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="placeholder" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -101,11 +99,11 @@
     <eLiterals name="small"/>
     <eLiterals name="large"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Card" eSuperTypes="#//NBComponent">
+  <eClassifiers xsi:type="ecore:EClass" name="Card" eSuperTypes="#//Component">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="header" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="body" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Icon" eSuperTypes="#//NBComponent">
+  <eClassifiers xsi:type="ecore:EClass" name="Icon" eSuperTypes="#//Component">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -119,17 +117,17 @@
     <eLiterals name="flexStart"/>
     <eLiterals name="flexEnd"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LoginForm" eSuperTypes="#//NBComponent">
+  <eClassifiers xsi:type="ecore:EClass" name="LoginForm" eSuperTypes="#//Component">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="userPlaceholder" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="passwordPlaceholder" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="buttonTitle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Picker" eSuperTypes="#//NBComponent">
+  <eClassifiers xsi:type="ecore:EClass" name="Picker" eSuperTypes="#//Component">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="placeHolder" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="element" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RadioButton" eSuperTypes="#//NBComponent">
+  <eClassifiers xsi:type="ecore:EClass" name="RadioButton" eSuperTypes="#//Component">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>
