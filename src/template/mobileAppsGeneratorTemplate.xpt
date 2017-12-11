@@ -130,15 +130,55 @@ class «title.replaceAll(' ','')» extends Component {
               }}
             >
             «ENDIF-»
-            «IF c.metaType == Text-»
-            «ELSEIF c.metaType == Button-»
-            «ELSEIF c.metaType == List-»
-            «ELSEIF c.metaType == Icon-»
-            «ELSEIF c.metaType == InputText-»
-            «ELSEIF c.metaType == Card-»
-            «ELSEIF c.metaType == LoginForm-»
-            «ELSEIF c.metaType == Picker-»
-            «ELSEIF c.metaType == RadioButton-»
+            «IF c.metaType == rnAppGenerator::Text-»
+              <Text style={{ fontSize: «c.fontSize», color: '«c.color»' }}>
+                «c.text»
+              </Text>
+            «ELSEIF c.metaType == rnAppGenerator::Button-»
+              <Button «c.theme»«IF c.type != ButtonType::defaultType» «c.type»«ENDIF»«IF c.size != ButtonSize::regular» «c.size»«ENDIF» style={{ alignSelf: 'center' }}>
+                <Text>«c.text»</Text>
+              </Button>
+            «ELSEIF c.metaType == rnAppGenerator::ListC-»
+              <ScrollView>
+                <List style={{ flex: 1 }}>
+                  «FOREACH c.items AS i-»
+                  <ListItem style={{ marginLeft: 0, paddingLeft: 15 }}>
+                    «IF i.leftIcon != null-»
+                    <Left style={{ flex: 1 }}>
+                      <Icon name="«i.leftIcon.name»" style={{ color: '«i.leftIcon.color»' }} />
+                    </Left>
+                    «ENDIF-»
+                    <Body style={{ flex: «IF i.leftIcon == null || i.rightIcon == null»9«ELSE»8«ENDIF» }}>
+                      <Text numberOfLines={1}>«i.text»</Text>
+                    </Body>
+                    «IF i.rightIcon != null-»
+                    <Right style={{ flex: 1 }}>
+                      <Icon name="«i.rightIcon.name»" style={{ color: '«i.rightIcon.color»' }} />
+                    </Right>
+                    «ENDIF-»
+                  </ListItem>
+                  «ENDFOREACH-»
+                </List>
+              </ScrollView>
+            «ELSEIF c.metaType == rnAppGenerator::Icon-»
+            «ELSEIF c.metaType == rnAppGenerator::InputText-»
+              <Item «c.type»>
+                <Input placeholder="«c.placeholder»" />
+              </Item>
+            «ELSEIF c.metaType == rnAppGenerator::Card-»
+              <Card>
+                <CardItem header>
+                  <Text>«c.header»</Text>
+                </CardItem>
+                <CardItem>
+                  <Body>
+                    <Text>«c.body»</Text>
+                  </Body>
+                </CardItem>
+              </Card>
+            «ELSEIF c.metaType == rnAppGenerator::LoginForm-»
+            «ELSEIF c.metaType == rnAppGenerator::Picker-»
+            «ELSEIF c.metaType == rnAppGenerator::RadioButton-»
             «ENDIF-»
             </View>
             «IF c.flexHorizontalSize < 4 && c.isLastHorizontal == true-»
@@ -186,4 +226,7 @@ const «name.replaceAll(' ','')» = «IF type == NavigatorType::Stack»StackNavi
 
 «DEFINE navigatorsInNavigator FOR rnAppGenerator::Navigator-»
     «name.replaceAll(' ','')»: { screen: «name.replaceAll(' ','')» },
+«ENDDEFINE»
+
+«DEFINE listItemTemplate FOR rnAppGenerator::ListItem-»
 «ENDDEFINE»

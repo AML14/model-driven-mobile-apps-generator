@@ -31,7 +31,8 @@
           flexHorizontalPosition="1"
           flexHorizontalSize="4.0"
           margin="10"
-          text="Esto es texto de ejemplo, lo que aparece arriba del todo de la pantalla"/>
+          text="Esto es texto de ejemplo, lo que aparece arriba del todo de la pantalla"
+          color="red"/>
       <components
           xsi:type="rnAppGen:Card"
           flexVerticalPosition="2"
@@ -59,7 +60,7 @@
           isLastHorizontal="true"
           text="Enviar"/>
       <components
-          xsi:type="rnAppGen:List"
+          xsi:type="rnAppGen:ListC"
           flexVerticalPosition="4"
           flexVerticalSize="6.0"
           flexHorizontalPosition="1"
@@ -70,8 +71,7 @@
               name="md-document"
               color="blue"/>
           <rightIcon
-              name="arrow-forward"
-              color=""/>
+              name="arrow-forward"/>
         </items>
         <items
             text="Elemento numero 2">
@@ -91,29 +91,17 @@
         </items>
         <items
             text="Elemento numero 4">
-          <leftIcon
-              name="md-document"
-              color="blue"/>
           <rightIcon
-              name="arrow-forward"
-              color=""/>
+              name="arrow-forward"/>
         </items>
         <items
             text="Elemento numero 5">
           <leftIcon
               name="md-folder"
               color="red"/>
-          <rightIcon
-              name="arrow-forward"/>
         </items>
         <items
-            text="Elemento numero 6">
-          <leftIcon
-              name="md-link"
-              color="green"/>
-          <rightIcon
-              name="arrow-forward"/>
-        </items>
+            text="Elemento numero 6"/>
       </components>
     </screens>
   </navigator>

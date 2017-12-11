@@ -59,7 +59,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="#//ButtonSize"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="disabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="List" eSuperTypes="#//Component">
+  <eClassifiers xsi:type="ecore:EClass" name="ListC" eSuperTypes="#//Component">
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="2" upperBound="-1"
         eType="#//ListItem" containment="true"/>
   </eClassifiers>
@@ -71,7 +71,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//Component">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fontSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="11"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="black"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InputText" eSuperTypes="#//Component">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//InputType"/>
@@ -87,7 +92,7 @@
     <eLiterals name="dark"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ButtonType">
-    <eLiterals name="default"/>
+    <eLiterals name="defaultType"/>
     <eLiterals name="transparent"/>
     <eLiterals name="outline"/>
     <eLiterals name="rounded"/>
@@ -105,7 +110,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Icon" eSuperTypes="#//Component">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="black"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="InputType">
     <eLiterals name="regular"/>
