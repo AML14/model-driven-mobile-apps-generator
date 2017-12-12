@@ -55,7 +55,7 @@ class PrimeraPantalla extends Component {
                 alignItems: 'center',
               }}
             >
-              <Text style={{ fontSize: 11, color: red }}>
+              <Text style={{ fontSize: 11, color: 'red' }}>
                 Esto es texto de ejemplo, lo que aparece arriba del todo de la pantalla
               </Text>
             </View>

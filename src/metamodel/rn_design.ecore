@@ -59,7 +59,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="#//ButtonSize"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="disabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ListC" eSuperTypes="#//Component">
+  <eClassifiers xsi:type="ecore:EClass" name="ListC" eSuperTypes="#//DynamicComponent">
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="2" upperBound="-1"
         eType="#//ListItem" containment="true"/>
   </eClassifiers>
@@ -78,7 +78,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="black"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InputText" eSuperTypes="#//Component">
+  <eClassifiers xsi:type="ecore:EClass" name="InputText" eSuperTypes="#//InputComponent">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//InputType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="placeholder" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -104,7 +104,7 @@
     <eLiterals name="small"/>
     <eLiterals name="large"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Card" eSuperTypes="#//Component">
+  <eClassifiers xsi:type="ecore:EClass" name="Card" eSuperTypes="#//DynamicComponent">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="header" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="body" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -112,6 +112,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="black"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="27"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="active" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="InputType">
     <eLiterals name="regular"/>
@@ -123,17 +127,26 @@
     <eLiterals name="flexStart"/>
     <eLiterals name="flexEnd"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LoginForm" eSuperTypes="#//Component">
+  <eClassifiers xsi:type="ecore:EClass" name="LoginForm" eSuperTypes="#//InputComponent">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="userPlaceholder" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="passwordPlaceholder" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="buttonTitle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Picker" eSuperTypes="#//Component">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="placeHolder" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Picker" eSuperTypes="#//InputComponent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="placeholder" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="element" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RadioButton" eSuperTypes="#//Component">
+  <eClassifiers xsi:type="ecore:EClass" name="RadioButton" eSuperTypes="#//InputComponent">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InputComponent" eSuperTypes="#//Component">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="providesData" upperBound="-1"
+        eType="#//DynamicComponent"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DynamicComponent" eSuperTypes="#//Component">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataSource" upperBound="-1"
+        eType="#//InputComponent"/>
   </eClassifiers>
 </ecore:EPackage>

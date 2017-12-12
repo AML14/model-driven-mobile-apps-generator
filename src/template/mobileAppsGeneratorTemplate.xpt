@@ -83,6 +83,7 @@ import {
   Radio,
   Picker,
   Form,
+  Label,
 } from 'native-base';
 import { NavigationActions } from 'react-navigation';
 «IF hasPreviousScreen»
@@ -161,6 +162,7 @@ class «title.replaceAll(' ','')» extends Component {
                 </List>
               </ScrollView>
             «ELSEIF c.metaType == rnAppGenerator::Icon-»
+              <Icon «IF c.active»active «ENDIF»name="«c.name»" style={{ fontSize: «c.size», color: '«c.color»' }} />
             «ELSEIF c.metaType == rnAppGenerator::InputText-»
               <Item «c.type»>
                 <Input placeholder="«c.placeholder»" />
@@ -177,8 +179,37 @@ class «title.replaceAll(' ','')» extends Component {
                 </CardItem>
               </Card>
             «ELSEIF c.metaType == rnAppGenerator::LoginForm-»
+              <Form style={{ flex: 1 }}>
+                <Item fixedLabel>
+                  <Label>«c.userPlaceholder»</Label>
+                  <Input />
+                </Item>
+                <Item fixedLabel last>
+                  <Label>«c.passwordPlaceholder»</Label>
+                  <Input secureTextEntry />
+                </Item>
+                <Button style={{ alignSelf: 'center', margin: 10 }}>
+                  <Text>«c.buttonTitle»</Text>
+                </Button>
+              </Form>
             «ELSEIF c.metaType == rnAppGenerator::Picker-»
             «ELSEIF c.metaType == rnAppGenerator::RadioButton-»
+              <List style={{ flex: 1 }}>
+                <ListItem
+                  style={{ marginLeft: 0, paddingLeft: 15 }}
+                  onPress={() => this.setState({ radioButton«c.id»: !this.state.radioButton«c.id» })}
+                >
+                  <Body style={{ flex: 9 }}>
+                    <Text>«c.title»</Text>
+                  </Body>
+                  <Right style={{ flex: 1 }}>
+                    <Radio
+                      onPress={() => this.setState({ radioButton«c.id»: !this.state.radioButton«c.id» })}
+                      selected={this.state.radioButton«c.id»}
+                    />
+                  </Right>
+                </ListItem>
+              </List>
             «ENDIF-»
             </View>
             «IF c.flexHorizontalSize < 4 && c.isLastHorizontal == true-»
@@ -226,7 +257,4 @@ const «name.replaceAll(' ','')» = «IF type == NavigatorType::Stack»StackNavi
 
 «DEFINE navigatorsInNavigator FOR rnAppGenerator::Navigator-»
     «name.replaceAll(' ','')»: { screen: «name.replaceAll(' ','')» },
-«ENDDEFINE»
-
-«DEFINE listItemTemplate FOR rnAppGenerator::ListItem-»
 «ENDDEFINE»
