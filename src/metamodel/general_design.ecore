@@ -3,34 +3,24 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="generalAppGenerator" nsURI="http://sma/genappgen" nsPrefix="genAppGen">
   <eClassifiers xsi:type="ecore:EClass" name="GeneralMobileApp">
     <eStructuralFeatures xsi:type="ecore:EReference" name="composedOf" lowerBound="1"
-        upperBound="-1" eType="ecore:EClass /model-driven-mobile-apps-generator/src/metamodel/general_design.ecore#//FlowElement"
-        containment="true"/>
+        upperBound="-1" eType="#//FlowElement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FlowElement" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="Edge">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="salidas" eType="ecore:EClass /model-driven-mobile-apps-generator/src/metamodel/general_design.ecore#//FlowElement"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="entradas" eType="ecore:EClass /model-driven-mobile-apps-generator/src/metamodel/general_design.ecore#//FlowElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="salidas" eType="#//FlowElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entradas" eType="#//FlowElement"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InitialNode" eSuperTypes="/model-driven-mobile-apps-generator/src/metamodel/general_design.ecore#//FlowElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="FinalNode" eSuperTypes="/model-driven-mobile-apps-generator/src/metamodel/general_design.ecore#//FlowElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Screen" eSuperTypes="/model-driven-mobile-apps-generator/src/metamodel/general_design.ecore#//FlowElement">
+  <eClassifiers xsi:type="ecore:EClass" name="InitialNode" eSuperTypes="#//FlowElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FinalNode" eSuperTypes="#//FlowElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Screen" eSuperTypes="#//FlowElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="scrollable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="composedOf" upperBound="-1"
-        eType="ecore:EClass /model-driven-mobile-apps-generator/src/metamodel/general_design.ecore#//Component"
-        containment="true"/>
+        eType="#//Component" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Component"/>
-  <eClassifiers xsi:type="ecore:EClass" name="InputComponent" eSuperTypes="/model-driven-mobile-apps-generator/src/metamodel/general_design.ecore#//Component">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EEnum /model-driven-mobile-apps-generator/src/metamodel/general_design.ecore#//InputComponentType"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DynamicCompoent" eSuperTypes="/model-driven-mobile-apps-generator/src/metamodel/general_design.ecore#//Component">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EEnum /model-driven-mobile-apps-generator/src/metamodel/general_design.ecore#//DynamicComponentType"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="InputComponentType">
-    <eLiterals name="inputText"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="DynamicComponentType">
-    <eLiterals name="Card"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Component" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InputComponent" abstract="true" eSuperTypes="#//Component"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DynamicComponent" abstract="true" eSuperTypes="#//Component"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CardComponent" eSuperTypes="#//DynamicComponent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TextInputComponent" eSuperTypes="#//InputComponent"/>
 </ecore:EPackage>
