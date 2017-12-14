@@ -1,0 +1,17 @@
+-- @path MMGeneral=/model-driven-mobile-apps-generator/src/metamodel/general_design.ecore
+-- @path MMRNative=/model-driven-mobile-apps-generator/src/metamodel/rn_design.ecore
+
+module mg2mrn;
+create OUTRNative : MMRNative from INGeneral : MMGeneral;
+
+--Regla provisional para transformar pantalla de general a react native
+rule flowElement2screen {
+	from
+	INGeneral:MMGeneral!Screen
+	to
+	OUTRNative:MMRNative!Screen(
+	title <- INGeneral.title,
+	scrollable <- INGeneral.scrollable
+	
+	)
+}
