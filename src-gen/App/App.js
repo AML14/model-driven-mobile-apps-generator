@@ -36,7 +36,7 @@ const Navegador2 = TabNavigator(
   },
   {
     initialRouteName: 'SegundaPantalla',
-    tabNavigatorConfig,
+    ...tabNavigatorConfig,
   },
 );
 

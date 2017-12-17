@@ -15,15 +15,41 @@
         name="Navegador2">
       <screens
           title="Segunda Pantalla"
-          hasPreviousScreen="true"/>
+          hasPreviousScreen="true"
+          nextScreen="//@navigator/@nestedNavigators.0/@screens.1"/>
       <screens
           title="Tercera Pantalla"
           scrollable="true"
-          hasPreviousScreen="true"/>
+          hasPreviousScreen="true">
+        <components
+            xsi:type="rnAppGen:Picker"
+            flexVerticalPosition="1"
+            flexHorizontalPosition="1"
+            flexHorizontalSize="4.0"
+            stateID="2"
+            defaultOption="//@navigator/@nestedNavigators.0/@screens.1/@components.0/@elements.0"
+            title="Select an option">
+          <elements
+              name="Football"/>
+          <elements
+              name="Basketball"/>
+          <elements
+              name="Tennis"/>
+        </components>
+        <components
+            xsi:type="rnAppGen:LoginForm"
+            flexVerticalPosition="2"
+            flexHorizontalPosition="1"
+            flexHorizontalSize="4.0"
+            stateID="4"
+            userPlaceholder="Username"
+            passwordPlaceholder="Password"
+            buttonTitle="Log in"/>
+      </screens>
     </nestedNavigators>
     <screens
         title="Primera Pantalla"
-        nextScreen="//@navigator/@nestedNavigators.0/@screens.0">
+        nextNavigator="//@navigator/@nestedNavigators.0">
       <components
           xsi:type="rnAppGen:Text"
           flexVerticalPosition="1"
@@ -48,6 +74,7 @@
           flexHorizontalPosition="1"
           flexHorizontalSize="3.0"
           margin="10"
+          stateID="1"
           type="underlined"
           placeholder="Enter text"/>
       <components
@@ -62,7 +89,7 @@
       <components
           xsi:type="rnAppGen:ListC"
           flexVerticalPosition="4"
-          flexVerticalSize="6.0"
+          flexVerticalSize="4.0"
           flexHorizontalPosition="1"
           flexHorizontalSize="4.0">
         <items
@@ -103,6 +130,15 @@
         <items
             text="Elemento numero 6"/>
       </components>
+      <components
+          xsi:type="rnAppGen:RadioButton"
+          flexVerticalPosition="5"
+          flexVerticalSize="2.0"
+          flexHorizontalPosition="1"
+          flexHorizontalSize="4.0"
+          stateID="3"
+          title="Add ketchup"
+          defaultOption="true"/>
     </screens>
   </navigator>
 </rnAppGen:MobileApp>

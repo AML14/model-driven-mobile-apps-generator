@@ -1,1 +1,11 @@
 import rnAppGenerator;
+
+String getInputComponentKey(Object m):
+    switch (m) {
+		case rnAppGenerator::LoginForm: 'username'
+		case rnAppGenerator::RadioButton: 'radioButton'
+		case rnAppGenerator::Picker: 'itemSelected'
+		case rnAppGenerator::InputText: 'inputText'
+		default: 'error'
+	}
+;

@@ -62,6 +62,7 @@ import {
   Image,
   View,
   ScrollView,
+  AsyncStorage,
 } from 'react-native';
 import {
   Container,
@@ -86,26 +87,170 @@ import {
   Label,
 } from 'native-base';
 import { NavigationActions } from 'react-navigation';
-«IF hasPreviousScreen»
+
+«IF hasPreviousScreen-»
 const navBack = NavigationActions.back();
-«ENDIF»
+«ENDIF-»
+«IF nextScreen != null-»
+const navForward = NavigationActions.navigate({
+  routeName: '«nextScreen.title.replaceAll(' ','')»',
+  params: {},
+  action: {},
+});
+«ELSEIF nextNavigator != null-»
+const navForward = NavigationActions.navigate({
+  routeName: '«nextNavigator.name.replaceAll(' ','')»',
+  params: {},
+  action: {},
+});
+«ENDIF-»
+
 class «title.replaceAll(' ','')» extends Component {
   static navigationOptions = {
     header: null,
+  }
+  
+  constructor(props) {
+    super(props);
+    this.initialState = {
+      «EXPAND stateComponentsTemplate FOREACH components-»
+    };
+    this.state = this.initialState;
+  }
+  
+  componentDidMount() {
+    «EXPAND populateInputComponentsTemplate FOREACH components-»
+  }
+  «IF nextScreen != null || nextNavigator != null-»
+  
+  saveAndGoForward() {
+    «EXPAND saveInputComponentsValuesTemplate FOREACH components-»
+    this.props.navigation.dispatch(navForward);
+  }
+  «ENDIF-»
+  
+  async getInputParams(a, b = null, c = null, d = null, e = null) {
+    const a1 = a !== null ? await AsyncStorage.getItem(a.key) : null;
+    const b1 = b !== null ? await AsyncStorage.getItem(b.key) : null;
+    const c1 = c !== null ? await AsyncStorage.getItem(c.key) : null;
+    const d1 = d !== null ? await AsyncStorage.getItem(d.key) : null;
+    const e1 = e !== null ? await AsyncStorage.getItem(e.key) : null;
+    return {
+      a1,
+      b1,
+      c1,
+      d1,
+      e1,
+    };
+  }
+
+  loadCardContentFromExternalSource(a, b, c, d, e) {
+    const {
+      a1,
+      b1,
+      c1,
+      d1,
+      e1,
+    } = this.getInputParams(a, b, c, d, e);
+    /**
+     * Code for retrieving information from an external source using the params passed.
+     * The external source could be a server, for instance, which could perform
+     * different operations depending on the params' (a1, b1, c1, d1, e1) type and value.
+     */
+    return (
+      <Card>
+        <CardItem header>
+          <Text>Card example</Text>
+        </CardItem>
+        <CardItem>
+          <Body>
+            <Text>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+              eleifend leo non felis tristique, ac ullamcorper velit accumsan.
+              Sed vitae leo ut urna porta laoreet. Praesent in imperdiet sem,
+              ut rhoncus lacus. Praesent ultricies quis purus a euismod.
+            </Text>
+          </Body>
+        </CardItem>
+      </Card>
+    );
+  }
+  
+  loadListContentFromExternalSource(a, b, c, d, e) {
+    const {
+      a1,
+      b1,
+      c1,
+      d1,
+      e1,
+    } = this.getInputParams(a, b, c, d, e);
+    /**
+     * Code for retrieving information from an external source using the params passed.
+     * The external source could be a server, for instance, which could perform
+     * different operations depending on the params' (a1, b1, c1, d1, e1) type and value.
+     */
+    return (
+      <ScrollView>
+        {/* Las listas deben marcar flex=1 dentro de la vista */}
+        <List style={{ flex: 1 }}>
+          <ListItem style={{ marginLeft: 0, paddingLeft: 15 }}>
+            <Left style={{ flex: 1 }}>
+              <Icon name="information-circle" style={{ color: '#157EFB' }} />
+            </Left>
+            <Body style={{ flex: 8 }}>
+              <Text numberOfLines={1}>Simon Mignolet</Text>
+            </Body>
+            <Right style={{ flex: 1 }}>
+              <Icon name="arrow-forward" />
+            </Right>
+          </ListItem>
+          <ListItem style={{ marginLeft: 0, paddingLeft: 15 }}>
+            <Left style={{ flex: 1 }}>
+              <Icon name="information-circle" style={{ color: '#157EFB' }} />
+            </Left>
+            <Body style={{ flex: 8 }}>
+              <Text numberOfLines={1}>Nathaniel Clyne</Text>
+            </Body>
+            <Right style={{ flex: 1 }}>
+              <Icon name="arrow-forward" />
+            </Right>
+          </ListItem>
+          <ListItem style={{ marginLeft: 0, paddingLeft: 15 }}>
+            <Left style={{ flex: 1 }}>
+              <Icon name="information-circle" style={{ color: '#157EFB' }} />
+            </Left>
+            <Body style={{ flex: 8 }}>
+              <Text numberOfLines={1}>Dejan Lovren</Text>
+            </Body>
+            <Right style={{ flex: 1 }}>
+              <Icon name="arrow-forward" />
+            </Right>
+          </ListItem>
+        </List>
+      </ScrollView>
+    );
   }
 
   render() {
     return (
       <Container>
         <Header>
-          <Left style={{ flex: 1 }} />
+          <Left style={{ flex: 1 }}>
+          «IF hasPreviousScreen-»
+          	<Button transparent onPress={() => this.props.navigation.dispatch(navBack)}>
+              <Icon name="arrow-back" />
+            </Button>
+          «ENDIF-»
+          </Left>
           <Body style={{ flex: 6 }}>
             <Title>«title»</Title>
           </Body>
           <Right style={{ flex: 1 }}>
-            <Button transparent>
-              <Icon name="menu" />
+          «IF nextScreen != null || nextNavigator != null-»
+            <Button transparent onPress={() => this.saveAndGoForward()}>
+              <Icon name="arrow-forward" />
             </Button>
+          «ENDIF-»
           </Right>
         </Header>
         «IF scrollable == false-»
@@ -113,11 +258,11 @@ class «title.replaceAll(' ','')» extends Component {
           <View style={{ flex: 12 }}>
             «FOREACH components AS c-»
             «IF c.flexHorizontalSize < 4 && c.flexHorizontalPosition == 1-»
-            <View style={{ flex: '«c.flexVerticalSize»', flexDirection: 'row' }}>
+            <View style={{ flex: «c.flexVerticalSize», flexDirection: 'row' }}>
             «ENDIF-»
             «IF c.flexHorizontalSize == 4-»
             <View style={{
-                flex: '«c.flexVerticalSize»',
+                flex: «c.flexVerticalSize»,
                 flexDirection: 'row',
                 justifyContent: 'center',
                 alignItems: 'center',
@@ -125,98 +270,48 @@ class «title.replaceAll(' ','')» extends Component {
             >
             «ELSE-»
             <View style={{
-                flex: '«c.flexHorizontalSize»',
+                flex: «c.flexHorizontalSize»,
                 justifyContent: 'center',
                 alignItems: 'center',
               }}
             >
             «ENDIF-»
-            «IF c.metaType == rnAppGenerator::Text-»
-              <Text style={{ fontSize: «c.fontSize», color: '«c.color»' }}>
-                «c.text»
-              </Text>
-            «ELSEIF c.metaType == rnAppGenerator::Button-»
-              <Button «c.theme»«IF c.type != ButtonType::defaultType» «c.type»«ENDIF»«IF c.size != ButtonSize::regular» «c.size»«ENDIF» style={{ alignSelf: 'center' }}>
-                <Text>«c.text»</Text>
-              </Button>
-            «ELSEIF c.metaType == rnAppGenerator::ListC-»
-              <ScrollView>
-                <List style={{ flex: 1 }}>
-                  «FOREACH c.items AS i-»
-                  <ListItem style={{ marginLeft: 0, paddingLeft: 15 }}>
-                    «IF i.leftIcon != null-»
-                    <Left style={{ flex: 1 }}>
-                      <Icon name="«i.leftIcon.name»" style={{ color: '«i.leftIcon.color»' }} />
-                    </Left>
-                    «ENDIF-»
-                    <Body style={{ flex: «IF i.leftIcon == null || i.rightIcon == null»9«ELSE»8«ENDIF» }}>
-                      <Text numberOfLines={1}>«i.text»</Text>
-                    </Body>
-                    «IF i.rightIcon != null-»
-                    <Right style={{ flex: 1 }}>
-                      <Icon name="«i.rightIcon.name»" style={{ color: '«i.rightIcon.color»' }} />
-                    </Right>
-                    «ENDIF-»
-                  </ListItem>
-                  «ENDFOREACH-»
-                </List>
-              </ScrollView>
-            «ELSEIF c.metaType == rnAppGenerator::Icon-»
-              <Icon «IF c.active»active «ENDIF»name="«c.name»" style={{ fontSize: «c.size», color: '«c.color»' }} />
-            «ELSEIF c.metaType == rnAppGenerator::InputText-»
-              <Item «c.type»>
-                <Input placeholder="«c.placeholder»" />
-              </Item>
-            «ELSEIF c.metaType == rnAppGenerator::Card-»
-              <Card>
-                <CardItem header>
-                  <Text>«c.header»</Text>
-                </CardItem>
-                <CardItem>
-                  <Body>
-                    <Text>«c.body»</Text>
-                  </Body>
-                </CardItem>
-              </Card>
-            «ELSEIF c.metaType == rnAppGenerator::LoginForm-»
-              <Form style={{ flex: 1 }}>
-                <Item fixedLabel>
-                  <Label>«c.userPlaceholder»</Label>
-                  <Input />
-                </Item>
-                <Item fixedLabel last>
-                  <Label>«c.passwordPlaceholder»</Label>
-                  <Input secureTextEntry />
-                </Item>
-                <Button style={{ alignSelf: 'center', margin: 10 }}>
-                  <Text>«c.buttonTitle»</Text>
-                </Button>
-              </Form>
-            «ELSEIF c.metaType == rnAppGenerator::Picker-»
-            «ELSEIF c.metaType == rnAppGenerator::RadioButton-»
-              <List style={{ flex: 1 }}>
-                <ListItem
-                  style={{ marginLeft: 0, paddingLeft: 15 }}
-                  onPress={() => this.setState({ radioButton«c.id»: !this.state.radioButton«c.id» })}
-                >
-                  <Body style={{ flex: 9 }}>
-                    <Text>«c.title»</Text>
-                  </Body>
-                  <Right style={{ flex: 1 }}>
-                    <Radio
-                      onPress={() => this.setState({ radioButton«c.id»: !this.state.radioButton«c.id» })}
-                      selected={this.state.radioButton«c.id»}
-                    />
-                  </Right>
-                </ListItem>
-              </List>
-            «ENDIF-»
+            «EXPAND contentComponentsTemplate FOR c-»
             </View>
             «IF c.flexHorizontalSize < 4 && c.isLastHorizontal == true-»
             </View>
             «ENDIF-»
             «ENDFOREACH-»
           </View>
+        </Content>
+        «ELSE-»
+        <Content>
+          «FOREACH components AS c-»
+          «IF c.flexHorizontalSize < 4 && c.flexHorizontalPosition == 1-»
+          <View style={{ flex: 1, flexDirection: 'row' }}>
+          «ENDIF-»
+          «IF c.flexHorizontalSize == 4-»
+          <View style={{
+              flex: 1,
+              flexDirection: 'row',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
+          «ELSE-»
+          <View style={{
+              flex: '«c.flexHorizontalSize»',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
+          «ENDIF-»
+          «EXPAND contentComponentsTemplate FOR c-»
+          </View>
+          «IF c.flexHorizontalSize < 4 && c.isLastHorizontal == true-»
+          </View>
+          «ENDIF-»
+          «ENDFOREACH-»
         </Content>
         «ENDIF-»
       </Container>
@@ -245,7 +340,7 @@ const «name.replaceAll(' ','')» = «IF type == NavigatorType::Stack»StackNavi
   },
   {
     initialRouteName: '«initialScreen.title.replaceAll(' ','')»',
-    «IF type == NavigatorType::Tab»tabNavigatorConfig,«ENDIF»
+    «IF type == NavigatorType::Tab»...tabNavigatorConfig,«ENDIF»
   },
 );
 «EXPAND defineNavigatorTemplate FOREACH nestedNavigators-»
@@ -257,4 +352,182 @@ const «name.replaceAll(' ','')» = «IF type == NavigatorType::Stack»StackNavi
 
 «DEFINE navigatorsInNavigator FOR rnAppGenerator::Navigator-»
     «name.replaceAll(' ','')»: { screen: «name.replaceAll(' ','')» },
+«ENDDEFINE»
+
+«DEFINE stateComponentsTemplate FOR rnAppGenerator::Component-»
+      «IF metaType == rnAppGenerator::LoginForm-»
+      username«stateID»: '',
+      password«stateID»: '',
+      «ELSEIF metaType == rnAppGenerator::InputText-»
+      inputText«stateID»: '',
+      «ELSEIF metaType == rnAppGenerator::Picker-»
+      itemSelected«stateID»: '«defaultOption.name»',
+      «ELSEIF metaType == rnAppGenerator::RadioButton-»
+      radioButton«stateID»: '«defaultOption»',
+      «ENDIF-»
+«ENDDEFINE»
+
+«DEFINE populateInputComponentsTemplate FOR rnAppGenerator::Component-»
+    «IF metaType == rnAppGenerator::LoginForm || metaType == rnAppGenerator::InputText || metaType == rnAppGenerator::Picker || metaType == rnAppGenerator::RadioButton-»
+    AsyncStorage.getItem('«getInputComponentKey(metaType)»«stateID»')
+      .then((value) => {
+        console.log(value);
+        if (value !== null) {
+          «IF metaType == rnAppGenerator::RadioButton-»
+          if (value === 'true') {
+            this.setState({ radioButton«stateID»: true });
+          } else {
+            this.setState({ radioButton«stateID»: false });
+          }
+          «ELSE-»
+          this.setState({ «getInputComponentKey(metaType)»«stateID»: value });
+          «ENDIF-»
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    «IF metaType == rnAppGenerator::LoginForm-»
+    AsyncStorage.getItem('password«stateID»')
+      .then((value) => {
+        console.log(value);
+        if (value !== null) {
+          this.setState({ password«stateID»: value });
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    «ENDIF-»
+    «ENDIF-»
+«ENDDEFINE»
+
+«DEFINE saveInputComponentsValuesTemplate FOR rnAppGenerator::Component-»
+    «IF metaType == rnAppGenerator::LoginForm || metaType == rnAppGenerator::InputText || metaType == rnAppGenerator::Picker || metaType == rnAppGenerator::RadioButton-»
+    AsyncStorage.setItem('«getInputComponentKey(metaType)»«stateID»', this.state.«getInputComponentKey(metaType)»«stateID»«IF metaType == rnAppGenerator::RadioButton-».toString()«ENDIF-»)
+      .then((value) => {
+        console.log(value);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    «IF metaType == rnAppGenerator::LoginForm-»
+    AsyncStorage.setItem('password«stateID»', this.state.password«stateID»)
+      .then((value) => {
+        console.log(value);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    «ENDIF-»
+    «ENDIF-»
+«ENDDEFINE»
+
+«DEFINE pickerItemTemplate FOR rnAppGenerator::PickerElement-»
+                <Item label="«name»" value="«name»" />
+«ENDDEFINE»
+
+«DEFINE contentComponentsTemplate FOR rnAppGenerator::Component-»
+            «IF metaType == rnAppGenerator::Text-»
+              <Text style={{ fontSize: «fontSize», color: '«color»' }}>
+                «text»
+              </Text>
+            «ELSEIF metaType == rnAppGenerator::Button-»
+              <Button «theme»«IF type != ButtonType::defaultType» «type»«ENDIF»«IF size != ButtonSize::regular» «size»«ENDIF» style={{ alignSelf: 'center' }}>
+                <Text>«text»</Text>
+              </Button>
+            «ELSEIF metaType == rnAppGenerator::ListC-»
+              <ScrollView>
+                <List style={{ flex: 1 }}>
+                  «FOREACH items AS i-»
+                  <ListItem style={{ marginLeft: 0, paddingLeft: 15 }}>
+                    «IF i.leftIcon != null-»
+                    <Left style={{ flex: 1 }}>
+                      <Icon name="«i.leftIcon.name»" style={{ color: '«i.leftIcon.color»' }} />
+                    </Left>
+                    «ENDIF-»
+                    <Body style={{ flex: «IF i.leftIcon == null || i.rightIcon == null»9«ELSE»8«ENDIF» }}>
+                      <Text numberOfLines={1}>«i.text»</Text>
+                    </Body>
+                    «IF i.rightIcon != null-»
+                    <Right style={{ flex: 1 }}>
+                      <Icon name="«i.rightIcon.name»" style={{ color: '«i.rightIcon.color»' }} />
+                    </Right>
+                    «ENDIF-»
+                  </ListItem>
+                  «ENDFOREACH-»
+                </List>
+              </ScrollView>
+            «ELSEIF metaType == rnAppGenerator::Icon-»
+              <Icon «IF active»active «ENDIF»name="«name»" style={{ fontSize: «size», color: '«color»' }} />
+            «ELSEIF metaType == rnAppGenerator::InputText-»
+              <Item «type»>
+                <Input
+                  placeholder="«placeholder»"
+                  onChangeText={inputText«stateID» => this.setState({ inputText«stateID» })}
+                  value={this.state.inputText«stateID»}
+                />
+              </Item>
+            «ELSEIF metaType == rnAppGenerator::Card-»
+              <Card>
+                <CardItem header>
+                  <Text>«header»</Text>
+                </CardItem>
+                <CardItem>
+                  <Body>
+                    <Text>«body»</Text>
+                  </Body>
+                </CardItem>
+              </Card>
+            «ELSEIF metaType == rnAppGenerator::LoginForm-»
+              <Form style={{ flex: 1 }}>
+                <Item fixedLabel>
+                  <Label>«userPlaceholder»</Label>
+                  <Input
+                    onChangeText={username«stateID» => this.setState({ username«stateID» })}
+                    value={this.state.username«stateID»}
+                  />
+                </Item>
+                <Item fixedLabel last>
+                  <Label>«passwordPlaceholder»</Label>
+                  <Input
+                    onChangeText={password«stateID» => this.setState({ password«stateID» })}
+                    value={this.state.password«stateID»}
+                    secureTextEntry
+                    />
+                </Item>
+                <Button style={{ alignSelf: 'center', margin: 10 }}>
+                  <Text>«buttonTitle»</Text>
+                </Button>
+              </Form>
+            «ELSEIF metaType == rnAppGenerator::Picker-»
+              <Form>
+                <Text>«title»</Text>
+                <Picker
+                  iosHeader="Select one"
+                  mode="dropdown"
+                  selectedValue={this.state.itemSelected«stateID»}
+                  onValueChange={value => this.setState({ itemSelected«stateID»: value })}
+                >
+                  «EXPAND pickerItemTemplate FOREACH elements-»
+                </Picker>
+              </Form>
+            «ELSEIF metaType == rnAppGenerator::RadioButton-»
+              <List style={{ flex: 1 }}>
+                <ListItem
+                  style={{ marginLeft: 0, paddingLeft: 15 }}
+                  onPress={() => this.setState({ radioButton«stateID»: !this.state.radioButton«stateID» })}
+                >
+                  <Body style={{ flex: 9 }}>
+                    <Text>«title»</Text>
+                  </Body>
+                  <Right style={{ flex: 1 }}>
+                    <Radio
+                      onPress={() => this.setState({ radioButton«stateID»: !this.state.radioButton«stateID» })}
+                      selected={this.state.radioButton«stateID»}
+                    />
+                  </Right>
+                </ListItem>
+              </List>
+            «ENDIF-»
 «ENDDEFINE»
