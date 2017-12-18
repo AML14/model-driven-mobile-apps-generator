@@ -129,12 +129,25 @@ class «title.replaceAll(' ','')» extends Component {
   }
   «ENDIF-»
   
-  async getInputParams(a, b = null, c = null, d = null, e = null) {
-    const a1 = a !== null ? await AsyncStorage.getItem(a.key) : null;
-    const b1 = b !== null ? await AsyncStorage.getItem(b.key) : null;
-    const c1 = c !== null ? await AsyncStorage.getItem(c.key) : null;
-    const d1 = d !== null ? await AsyncStorage.getItem(d.key) : null;
-    const e1 = e !== null ? await AsyncStorage.getItem(e.key) : null;
+  // eslint-disable-next-line class-methods-use-this
+  async getInputValue(a) {
+    let a1 = null;
+    if (a !== null) {
+      if (a.type !== 'login') {
+        a1 = await AsyncStorage.getItem(a.key);
+      } else {
+        a1 = `${await AsyncStorage.getItem(a.key.split('-')[0])}-${await AsyncStorage.getItem(a.key.split('-')[1])}`;
+      }
+    }
+    return a1;
+  }
+  
+  getInputParams(a, b = null, c = null, d = null, e = null) {
+    const a1 = this.getInputValue(a);
+    const b1 = this.getInputValue(b);
+    const c1 = this.getInputValue(c);
+    const d1 = this.getInputValue(d);
+    const e1 = this.getInputValue(e);
     return {
       a1,
       b1,
@@ -264,15 +277,27 @@ class «title.replaceAll(' ','')» extends Component {
             <View style={{
                 flex: «c.flexVerticalSize»,
                 flexDirection: 'row',
-                justifyContent: 'center',
-                alignItems: 'center',
+                justifyContent: '«c.horizontalAlignment»',
+                alignItems: '«c.verticalAlignment»',
+                «IF c.margin != null-»
+                margin: '«c.margin»',
+                «ENDIF-»
+                «IF c.padding != null-»
+                padding: '«c.padding»',
+                «ENDIF-»
               }}
             >
             «ELSE-»
             <View style={{
                 flex: «c.flexHorizontalSize»,
-                justifyContent: 'center',
-                alignItems: 'center',
+                justifyContent: '«c.verticalAlignment»',
+                alignItems: '«c.horizontalAlignment»',
+                «IF c.margin != null-»
+                margin: '«c.margin»',
+                «ENDIF-»
+                «IF c.padding != null-»
+                padding: '«c.padding»',
+                «ENDIF-»
               }}
             >
             «ENDIF-»
@@ -294,15 +319,27 @@ class «title.replaceAll(' ','')» extends Component {
           <View style={{
               flex: 1,
               flexDirection: 'row',
-              justifyContent: 'center',
-              alignItems: 'center',
+              justifyContent: '«c.horizontalAlignment»',
+              alignItems: '«c.verticalAlignment»',
+              «IF c.margin != null-»
+              margin: '«c.margin»',
+              «ENDIF-»
+              «IF c.padding != null-»
+              padding: '«c.padding»',
+              «ENDIF-»
             }}
           >
           «ELSE-»
           <View style={{
               flex: '«c.flexHorizontalSize»',
-              justifyContent: 'center',
-              alignItems: 'center',
+              justifyContent: '«c.verticalAlignment»',
+              alignItems: '«c.horizontalAlignment»',
+              «IF c.margin != null-»
+              margin: '«c.margin»',
+              «ENDIF-»
+              «IF c.padding != null-»
+              padding: '«c.padding»',
+              «ENDIF-»
             }}
           >
           «ENDIF-»
@@ -423,6 +460,15 @@ const «name.replaceAll(' ','')» = «IF type == NavigatorType::Stack»StackNavi
     «ENDIF-»
 «ENDDEFINE»
 
+«DEFINE inputComponentDataSourceTemplate FOR rnAppGenerator::Component-»
+                «IF metaType == rnAppGenerator::LoginForm || metaType == rnAppGenerator::InputText || metaType == rnAppGenerator::Picker || metaType == rnAppGenerator::RadioButton-»
+                {
+                  type: '«IF metaType == rnAppGenerator::LoginForm-»login«ELSE-»«getInputComponentKey(metaType)»«ENDIF-»',
+                  key: '«IF metaType == rnAppGenerator::LoginForm-»username«stateID»-password«stateID»«ELSE-»«getInputComponentKey(metaType)»«stateID»«ENDIF-»',
+                },
+                «ENDIF-»
+«ENDDEFINE»
+
 «DEFINE pickerItemTemplate FOR rnAppGenerator::PickerElement-»
                 <Item label="«name»" value="«name»" />
 «ENDDEFINE»
@@ -433,10 +479,11 @@ const «name.replaceAll(' ','')» = «IF type == NavigatorType::Stack»StackNavi
                 «text»
               </Text>
             «ELSEIF metaType == rnAppGenerator::Button-»
-              <Button «theme»«IF type != ButtonType::defaultType» «type»«ENDIF»«IF size != ButtonSize::regular» «size»«ENDIF» style={{ alignSelf: 'center' }}>
+              <Button «theme»«IF type != ButtonType::defaultType» «type»«ENDIF»«IF size != ButtonSize::regular» «size»«ENDIF» style={{ alignSelf: '«horizontalAlignment»' }}>
                 <Text>«text»</Text>
               </Button>
             «ELSEIF metaType == rnAppGenerator::ListC-»
+            «IF stateID == null || stateID == 0-»
               <ScrollView>
                 <List style={{ flex: 1 }}>
                   «FOREACH items AS i-»
@@ -458,6 +505,11 @@ const «name.replaceAll(' ','')» = «IF type == NavigatorType::Stack»StackNavi
                   «ENDFOREACH-»
                 </List>
               </ScrollView>
+            «ELSE-»
+              {this.loadListContentFromExternalSource(
+                «EXPAND inputComponentDataSourceTemplate FOREACH dataSource-»
+              )}
+            «ENDIF-»
             «ELSEIF metaType == rnAppGenerator::Icon-»
               <Icon «IF active»active «ENDIF»name="«name»" style={{ fontSize: «size», color: '«color»' }} />
             «ELSEIF metaType == rnAppGenerator::InputText-»
@@ -469,6 +521,7 @@ const «name.replaceAll(' ','')» = «IF type == NavigatorType::Stack»StackNavi
                 />
               </Item>
             «ELSEIF metaType == rnAppGenerator::Card-»
+            «IF stateID == null || stateID == 0-»
               <Card>
                 <CardItem header>
                   <Text>«header»</Text>
@@ -479,6 +532,11 @@ const «name.replaceAll(' ','')» = «IF type == NavigatorType::Stack»StackNavi
                   </Body>
                 </CardItem>
               </Card>
+            «ELSE-»
+              {this.loadCardContentFromExternalSource(
+                «EXPAND inputComponentDataSourceTemplate FOREACH dataSource-»
+              )}
+            «ENDIF-»
             «ELSEIF metaType == rnAppGenerator::LoginForm-»
               <Form style={{ flex: 1 }}>
                 <Item fixedLabel>

@@ -21,8 +21,6 @@
     <eLiterals name="Tab"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Screen">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="screenState" eType="#//State"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="scrollable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasPreviousScreen" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -35,19 +33,18 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="flexVerticalPosition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="flexVerticalSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="flexHorizontalPosition"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="flexHorizontalSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="flexHorizontalSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
+        defaultValueLiteral="4"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="margin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="padding" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="verticalAlignment" eType="#//AlignmentType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="horizontalAlignment" eType="#//AlignmentType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="verticalAlignment" eType="#//AlignmentType"
+        defaultValueLiteral="center"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="horizontalAlignment" eType="#//AlignmentType"
+        defaultValueLiteral="center"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isLastHorizontal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="State">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialState" eType="#//JSObject"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="JSObject" instanceTypeName="JSObject"/>
   <eClassifiers xsi:type="ecore:EClass" name="Image" eSuperTypes="#//Component">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -125,8 +122,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="AlignmentType">
     <eLiterals name="center"/>
-    <eLiterals name="flexStart"/>
-    <eLiterals name="flexEnd"/>
+    <eLiterals name="flex_start" literal="flex-start"/>
+    <eLiterals name="flex_end" literal="flex-end"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LoginForm" eSuperTypes="#//InputComponent">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="userPlaceholder" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

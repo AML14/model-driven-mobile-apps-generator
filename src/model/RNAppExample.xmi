@@ -24,8 +24,6 @@
         <components
             xsi:type="rnAppGen:Picker"
             flexVerticalPosition="1"
-            flexHorizontalPosition="1"
-            flexHorizontalSize="4.0"
             stateID="2"
             defaultOption="//@navigator/@nestedNavigators.0/@screens.1/@components.0/@elements.0"
             title="Select an option">
@@ -39,12 +37,15 @@
         <components
             xsi:type="rnAppGen:LoginForm"
             flexVerticalPosition="2"
-            flexHorizontalPosition="1"
-            flexHorizontalSize="4.0"
             stateID="4"
             userPlaceholder="Username"
             passwordPlaceholder="Password"
             buttonTitle="Log in"/>
+        <components
+            xsi:type="rnAppGen:Text"
+            flexVerticalPosition="3"
+            horizontalAlignment="flex-start"
+            text="Algo de texto"/>
       </screens>
     </nestedNavigators>
     <screens
@@ -54,8 +55,6 @@
           xsi:type="rnAppGen:Text"
           flexVerticalPosition="1"
           flexVerticalSize="2.0"
-          flexHorizontalPosition="1"
-          flexHorizontalSize="4.0"
           margin="10"
           text="Esto es texto de ejemplo, lo que aparece arriba del todo de la pantalla"
           color="red"/>
@@ -63,15 +62,12 @@
           xsi:type="rnAppGen:Card"
           flexVerticalPosition="2"
           flexVerticalSize="2.0"
-          flexHorizontalPosition="1"
-          flexHorizontalSize="4.0"
           header="Carta de ejemplo"
           body="Otro componente de ejemplo"/>
       <components
           xsi:type="rnAppGen:InputText"
           flexVerticalPosition="3"
           flexVerticalSize="2.0"
-          flexHorizontalPosition="1"
           flexHorizontalSize="3.0"
           margin="10"
           stateID="1"
@@ -84,14 +80,13 @@
           flexHorizontalPosition="2"
           flexHorizontalSize="1.0"
           margin="10"
+          horizontalAlignment="flex-end"
           isLastHorizontal="true"
           text="Enviar"/>
       <components
           xsi:type="rnAppGen:ListC"
           flexVerticalPosition="4"
-          flexVerticalSize="4.0"
-          flexHorizontalPosition="1"
-          flexHorizontalSize="4.0">
+          flexVerticalSize="4.0">
         <items
             text="Elemento numero 1">
           <leftIcon
@@ -134,8 +129,6 @@
           xsi:type="rnAppGen:RadioButton"
           flexVerticalPosition="5"
           flexVerticalSize="2.0"
-          flexHorizontalPosition="1"
-          flexHorizontalSize="4.0"
           stateID="3"
           title="Add ketchup"
           defaultOption="true"/>

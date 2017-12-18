@@ -55,12 +55,25 @@ class SegundaPantalla extends Component {
     this.props.navigation.dispatch(navForward);
   }
   
-  async getInputParams(a, b = null, c = null, d = null, e = null) {
-    const a1 = a !== null ? await AsyncStorage.getItem(a.key) : null;
-    const b1 = b !== null ? await AsyncStorage.getItem(b.key) : null;
-    const c1 = c !== null ? await AsyncStorage.getItem(c.key) : null;
-    const d1 = d !== null ? await AsyncStorage.getItem(d.key) : null;
-    const e1 = e !== null ? await AsyncStorage.getItem(e.key) : null;
+  // eslint-disable-next-line class-methods-use-this
+  async getInputValue(a) {
+    let a1 = null;
+    if (a !== null) {
+      if (a.type !== 'login') {
+        a1 = await AsyncStorage.getItem(a.key);
+      } else {
+        a1 = `${await AsyncStorage.getItem(a.key.split('-')[0])}-${await AsyncStorage.getItem(a.key.split('-')[1])}`;
+      }
+    }
+    return a1;
+  }
+  
+  getInputParams(a, b = null, c = null, d = null, e = null) {
+    const a1 = this.getInputValue(a);
+    const b1 = this.getInputValue(b);
+    const c1 = this.getInputValue(c);
+    const d1 = this.getInputValue(d);
+    const e1 = this.getInputValue(e);
     return {
       a1,
       b1,
