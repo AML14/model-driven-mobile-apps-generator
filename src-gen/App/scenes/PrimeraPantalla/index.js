@@ -44,7 +44,7 @@ class PrimeraPantalla extends Component {
     super(props);
     this.initialState = {
       inputText1: '',
-      radioButton3: 'true',
+      radioButton3: true,
     };
     this.state = this.initialState;
   }
@@ -231,11 +231,11 @@ class PrimeraPantalla extends Component {
                 flexDirection: 'row',
                 justifyContent: 'center',
                 alignItems: 'center',
-                margin: '10',
-                padding: '0',
+                margin: 10,
+                padding: 0,
               }}
             >
-              <Text style={{ fontSize: 11, color: 'red' }}>
+              <Text style={{ fontSize: 16, color: 'red' }}>
                 Esto es texto de ejemplo, lo que aparece arriba del todo de la pantalla
               </Text>
             </View>
@@ -244,8 +244,8 @@ class PrimeraPantalla extends Component {
                 flexDirection: 'row',
                 justifyContent: 'center',
                 alignItems: 'center',
-                margin: '0',
-                padding: '0',
+                margin: 0,
+                padding: 0,
               }}
             >
               <Card>
@@ -264,8 +264,8 @@ class PrimeraPantalla extends Component {
                 flex: 3.0,
                 justifyContent: 'center',
                 alignItems: 'center',
-                margin: '10',
-                padding: '0',
+                margin: 10,
+                padding: 0,
               }}
             >
               <Item underlined>
@@ -280,8 +280,8 @@ class PrimeraPantalla extends Component {
                 flex: 1.0,
                 justifyContent: 'center',
                 alignItems: 'flex-end',
-                margin: '10',
-                padding: '0',
+                margin: 10,
+                padding: 0,
               }}
             >
               <Button primary style={{ alignSelf: 'flex-end' }}>
@@ -294,8 +294,8 @@ class PrimeraPantalla extends Component {
                 flexDirection: 'row',
                 justifyContent: 'center',
                 alignItems: 'center',
-                margin: '0',
-                padding: '0',
+                margin: 0,
+                padding: 0,
               }}
             >
               <ScrollView>
@@ -362,8 +362,8 @@ class PrimeraPantalla extends Component {
                 flexDirection: 'row',
                 justifyContent: 'center',
                 alignItems: 'center',
-                margin: '0',
-                padding: '0',
+                margin: 0,
+                padding: 0,
               }}
             >
               <List style={{ flex: 1 }}>

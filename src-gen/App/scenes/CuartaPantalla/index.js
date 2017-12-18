@@ -30,13 +30,8 @@ import {
 import { NavigationActions } from 'react-navigation';
 
 const navBack = NavigationActions.back();
-const navForward = NavigationActions.navigate({
-  routeName: 'TerceraPantalla',
-  params: {},
-  action: {},
-});
 
-class SegundaPantalla extends Component {
+class CuartaPantalla extends Component {
   static navigationOptions = {
     header: null,
   }
@@ -49,10 +44,6 @@ class SegundaPantalla extends Component {
   }
   
   componentDidMount() {
-  }
-  
-  saveAndGoForward() {
-    this.props.navigation.dispatch(navForward);
   }
   
   // eslint-disable-next-line class-methods-use-this
@@ -180,56 +171,31 @@ class SegundaPantalla extends Component {
             </Button>
           </Left>
           <Body style={{ flex: 6 }}>
-            <Title>Segunda Pantalla</Title>
+            <Title>Cuarta Pantalla</Title>
           </Body>
           <Right style={{ flex: 1 }}>
-            <Button transparent onPress={() => this.saveAndGoForward()}>
-              <Icon name="arrow-forward" />
-            </Button>
           </Right>
         </Header>
-        <Content scrollEnabled={false} style={{ flex: 1 }} contentContainerStyle={{ flex: 1 }}>
-          <View style={{ flex: 12 }}>
-            <View style={{
-                flex: 6.0,
-                flexDirection: 'row',
-                justifyContent: 'center',
-                alignItems: 'center',
-                margin: 0,
-                padding: 0,
-              }}
-            >
-              {this.loadCardContentFromExternalSource(
+        <Content>
+          <View style={{
+              flex: 1,
+              flexDirection: 'row',
+              justifyContent: 'center',
+              alignItems: 'center',
+              margin: 0,
+              padding: 0,
+            }}
+          >
+              {this.loadListContentFromExternalSource(
                 {
-                  type: 'inputText',
-                  key: 'inputText1',
+                  type: 'itemSelected',
+                  key: 'itemSelected2',
                 },
                 {
-                  type: 'radioButton',
-                  key: 'radioButton3',
+                  type: 'login',
+                  key: 'username4-password4',
                 },
               )}
-            </View>
-            <View style={{
-                flex: 6.0,
-                flexDirection: 'row',
-                justifyContent: 'center',
-                alignItems: 'flex-end',
-                margin: 20,
-                padding: 0,
-              }}
-            >
-              <Card>
-                <CardItem header>
-                  <Text>Senseless card</Text>
-                </CardItem>
-                <CardItem>
-                  <Body>
-                    <Text>regu hwlgk jawheg kljewgwek gw lgjw alkjsgehr akjegw jkger gajgL JWGAR JGER GJBS bjlk ljskg aejl gsjtgsek je rkjer gjkser gsjekrgeskjr ger jge rgjerg j  j ej esr jgaer jkg</Text>
-                  </Body>
-                </CardItem>
-              </Card>
-            </View>
           </View>
         </Content>
       </Container>
@@ -237,4 +203,4 @@ class SegundaPantalla extends Component {
   }
 }
 
-export default SegundaPantalla;
+export default CuartaPantalla;

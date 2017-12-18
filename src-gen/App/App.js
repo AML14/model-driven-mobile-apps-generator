@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { Platform } from 'react-native';
 import { StackNavigator, TabNavigator } from 'react-navigation';
 
-import PrimeraPantalla from './scenes/PrimeraPantalla'
-import SegundaPantalla from './scenes/SegundaPantalla'
-import TerceraPantalla from './scenes/TerceraPantalla'
+import PrimeraPantalla from './scenes/PrimeraPantalla';
+import SegundaPantalla from './scenes/SegundaPantalla';
+import TerceraPantalla from './scenes/TerceraPantalla';
+import CuartaPantalla from './scenes/CuartaPantalla';
 
 const tabBarOptions = (Platform.OS === 'android') ?
   {
@@ -19,6 +20,17 @@ const tabNavigatorConfig = {
   tabBarOptions,
 };
 
+const Navegador2 = TabNavigator(
+  {
+    SegundaPantalla: { screen: SegundaPantalla },
+    TerceraPantalla: { screen: TerceraPantalla },
+    CuartaPantalla: { screen: CuartaPantalla },
+  },
+  {
+    initialRouteName: 'SegundaPantalla',
+    ...tabNavigatorConfig,
+  },
+);
 const Navegador1 = StackNavigator(
   {
     PrimeraPantalla: { screen: PrimeraPantalla },
@@ -26,17 +38,6 @@ const Navegador1 = StackNavigator(
   },
   {
     initialRouteName: 'PrimeraPantalla',
-    
-  },
-);
-const Navegador2 = TabNavigator(
-  {
-    SegundaPantalla: { screen: SegundaPantalla },
-    TerceraPantalla: { screen: TerceraPantalla },
-  },
-  {
-    initialRouteName: 'SegundaPantalla',
-    ...tabNavigatorConfig,
   },
 );
 

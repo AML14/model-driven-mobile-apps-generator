@@ -30,6 +30,11 @@ import {
 import { NavigationActions } from 'react-navigation';
 
 const navBack = NavigationActions.back();
+const navForward = NavigationActions.navigate({
+  routeName: 'CuartaPantalla',
+  params: {},
+  action: {},
+});
 
 class TerceraPantalla extends Component {
   static navigationOptions = {
@@ -77,6 +82,31 @@ class TerceraPantalla extends Component {
       .catch((error) => {
         console.log(error);
       });
+  }
+  
+  saveAndGoForward() {
+    AsyncStorage.setItem('itemSelected2', this.state.itemSelected2)
+      .then((value) => {
+        console.log(value);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    AsyncStorage.setItem('username4', this.state.username4)
+      .then((value) => {
+        console.log(value);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    AsyncStorage.setItem('password4', this.state.password4)
+      .then((value) => {
+        console.log(value);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    this.props.navigation.dispatch(navForward);
   }
   
   // eslint-disable-next-line class-methods-use-this
@@ -199,7 +229,7 @@ class TerceraPantalla extends Component {
       <Container>
         <Header>
           <Left style={{ flex: 1 }}>
-          	<Button transparent onPress={() => this.props.navigation.dispatch(navBack)}>
+            <Button transparent onPress={() => this.props.navigation.dispatch(navBack)}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -207,6 +237,9 @@ class TerceraPantalla extends Component {
             <Title>Tercera Pantalla</Title>
           </Body>
           <Right style={{ flex: 1 }}>
+            <Button transparent onPress={() => this.saveAndGoForward()}>
+              <Icon name="arrow-forward" />
+            </Button>
           </Right>
         </Header>
         <Content>
@@ -215,8 +248,8 @@ class TerceraPantalla extends Component {
               flexDirection: 'row',
               justifyContent: 'center',
               alignItems: 'center',
-              margin: '0',
-              padding: '0',
+              margin: 0,
+              padding: 0,
             }}
           >
               <Form>
@@ -238,8 +271,8 @@ class TerceraPantalla extends Component {
               flexDirection: 'row',
               justifyContent: 'center',
               alignItems: 'center',
-              margin: '0',
-              padding: '0',
+              margin: 0,
+              padding: 0,
             }}
           >
               <Form style={{ flex: 1 }}>
@@ -268,11 +301,11 @@ class TerceraPantalla extends Component {
               flexDirection: 'row',
               justifyContent: 'flex-start',
               alignItems: 'center',
-              margin: '0',
-              padding: '0',
+              margin: 0,
+              padding: 0,
             }}
           >
-              <Text style={{ fontSize: 11, color: 'black' }}>
+              <Text style={{ fontSize: 16, color: 'black' }}>
                 Algo de texto
               </Text>
           </View>

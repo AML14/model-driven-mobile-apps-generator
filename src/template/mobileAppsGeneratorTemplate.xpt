@@ -12,7 +12,7 @@
 
 «DEFINE appIndexTemplate FOR rnAppGenerator::MobileApp-»
 import { AppRegistry } from 'react-native';
-import App from './App';
+import App from './App/App';
 
 AppRegistry.registerComponent('AppTemplate', () => App);
 
@@ -250,7 +250,7 @@ class «title.replaceAll(' ','')» extends Component {
         <Header>
           <Left style={{ flex: 1 }}>
           «IF hasPreviousScreen-»
-          	<Button transparent onPress={() => this.props.navigation.dispatch(navBack)}>
+            <Button transparent onPress={() => this.props.navigation.dispatch(navBack)}>
               <Icon name="arrow-back" />
             </Button>
           «ENDIF-»
@@ -280,10 +280,10 @@ class «title.replaceAll(' ','')» extends Component {
                 justifyContent: '«c.horizontalAlignment»',
                 alignItems: '«c.verticalAlignment»',
                 «IF c.margin != null-»
-                margin: '«c.margin»',
+                margin: «c.margin»,
                 «ENDIF-»
                 «IF c.padding != null-»
-                padding: '«c.padding»',
+                padding: «c.padding»,
                 «ENDIF-»
               }}
             >
@@ -293,10 +293,10 @@ class «title.replaceAll(' ','')» extends Component {
                 justifyContent: '«c.verticalAlignment»',
                 alignItems: '«c.horizontalAlignment»',
                 «IF c.margin != null-»
-                margin: '«c.margin»',
+                margin: «c.margin»,
                 «ENDIF-»
                 «IF c.padding != null-»
-                padding: '«c.padding»',
+                padding: «c.padding»,
                 «ENDIF-»
               }}
             >
@@ -322,10 +322,10 @@ class «title.replaceAll(' ','')» extends Component {
               justifyContent: '«c.horizontalAlignment»',
               alignItems: '«c.verticalAlignment»',
               «IF c.margin != null-»
-              margin: '«c.margin»',
+              margin: «c.margin»,
               «ENDIF-»
               «IF c.padding != null-»
-              padding: '«c.padding»',
+              padding: «c.padding»,
               «ENDIF-»
             }}
           >
@@ -335,10 +335,10 @@ class «title.replaceAll(' ','')» extends Component {
               justifyContent: '«c.verticalAlignment»',
               alignItems: '«c.horizontalAlignment»',
               «IF c.margin != null-»
-              margin: '«c.margin»',
+              margin: «c.margin»,
               «ENDIF-»
               «IF c.padding != null-»
-              padding: '«c.padding»',
+              padding: «c.padding»,
               «ENDIF-»
             }}
           >
@@ -366,10 +366,11 @@ export default «title.replaceAll(' ','')»;
 «ENDDEFINE»
 
 «DEFINE importScenesTemplate FOR Screen-»
-import «title.replaceAll(' ','')» from './scenes/«title.replaceAll(' ','')»'
+import «title.replaceAll(' ','')» from './scenes/«title.replaceAll(' ','')»';
 «ENDDEFINE»
 
 «DEFINE defineNavigatorTemplate FOR rnAppGenerator::Navigator-»
+«EXPAND defineNavigatorTemplate FOREACH nestedNavigators-»
 const «name.replaceAll(' ','')» = «IF type == NavigatorType::Stack»StackNavigator«ELSE»TabNavigator«ENDIF»(
   {
     «EXPAND scenesInNavigator FOREACH screens-»
@@ -377,10 +378,11 @@ const «name.replaceAll(' ','')» = «IF type == NavigatorType::Stack»StackNavi
   },
   {
     initialRouteName: '«initialScreen.title.replaceAll(' ','')»',
-    «IF type == NavigatorType::Tab»...tabNavigatorConfig,«ENDIF»
+    «IF type == NavigatorType::Tab-»
+    ...tabNavigatorConfig,
+    «ENDIF-»
   },
 );
-«EXPAND defineNavigatorTemplate FOREACH nestedNavigators-»
 «ENDDEFINE»
 
 «DEFINE scenesInNavigator FOR rnAppGenerator::Screen-»
@@ -400,7 +402,7 @@ const «name.replaceAll(' ','')» = «IF type == NavigatorType::Stack»StackNavi
       «ELSEIF metaType == rnAppGenerator::Picker-»
       itemSelected«stateID»: '«defaultOption.name»',
       «ELSEIF metaType == rnAppGenerator::RadioButton-»
-      radioButton«stateID»: '«defaultOption»',
+      radioButton«stateID»: «defaultOption»,
       «ENDIF-»
 «ENDDEFINE»
 
