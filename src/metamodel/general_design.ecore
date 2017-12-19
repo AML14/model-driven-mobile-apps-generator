@@ -2,25 +2,52 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="generalAppGenerator" nsURI="http://sma/genappgen" nsPrefix="genAppGen">
   <eClassifiers xsi:type="ecore:EClass" name="GeneralMobileApp">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="composedOf" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="flowElements" lowerBound="1"
         upperBound="-1" eType="#//FlowElement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FlowElement" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="Edge">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="salidas" eType="#//FlowElement"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="entradas" eType="#//FlowElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="output" eType="#//FlowElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="input" eType="#//FlowElement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InitialNode" eSuperTypes="#//FlowElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="FinalNode" eSuperTypes="#//FlowElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Screen" eSuperTypes="#//FlowElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scrollable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="composedOf" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
         eType="#//Component" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Component" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="InputComponent" abstract="true" eSuperTypes="#//Component"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DynamicComponent" abstract="true" eSuperTypes="#//Component"/>
-  <eClassifiers xsi:type="ecore:EClass" name="CardComponent" eSuperTypes="#//DynamicComponent"/>
-  <eClassifiers xsi:type="ecore:EClass" name="TextInputComponent" eSuperTypes="#//InputComponent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InputComponent" abstract="true" eSuperTypes="#//Component">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stateID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DynamicComponent" abstract="true" eSuperTypes="#//Component">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataSource" upperBound="5"
+        eType="#//InputComponent"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stateID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Card" eSuperTypes="#//DynamicComponent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InputText" eSuperTypes="#//InputComponent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="placeholder" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ListC" eSuperTypes="#//DynamicComponent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LoginForm" eSuperTypes="#//InputComponent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="userPlaceholder" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="passwordPlaceholder" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="buttonTitle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Picker" eSuperTypes="#//InputComponent">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" lowerBound="2"
+        upperBound="-1" eType="#//PickerElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultOption" lowerBound="1"
+        eType="#//PickerElement"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RadioButton" eSuperTypes="#//InputComponent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultOption" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PickerElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
 </ecore:EPackage>

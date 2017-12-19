@@ -5,7 +5,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:genAppGen="http://sma/genappgen"
     xsi:schemaLocation="http://sma/genappgen /model-driven-mobile-apps-generator/src/metamodel/general_design.ecore">
-  <composedOf
+  <flowElements
       xsi:type="genAppGen:Screen"
       title="Pantalla"/>
 </genAppGen:GeneralMobileApp>
