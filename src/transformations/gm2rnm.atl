@@ -1,0 +1,14 @@
+-- @path MMGeneral=/model-driven-mobile-apps-generator/src/metamodel/general_design.ecore
+-- @path MMReactNative=/model-driven-mobile-apps-generator/src/metamodel/rn_design.ecore
+
+module gm2rnm;
+create OUTReactNative : MMReactNative from INGeneral : MMGeneral;
+
+rule app2app {
+	from
+		INGeneral : MMGeneral!GeneralMobileApp
+	to 
+		OUTReactNative : MMReactNative!MobileApp (
+			name <- INGeneral.name
+		)
+}
