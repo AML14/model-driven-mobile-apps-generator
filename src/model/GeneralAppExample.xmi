@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genAppGen:GeneralMobileApp
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:genAppGen="http://sma/genappgen"
+    xsi:schemaLocation="http://sma/genappgen /model-driven-mobile-apps-generator/src/metamodel/general_design.ecore"
+    name="Test App">
+  <flowElements
+      xsi:type="genAppGen:InitialNode"/>
+  <flowElements
+      xsi:type="genAppGen:Screen"
+      title="First Screen">
+    <components
+        xsi:type="genAppGen:LoginForm"
+        stateID="1"
+        userPlaceholder="Username"
+        passwordPlaceholder="Password"
+        buttonTitle="Log in"/>
+  </flowElements>
+  <flowElements
+      xsi:type="genAppGen:Screen"
+      title="Second Screen">
+    <components
+        xsi:type="genAppGen:InputText"
+        stateID="2"
+        placeholder="Post title"/>
+    <components
+        xsi:type="genAppGen:InputText"
+        stateID="4"
+        placeholder="Post content"/>
+    <components
+        xsi:type="genAppGen:RadioButton"
+        stateID="3"
+        title="Publish anonymously"/>
+    <components
+        xsi:type="genAppGen:Picker"
+        stateID="5"
+        defaultOption="//@flowElements.2/@components.3/@elements.0"
+        title="Subject">
+      <elements
+          name="Sports"/>
+      <elements
+          name="Food"/>
+      <elements
+          name="Free time"/>
+      <elements
+          name="Work life"/>
+      <elements
+          name="Relationships"/>
+    </components>
+  </flowElements>
+  <flowElements
+      xsi:type="genAppGen:Screen"
+      title="Third Screen">
+    <components
+        xsi:type="genAppGen:Card"
+        dataSource="//@flowElements.1/@components.0 //@flowElements.2/@components.0 //@flowElements.2/@components.1 //@flowElements.2/@components.2 //@flowElements.2/@components.3"
+        stateID="6"/>
+  </flowElements>
+  <flowElements
+      xsi:type="genAppGen:FinalNode"/>
+  <transitions
+      output="//@flowElements.1"
+      input="//@flowElements.0"
+      name="iniToFirst"/>
+  <transitions
+      output="//@flowElements.2"
+      input="//@flowElements.1"
+      name="firstToSec"/>
+  <transitions
+      output="//@flowElements.3"
+      input="//@flowElements.2"
+      name="secToThird"/>
+  <transitions
+      output="//@flowElements.4"
+      input="//@flowElements.3"
+      name="ThirdToEnd"/>
+</genAppGen:GeneralMobileApp>
