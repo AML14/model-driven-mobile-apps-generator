@@ -10,8 +10,7 @@ rule flowElement2screen {
 	INGeneral:MMGeneral!Screen
 	to
 	OUTRNative:MMRNative!Screen(
-	title <- INGeneral.title,
-	scrollable <- INGeneral.scrollable
-	
+		title <- INGeneral.title,
+		scrollable <- INGeneral.scrollable
 	)
 }

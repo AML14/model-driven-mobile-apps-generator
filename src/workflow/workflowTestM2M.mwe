@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <workflow>
-	<property file="workflow/workflow.properties"/>
+	<property file="workflow/workflowTestM2M.properties"/>
 	
 	<!-- set up EMF for standalone execution -->
 	<bean class="org.eclipse.emf.mwe.utils.StandaloneSetup" >
