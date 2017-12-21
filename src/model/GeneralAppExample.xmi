@@ -4,7 +4,7 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:genAppGen="http://sma/genappgen"
-    xsi:schemaLocation="http://sma/genappgen /model-driven-mobile-apps-generator/src/metamodel/general_design.ecore"
+    xsi:schemaLocation="http://sma/genappgen ../metamodel/general_design.ecore"
     name="Test App">
   <flowElements
       xsi:type="genAppGen:InitialNode"/>

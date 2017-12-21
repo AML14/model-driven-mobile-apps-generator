@@ -1,0 +1,4 @@
+«IMPORT generalAppGenerator»
+«EXTENSION template::auxiliares»
+«DEFINE main FOR generalAppGenerator::GeneralMobileApp-»
+«ENDDEFINE»
