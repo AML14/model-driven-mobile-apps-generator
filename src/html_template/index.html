@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="animated-checkboxes.css">
 
 <style>
 	div.card {
@@ -23,23 +24,103 @@
 		margin-right: 15px;
 		margin-bottom: 0;
 	}
+
+	span.checkbox-title {
+		padding-left: 5px;
+	}
+
+	div.form-group {
+		margin-bottom: 0;
+	}
+
+	ul.nav-tabs {
+		display: none;
+	}
+
+	#container-controls {
+		margin-top: 10px;
+		padding-bottom: 10px;
+	}
+
+	.glyphicon {
+		font-size: 200%;
+		color: #4286f4;
+		cursor: pointer;
+	}
+
+	#screen-title {
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	span.screen-title {
+		display: none;
+	}
 </style>
+
+<script>
+	var total_tabs = 4;
+	var cur_tab = 1;
+
+	function change_tab(dif) {
+		if(cur_tab == 1 && dif == -1 || cur_tab == total_tabs && dif == 1) return;
+		cur_tab += dif;
+		$("#tab-" + cur_tab).tab("show");
+
+		$("#control-previous").css("visibility", "visible");
+		$("#control-next").css("visibility", "visible");
+
+		if(cur_tab == 1) {
+			$("#control-previous").css("visibility", "hidden");
+		} else if(cur_tab == total_tabs) {
+			$("#control-next").css("visibility", "hidden");
+		}
+
+		$("#screen-title").fadeOut(150, function() {
+		  $("#screen-title").text($("#tab-body-" + cur_tab + " span.screen-title").first().text()).fadeIn(150);
+		});
+	}
+
+	$(function() {
+		$("#control-previous").click(function() {
+			change_tab(-1);
+		});
+
+		$("#control-next").click(function() {
+			change_tab(+1);
+		});
+
+		$("#control-next").css("visibility", "visible");
+		$("#screen-title").text($("#tab-body-" + cur_tab + " span.screen-title").first().text())
+	});
+</script>
 
 </head>
 <body>
 
 <div class="container">
 
+  <div class="row" id="container-controls">
+    <id class="col-sm-4" style="float: left">
+      <span class="glyphicon glyphicon-chevron-left" id="control-previous" style="visibility: hidden"></span>
+    </id>
+    <id class="col-sm-4" style="float: right">
+      <span class="glyphicon glyphicon-chevron-right" id="control-next" style="visibility: hidden"></span>
+    </id>
+     
+    <h3 id="screen-title"></h3>
+  </div>
+
   <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
-    <li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
-    <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
-    <li><a data-toggle="tab" href="#menu3">Menu 3</a></li>
+    <li class="active"><a data-toggle="tab" href="#tab-body-1" id="tab-1">Home</a></li>
+    <li><a data-toggle="tab" href="#tab-body-2" id="tab-2">Menu 1</a></li>
+    <li><a data-toggle="tab" href="#tab-body-3" id="tab-3">Menu 2</a></li>
+    <li><a data-toggle="tab" href="#tab-body-4" id="tab-4">Menu 3</a></li>
   </ul>
 
   <div class="tab-content">
-    <div id="home" class="tab-pane fade in active">
-      <h3>Título pantalla 1</h3>
+    <div class="tab-pane fade in active" id="tab-body-1">
+      <span class="screen-title">Título pantalla 1</span>
 
       <id class="row">
       	<input type="text" class="form-control" id="adfkankfa" placeholder="placeholder">
@@ -53,6 +134,12 @@
 		  </div>
 		</div>
       </id>
+
+     <id class="row material-switch form-group">
+        <span class="checkbox-title col-md-6">Enable v0 (RFC 6886):</span>
+        <input id="id-allow_v0" name="allow_v0" type="checkbox" checked/>
+        <label for="id-allow_v0" class="label-primary" id="id-label-allow_v0"></label>
+    </id>
 
 	<id class="row">
 	  <div class="row">
@@ -78,9 +165,19 @@
 		</div>
 	</id>
 
+	<id class="row">
+		<div class="card" style="width: 100%;">
+		  <div class="card-block">
+		    <h4 class="card-title">Card title</h4>
+		    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+		  </div>
+		</div>
+      </id>
+
+
     </div>
-    <div id="menu1" class="tab-pane fade">
-      <h3>Menu 1</h3>
+    <div class="tab-pane fade" id="tab-body-2">
+      <span class="screen-title">Título pantalla 2</span>
       <div class="row">
 		<ul class="list-group">
 		  <li class="list-group-item">Cras justo odio</li>
@@ -91,17 +188,16 @@
 		</ul>	
       </div>
     </div>
-    <div id="menu2" class="tab-pane fade">
-      <h3>Menu 2</h3>
+    <div class="tab-pane fade" id="tab-body-3">
+      <span class="screen-title">Título pantalla 3</span>
       <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
     </div>
-    <div id="menu3" class="tab-pane fade">
-      <h3>Menu 3</h3>
+    <div class="tab-pane fade" id="tab-body-4">
+      <span class="screen-title">Título pantalla 4</span>
       <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
     </div>
-    <id class="row">
-    <label class="checkbox-inline"><input type="checkbox" value="">Option 1</label>	
-    </id>
+
+    
   </div>
 </div>
 
