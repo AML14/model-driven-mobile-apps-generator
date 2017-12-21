@@ -7,9 +7,7 @@
 «ENDDEFINE»
 
 «DEFINE generalAppIndexTemplate FOR generalAppGenerator::GeneralMobileApp-»
-«REM»TODO: Este modo de seleccionar las screens hay que cambiarlo porque depende del orden
-     en el que se crearon los objetos en sí y no del flujo.«ENDREM-»
-«LET flowElements.select(e|e.metaType == Screen) AS screens-»
+«LET getOrderedScreens(flowElements.selectFirst(e|e.metaType == InitialNode)) AS screens-»
 <!DOCTYPE html>
 <html lang="en">
 <head>

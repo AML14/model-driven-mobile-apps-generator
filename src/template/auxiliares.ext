@@ -1,4 +1,5 @@
 import rnAppGenerator;
+import generalAppGenerator;
 
 String getInputComponentKey(Object m):
     switch (m) {
@@ -9,3 +10,13 @@ String getInputComponentKey(Object m):
 		default: 'error'
 	}
 ;
+
+List getOrderedScreens(FlowElement f):
+	if(f.metaType == InitialNode) then
+		getOrderedScreens(f.transitionOut.output)
+	else if(f.metaType == Screen) then 
+		{f}.addAll(getOrderedScreens(f.transitionOut.output))
+	else 
+		{}	
+;
+		

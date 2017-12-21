@@ -7,9 +7,12 @@
     xsi:schemaLocation="http://sma/genappgen ../metamodel/general_design.ecore"
     name="Test App">
   <flowElements
-      xsi:type="genAppGen:InitialNode"/>
+      xsi:type="genAppGen:InitialNode"
+      transitionOut="//@transitions.0"/>
   <flowElements
       xsi:type="genAppGen:Screen"
+      transitionIn="//@transitions.4"
+      transitionOut="//@transitions.1"
       title="First Screen">
     <components
         xsi:type="genAppGen:LoginForm"
@@ -20,6 +23,8 @@
   </flowElements>
   <flowElements
       xsi:type="genAppGen:Screen"
+      transitionIn="//@transitions.1"
+      transitionOut="//@transitions.2"
       title="Second Screen">
     <components
         xsi:type="genAppGen:InputText"
@@ -52,6 +57,8 @@
   </flowElements>
   <flowElements
       xsi:type="genAppGen:Screen"
+      transitionIn="//@transitions.2"
+      transitionOut="//@transitions.3"
       title="Third Screen">
     <components
         xsi:type="genAppGen:Card"
@@ -59,11 +66,17 @@
         stateID="6"/>
   </flowElements>
   <flowElements
-      xsi:type="genAppGen:FinalNode"/>
+      xsi:type="genAppGen:FinalNode"
+      transitionIn="//@transitions.3"/>
+  <flowElements
+      xsi:type="genAppGen:Screen"
+      transitionIn="//@transitions.0"
+      transitionOut="//@transitions.4"
+      title="Home Screen"/>
   <transitions
-      output="//@flowElements.1"
+      output="//@flowElements.5"
       input="//@flowElements.0"
-      name="iniToFirst"/>
+      name="iniToHome"/>
   <transitions
       output="//@flowElements.2"
       input="//@flowElements.1"
@@ -76,4 +89,8 @@
       output="//@flowElements.4"
       input="//@flowElements.3"
       name="ThirdToEnd"/>
+  <transitions
+      output="//@flowElements.1"
+      input="//@flowElements.5"
+      name="homeToFirst"/>
 </genAppGen:GeneralMobileApp>
