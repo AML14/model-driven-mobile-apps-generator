@@ -4,11 +4,82 @@
 module gm2rnm;
 create OUTReactNative : MMReactNative from INGeneral : MMGeneral;
 
-rule app2app {
+rule loginForm2loginForm {
 	from
-		INGeneral : MMGeneral!GeneralMobileApp
+		INGeneral : MMGeneral!LoginForm
 	to 
-		OUTReactNative : MMReactNative!MobileApp (
+		OUTReactNative : MMReactNative!LoginForm (
+			buttonTitle <- INGeneral.buttonTitle,
+			passwordPlaceholder <- INGeneral.passwordPlaceholder,
+			userPlaceholder <- INGeneral.userPlaceholder,
+			stateID <- INGeneral.stateID,
+			flexVerticalPosition <- INGeneral.verticalPosition
+		)
+}
+
+rule card2card {
+	from
+		INGeneral : MMGeneral!Card
+	to 
+		OUTReactNative : MMReactNative!Card (
+			dataSource <- INGeneral.dataSource,
+			stateID <- INGeneral.stateID,
+			flexVerticalPosition <- INGeneral.verticalPosition
+		)
+}
+
+rule radioButton2radioButton {
+	from
+		INGeneral : MMGeneral!RadioButton
+	to 
+		OUTReactNative : MMReactNative!RadioButton (
+			defaultOption <- INGeneral.defaultOption,
+			title <- INGeneral.title,
+			stateID <- INGeneral.stateID,
+			flexVerticalPosition <- INGeneral.verticalPosition
+		)
+}
+
+rule list2list {
+	from
+		INGeneral : MMGeneral!ListC
+	to 
+		OUTReactNative : MMReactNative!ListC (
+			dataSource <- INGeneral.dataSource,
+			stateID <- INGeneral.stateID,
+			flexVerticalPosition <- INGeneral.verticalPosition
+		)
+}
+
+rule pickerElement2pickerElement {
+	from
+		INGeneral : MMGeneral!PickerElement
+	to 
+		OUTReactNative : MMReactNative!PickerElement (
 			name <- INGeneral.name
+		)
+}
+
+rule picker2picker {
+	from
+		INGeneral : MMGeneral!Picker
+	to 
+		OUTReactNative : MMReactNative!Picker (
+			elements <- INGeneral.elements,
+			defaultOption <- INGeneral.defaultOption,
+			title <- INGeneral.title,
+			stateID <- INGeneral.stateID,
+			flexVerticalPosition <- INGeneral.verticalPosition
+		)
+}
+
+rule inputText2inputText {
+	from
+		INGeneral : MMGeneral!InputText
+	to 
+		OUTReactNative : MMReactNative!InputText (
+			placeholder <- INGeneral.placeholder,
+			stateID <- INGeneral.stateID,
+			flexVerticalPosition <- INGeneral.verticalPosition
 		)
 }

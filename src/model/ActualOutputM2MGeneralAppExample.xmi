@@ -1,2 +1,15 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<rnAppGen:MobileApp xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:rnAppGen="http://rnappgen" name="Test App"/>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:rnAppGen="http://rnappgen">
+  <rnAppGen:LoginForm stateID="1" userPlaceholder="Username" passwordPlaceholder="Password" buttonTitle="Log in"/>
+  <rnAppGen:Card dataSource="/0 /4 /5 /2 /3" stateID="6"/>
+  <rnAppGen:RadioButton stateID="3" title="Publish anonymously"/>
+  <rnAppGen:Picker stateID="5" defaultOption="/3/@elements.0" title="Subject">
+    <elements name="Sports"/>
+    <elements name="Food"/>
+    <elements name="Free time"/>
+    <elements name="Work life"/>
+    <elements name="Relationships"/>
+  </rnAppGen:Picker>
+  <rnAppGen:InputText stateID="2" placeholder="Post title"/>
+  <rnAppGen:InputText stateID="4" placeholder="Post content"/>
+</xmi:XMI>
