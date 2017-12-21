@@ -8,10 +8,17 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="transitions" lowerBound="2"
         upperBound="-1" eType="#//Transition" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FlowElement" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FlowElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transitionIn" eType="#//Transition"
+        eOpposite="#//Transition/output"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transitionOut" eType="#//Transition"
+        eOpposite="#//Transition/input"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Transition">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="output" eType="#//FlowElement"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="input" eType="#//FlowElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="output" eType="#//FlowElement"
+        eOpposite="#//FlowElement/transitionIn"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="input" eType="#//FlowElement"
+        eOpposite="#//FlowElement/transitionOut"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InitialNode" eSuperTypes="#//FlowElement"/>
