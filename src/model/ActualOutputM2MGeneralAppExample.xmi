@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:rnAppGen="http://rnappgen">
-  <rnAppGen:LoginForm stateID="1" userPlaceholder="Username" passwordPlaceholder="Password" buttonTitle="Log in"/>
-  <rnAppGen:Card dataSource="/0 /4 /5 /2 /3" stateID="6"/>
-  <rnAppGen:RadioButton stateID="3" title="Publish anonymously"/>
-  <rnAppGen:Picker stateID="5" defaultOption="/3/@elements.0" title="Subject">
-    <elements name="Sports"/>
-    <elements name="Food"/>
-    <elements name="Free time"/>
-    <elements name="Work life"/>
-    <elements name="Relationships"/>
-  </rnAppGen:Picker>
-  <rnAppGen:InputText stateID="2" placeholder="Post title"/>
-  <rnAppGen:InputText stateID="4" placeholder="Post content"/>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rnAppGen="http://rnappgen">
+  <rnAppGen:Screen title="First Screen" scrollable="true" nextScreen="/1">
+    <components xsi:type="rnAppGen:LoginForm" flexVerticalPosition="1" stateID="1" userPlaceholder="Username" passwordPlaceholder="Password" buttonTitle="Log in"/>
+  </rnAppGen:Screen>
+  <rnAppGen:Screen title="Second Screen" scrollable="true" hasPreviousScreen="true" nextScreen="/2">
+    <components xsi:type="rnAppGen:InputText" flexVerticalPosition="1" stateID="2" placeholder="Post title"/>
+    <components xsi:type="rnAppGen:InputText" flexVerticalPosition="2" stateID="4" placeholder="Post content"/>
+    <components xsi:type="rnAppGen:RadioButton" flexVerticalPosition="3" stateID="3" title="Publish anonymously"/>
+    <components xsi:type="rnAppGen:Picker" flexVerticalPosition="4" stateID="5" defaultOption="/1/@components.3/@elements.0" title="Subject">
+      <elements name="Sports"/>
+      <elements name="Food"/>
+      <elements name="Free time"/>
+      <elements name="Work life"/>
+      <elements name="Relationships"/>
+    </components>
+  </rnAppGen:Screen>
+  <rnAppGen:Screen title="Third Screen" scrollable="true" hasPreviousScreen="true">
+    <components xsi:type="rnAppGen:Card" flexVerticalPosition="1" dataSource="/0/@components.0 /1/@components.0 /1/@components.1 /1/@components.2 /1/@components.3" stateID="6"/>
+  </rnAppGen:Screen>
 </xmi:XMI>

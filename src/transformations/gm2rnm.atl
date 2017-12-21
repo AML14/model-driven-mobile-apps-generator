@@ -83,3 +83,27 @@ rule inputText2inputText {
 			flexVerticalPosition <- INGeneral.verticalPosition
 		)
 }
+
+rule screen2screen {
+	from
+		INGeneral : MMGeneral!Screen
+	to 
+		OUTReactNative : MMReactNative!Screen (
+			components <- INGeneral.components,
+			title <- INGeneral.title,
+			scrollable <- true,
+			hasPreviousScreen <- thisModule.hasPreviousScreen(INGeneral.transitionIn),
+			nextScreen <- thisModule.nextScreen(INGeneral.transitionOut)
+		)
+}
+
+helper def : hasPreviousScreen(transition: OclAny) : Boolean = 
+	not transition.input.oclIsTypeOf(MMGeneral!InitialNode);
+
+helper def : nextScreen(transition: OclAny) : OclAny = 
+	if (not transition.output.oclIsTypeOf(MMGeneral!FinalNode))
+		then transition.output
+	else
+		OclUndefined
+	endif;
+

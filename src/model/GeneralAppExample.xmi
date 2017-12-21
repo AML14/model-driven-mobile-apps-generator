@@ -11,11 +11,12 @@
       transitionOut="//@transitions.0"/>
   <flowElements
       xsi:type="genAppGen:Screen"
-      transitionIn="//@transitions.4"
+      transitionIn="//@transitions.0"
       transitionOut="//@transitions.1"
       title="First Screen">
     <components
         xsi:type="genAppGen:LoginForm"
+        verticalPosition="1"
         stateID="1"
         userPlaceholder="Username"
         passwordPlaceholder="Password"
@@ -28,18 +29,22 @@
       title="Second Screen">
     <components
         xsi:type="genAppGen:InputText"
+        verticalPosition="1"
         stateID="2"
         placeholder="Post title"/>
     <components
         xsi:type="genAppGen:InputText"
+        verticalPosition="2"
         stateID="4"
         placeholder="Post content"/>
     <components
         xsi:type="genAppGen:RadioButton"
+        verticalPosition="3"
         stateID="3"
         title="Publish anonymously"/>
     <components
         xsi:type="genAppGen:Picker"
+        verticalPosition="4"
         stateID="5"
         defaultOption="//@flowElements.2/@components.3/@elements.0"
         title="Subject">
@@ -62,21 +67,17 @@
       title="Third Screen">
     <components
         xsi:type="genAppGen:Card"
+        verticalPosition="1"
         dataSource="//@flowElements.1/@components.0 //@flowElements.2/@components.0 //@flowElements.2/@components.1 //@flowElements.2/@components.2 //@flowElements.2/@components.3"
         stateID="6"/>
   </flowElements>
   <flowElements
       xsi:type="genAppGen:FinalNode"
       transitionIn="//@transitions.3"/>
-  <flowElements
-      xsi:type="genAppGen:Screen"
-      transitionIn="//@transitions.0"
-      transitionOut="//@transitions.4"
-      title="Home Screen"/>
   <transitions
-      output="//@flowElements.5"
+      output="//@flowElements.1"
       input="//@flowElements.0"
-      name="iniToHome"/>
+      name="iniToFirst"/>
   <transitions
       output="//@flowElements.2"
       input="//@flowElements.1"
@@ -88,9 +89,5 @@
   <transitions
       output="//@flowElements.4"
       input="//@flowElements.3"
-      name="ThirdToEnd"/>
-  <transitions
-      output="//@flowElements.1"
-      input="//@flowElements.5"
-      name="homeToFirst"/>
+      name="thirdToEnd"/>
 </genAppGen:GeneralMobileApp>
