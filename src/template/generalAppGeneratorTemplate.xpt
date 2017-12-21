@@ -71,7 +71,7 @@
 </style>
 
 <script>
-	var total_tabs = «flowElements.reject(e|e.metaType != Screen).size»;
+	var total_tabs = «screens.size»;
 	var cur_tab = 1;
 
 	function change_tab(dif) {
