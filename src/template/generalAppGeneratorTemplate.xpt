@@ -1,4 +1,183 @@
 «IMPORT generalAppGenerator»
 «EXTENSION template::auxiliares»
 «DEFINE main FOR generalAppGenerator::GeneralMobileApp-»
+«FILE 'index.html'-»
+«EXPAND generalAppIndexTemplate»
+«ENDFILE»
 «ENDDEFINE»
+
+«DEFINE generalAppIndexTemplate FOR generalAppGenerator::GeneralMobileApp-»
+«REM»TODO: Este modo de seleccionar las screens hay que cambiarlo porque depende del orden
+     en el que se crearon los objetos en sí y no del flujo.«ENDREM-»
+«LET flowElements.select(e|e.metaType == Screen) AS screens-»
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>«this.name»</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://pqqqqw.pw/animated-checkboxes.css">
+
+<style>
+	div.card {
+		border-radius: 10px;
+		border-width: 1px;
+		border-color: #bbb;
+		border-style: solid;
+		padding: 5px;
+		box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.2); 
+	}
+
+	ul.list-group {
+		margin-left: 15px;
+		margin-right: 15px;
+		margin-bottom: 0;
+	}
+
+	span.checkbox-title {
+		padding-left: 5px;
+	}
+
+	div.form-group {
+		margin-bottom: 0;
+	}
+
+	ul.nav-tabs {
+		display: none;
+	}
+
+	#container-controls {
+		margin-top: 10px;
+		padding-bottom: 10px;
+	}
+
+	.glyphicon {
+		font-size: 200%;
+		color: #4286f4;
+		cursor: pointer;
+	}
+
+	#screen-title {
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	span.screen-title {
+		display: none;
+	}
+</style>
+
+<script>
+	var total_tabs = «flowElements.reject(e|e.metaType != Screen).size»;
+	var cur_tab = 1;
+
+	function change_tab(dif) {
+		if(cur_tab == 1 && dif == -1 || cur_tab == total_tabs && dif == 1) return;
+		cur_tab += dif;
+		$("#tab-" + cur_tab).tab("show");
+
+		$("#control-previous").css("visibility", "visible");
+		$("#control-next").css("visibility", "visible");
+
+		if(cur_tab == 1) {
+			$("#control-previous").css("visibility", "hidden");
+		} else if(cur_tab == total_tabs) {
+			$("#control-next").css("visibility", "hidden");
+		}
+
+		$("#screen-title").fadeOut(150, function() {
+		  $("#screen-title").text($("#tab-body-" + cur_tab + " span.screen-title").first().text()).fadeIn(150);
+		});
+	}
+
+	$(function() {
+		$("#control-previous").click(function() {
+			change_tab(-1);
+		});
+
+		$("#control-next").click(function() {
+			change_tab(+1);
+		});
+
+		$("#control-next").css("visibility", "visible");
+		$("#screen-title").text($("#tab-body-" + cur_tab + " span.screen-title").first().text())
+	});
+</script>
+
+</head>
+<body>
+
+<div class="container">
+
+  <div class="row" id="container-controls">
+    <id class="col-sm-4" style="float: left">
+      <span class="glyphicon glyphicon-chevron-left" id="control-previous" style="visibility: hidden"></span>
+    </id>
+    <id class="col-sm-4" style="float: right">
+      <span class="glyphicon glyphicon-chevron-right" id="control-next" style="visibility: hidden"></span>
+    </id>
+     
+    <h3 id="screen-title"></h3>
+  </div>
+
+  <ul class="nav nav-tabs">
+«FOREACH screens AS s ITERATOR iter-»
+    <li«IF iter.counter1 == 1-» class="active"«ENDIF-»><a data-toggle="tab" href="#tab-body-«iter.counter1-»" id="tab-«iter.counter1-»"></a></li>
+«ENDFOREACH-»
+  </ul>
+  
+  <div class="tab-content">
+«FOREACH screens AS s ITERATOR iter-»
+    <div class="tab-pane fade«IF iter.counter1 == 1-» in active«ENDIF-»" id="tab-body-«iter.counter1»">
+«EXPAND screenTemplate FOR (Screen) s-»
+    </div>
+«ENDFOREACH-»
+  </div>
+</div>
+</body>
+</html>
+«ENDLET-»
+«ENDDEFINE-»
+«DEFINE screenTemplate FOR Screen-»
+      <span class="screen-title">«this.title»</span>
+«FOREACH this.components AS c-»
+«REM»Esto es horrible, pero no he encontrado ninguna manera de que se haga automáticamente
+     según el tipo de componente.«ENDREM-»
+        <id class="row«IF c.metaType == RadioButton-» material-switch form-group«ENDIF-»">
+«IF c.metaType == RadioButton-»«EXPAND componentTemplate FOR (RadioButton)c-»
+«ELSEIF c.metaType == Picker-»«EXPAND componentTemplate FOR (Picker)c-»
+«ELSEIF c.metaType == LoginForm-»«EXPAND componentTemplate FOR (LoginForm)c-»
+«ELSEIF c.metaType == InputText-»«EXPAND componentTemplate FOR (InputText)c-»
+«ELSEIF c.metaType == Card-»«EXPAND componentTemplate FOR (Card)c-»
+«ELSEIF c.metaType == ListC-»«EXPAND componentTemplate FOR (ListC)c-»
+«ENDIF-»
+        </id>
+«ENDFOREACH-»
+«ENDDEFINE-»
+
+«DEFINE componentTemplate FOR RadioButton-»
+          RadioButton (TO-DO)
+«ENDDEFINE-»
+
+«DEFINE componentTemplate FOR Picker-»
+          Picker (TO-DO)
+«ENDDEFINE-»
+
+«DEFINE componentTemplate FOR LoginForm-»
+          LoginForm (TO-DO)
+«ENDDEFINE-»
+
+«DEFINE componentTemplate FOR InputText-»
+          InputText (TO-DO)
+«ENDDEFINE-»
+
+«DEFINE componentTemplate FOR Card-»
+          Card (TO-DO)
+«ENDDEFINE-»
+
+«DEFINE componentTemplate FOR ListC-»
+          List (TO-DO)
+«ENDDEFINE-»
