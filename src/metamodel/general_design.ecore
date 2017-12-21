@@ -3,55 +3,51 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="generalAppGenerator" nsURI="http://sma/genappgen" nsPrefix="genAppGen">
   <eClassifiers xsi:type="ecore:EClass" name="GeneralMobileApp">
     <eStructuralFeatures xsi:type="ecore:EReference" name="flowElements" lowerBound="3"
-        upperBound="-1" eType="ecore:EClass /model-driven-mobile-apps-generator/src/metamodel/general_design.ecore#//FlowElement"
-        containment="true"/>
+        upperBound="-1" eType="#//FlowElement" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="transitions" lowerBound="2"
-        upperBound="-1" eType="ecore:EClass /model-driven-mobile-apps-generator/src/metamodel/general_design.ecore#//Transition"
-        containment="true"/>
+        upperBound="-1" eType="#//Transition" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FlowElement" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="Transition">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="output" eType="ecore:EClass /model-driven-mobile-apps-generator/src/metamodel/general_design.ecore#//FlowElement"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="input" eType="ecore:EClass /model-driven-mobile-apps-generator/src/metamodel/general_design.ecore#//FlowElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="output" eType="#//FlowElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="input" eType="#//FlowElement"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InitialNode" eSuperTypes="/model-driven-mobile-apps-generator/src/metamodel/general_design.ecore#//FlowElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="FinalNode" eSuperTypes="/model-driven-mobile-apps-generator/src/metamodel/general_design.ecore#//FlowElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Screen" eSuperTypes="/model-driven-mobile-apps-generator/src/metamodel/general_design.ecore#//FlowElement">
+  <eClassifiers xsi:type="ecore:EClass" name="InitialNode" eSuperTypes="#//FlowElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FinalNode" eSuperTypes="#//FlowElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Screen" eSuperTypes="#//FlowElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
-        eType="ecore:EClass /model-driven-mobile-apps-generator/src/metamodel/general_design.ecore#//Component"
-        containment="true"/>
+        eType="#//Component" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Component" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="InputComponent" abstract="true" eSuperTypes="/model-driven-mobile-apps-generator/src/metamodel/general_design.ecore#//Component">
+  <eClassifiers xsi:type="ecore:EClass" name="InputComponent" abstract="true" eSuperTypes="#//Component">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="stateID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DynamicComponent" abstract="true" eSuperTypes="/model-driven-mobile-apps-generator/src/metamodel/general_design.ecore#//Component">
+  <eClassifiers xsi:type="ecore:EClass" name="DynamicComponent" abstract="true" eSuperTypes="#//Component">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataSource" upperBound="5"
-        eType="ecore:EClass /model-driven-mobile-apps-generator/src/metamodel/general_design.ecore#//InputComponent"/>
+        eType="#//InputComponent"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="stateID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Card" eSuperTypes="/model-driven-mobile-apps-generator/src/metamodel/general_design.ecore#//DynamicComponent"/>
-  <eClassifiers xsi:type="ecore:EClass" name="InputText" eSuperTypes="/model-driven-mobile-apps-generator/src/metamodel/general_design.ecore#//InputComponent">
+  <eClassifiers xsi:type="ecore:EClass" name="Card" eSuperTypes="#//DynamicComponent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InputText" eSuperTypes="#//InputComponent">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="placeholder" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ListC" eSuperTypes="/model-driven-mobile-apps-generator/src/metamodel/general_design.ecore#//DynamicComponent"/>
-  <eClassifiers xsi:type="ecore:EClass" name="LoginForm" eSuperTypes="/model-driven-mobile-apps-generator/src/metamodel/general_design.ecore#//InputComponent">
+  <eClassifiers xsi:type="ecore:EClass" name="ListC" eSuperTypes="#//DynamicComponent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LoginForm" eSuperTypes="#//InputComponent">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="userPlaceholder" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="passwordPlaceholder" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="buttonTitle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Picker" eSuperTypes="/model-driven-mobile-apps-generator/src/metamodel/general_design.ecore#//InputComponent">
+  <eClassifiers xsi:type="ecore:EClass" name="Picker" eSuperTypes="#//InputComponent">
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" lowerBound="2"
-        upperBound="-1" eType="ecore:EClass /model-driven-mobile-apps-generator/src/metamodel/general_design.ecore#//PickerElement"
-        containment="true"/>
+        upperBound="-1" eType="#//PickerElement" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="defaultOption" lowerBound="1"
-        eType="ecore:EClass /model-driven-mobile-apps-generator/src/metamodel/general_design.ecore#//PickerElement"/>
+        eType="#//PickerElement"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RadioButton" eSuperTypes="/model-driven-mobile-apps-generator/src/metamodel/general_design.ecore#//InputComponent">
+  <eClassifiers xsi:type="ecore:EClass" name="RadioButton" eSuperTypes="#//InputComponent">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultOption" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
