@@ -97,6 +97,22 @@ rule screen2screen {
 		)
 }
 
+rule app2navigatorAndApp {
+	from
+		INGeneral : MMGeneral!GeneralMobileApp
+	to 
+		OUTReactNative : MMReactNative!Navigator (
+			name <- 'Navigator1',
+			type <- 'Stack',
+			screens <- INGeneral.flowElements.asSet()->select(i | i.oclIsTypeOf(MMGeneral!Screen)),
+			initialScreen <- thisModule.getInitialScreen(INGeneral.flowElements)
+		),
+		OUTReactNative2 : MMReactNative!MobileApp (
+			name <- INGeneral.name,
+			navigator <- OUTReactNative
+		)
+}
+
 helper def : hasPreviousScreen(transition: OclAny) : Boolean = 
 	not transition.input.oclIsTypeOf(MMGeneral!InitialNode);
 
@@ -107,3 +123,6 @@ helper def : nextScreen(transition: OclAny) : OclAny =
 		OclUndefined
 	endif;
 
+helper def : getInitialScreen(flowElements: Set(OclAny)) : OclAny = 
+	let initialNode : OclAny = flowElements->any(i | i.oclIsTypeOf(MMGeneral!InitialNode))
+	in initialNode.transitionOut.output;
