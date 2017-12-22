@@ -6,7 +6,8 @@
 «ENDFILE»
 «ENDDEFINE»
 
-«DEFINE generalAppIndexTemplate FOR generalAppGenerator::GeneralMobileApp-»
+«REM» Definición de la plantilla para la App general«ENDREM»
+«DEFINE generalAppIndexTemplate FOR GeneralMobileApp-»
 «LET getOrderedScreens(flowElements.selectFirst(e|e.metaType == InitialNode)) AS screens-»
 <!DOCTYPE html>
 <html lang="en">
@@ -65,6 +66,10 @@
 
 	span.screen-title {
 		display: none;
+	}
+	
+	span.checkbox-title {
+	    font-weight: 700;
 	}
 </style>
 
@@ -139,9 +144,11 @@
 </html>
 «ENDLET-»
 «ENDDEFINE-»
+
+«REM» Definición de la plantilla para cada pantalla«ENDREM»
 «DEFINE screenTemplate FOR Screen-»
       <span class="screen-title">«this.title»</span>
-«FOREACH this.components AS c-»
+«FOREACH this.components.sortBy(e|e.verticalPosition) AS c-»
 «REM»Esto es horrible, pero no he encontrado ninguna manera de que se haga automáticamente
      según el tipo de componente.«ENDREM-»
         <id class="row«IF c.metaType == RadioButton-» material-switch form-group«ENDIF-»">
@@ -156,12 +163,22 @@
 «ENDFOREACH-»
 «ENDDEFINE-»
 
+«REM» Definición de las plantillas de cada componente«ENDREM»
 «DEFINE componentTemplate FOR RadioButton-»
-          RadioButton (TO-DO)
+          <span class="checkbox-title col-md-6">«this.title»:</span>
+          <input id="id-checkbox-«this.stateID»" name="checkbox-«this.stateID»" type="checkbox"«IF this.defaultOption» checked«ENDIF»/>
+          <label for="id-checkbox-«this.stateID»" class="label-primary" id="id-label-checkbox-«this.stateID»"></label>
 «ENDDEFINE-»
 
 «DEFINE componentTemplate FOR Picker-»
-          Picker (TO-DO)
+          <div class="form-group">
+            <label for="id-select-«this.stateID»">«this.title»</label>
+            <select class="form-control" id="id-select-«this.stateID»" name="select-«this.stateID»">
+«FOREACH this.elements AS option-»
+              <option«IF option == this.defaultOption» selected«ENDIF»>«option.name»</option>
+«ENDFOREACH-»
+            </select>
+          </div>
 «ENDDEFINE-»
 
 «DEFINE componentTemplate FOR LoginForm-»
@@ -169,7 +186,7 @@
 «ENDDEFINE-»
 
 «DEFINE componentTemplate FOR InputText-»
-          InputText (TO-DO)
+          <input type="text" class="form-control" id="id-textinput-«this.stateID»" name="textinput-«this.stateID»" placeholder="«this.placeholder»">
 «ENDDEFINE-»
 
 «DEFINE componentTemplate FOR Card-»

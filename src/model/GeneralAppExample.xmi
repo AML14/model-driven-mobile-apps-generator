@@ -29,7 +29,7 @@
       title="Second Screen">
     <components
         xsi:type="genAppGen:InputText"
-        verticalPosition="1"
+        verticalPosition="5"
         stateID="2"
         placeholder="Post title"/>
     <components
@@ -41,12 +41,13 @@
         xsi:type="genAppGen:RadioButton"
         verticalPosition="3"
         stateID="3"
-        title="Publish anonymously"/>
+        title="Publish anonymously"
+        defaultOption="true"/>
     <components
         xsi:type="genAppGen:Picker"
         verticalPosition="4"
         stateID="5"
-        defaultOption="//@flowElements.2/@components.3/@elements.0"
+        defaultOption="//@flowElements.2/@components.3/@elements.3"
         title="Subject">
       <elements
           name="Sports"/>
