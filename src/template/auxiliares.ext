@@ -11,6 +11,16 @@ String getInputComponentKey(Object m):
 	}
 ;
 
+String getInputComponentKeyGeneral(Object m):
+    switch (m) {
+		case LoginForm: 'username'
+		case RadioButton: 'radioButton'
+		case Picker: 'itemSelected'
+		case InputText: 'inputText'
+		default: 'error'
+	}
+;
+
 List getOrderedScreens(FlowElement f):
 	if(f.metaType == InitialNode) then
 		getOrderedScreens(f.transitionOut.output)

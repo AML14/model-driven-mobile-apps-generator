@@ -179,7 +179,15 @@
 «ENDDEFINE-»
 
 «DEFINE componentTemplate FOR LoginForm-»
-						LoginForm (TO-DO)
+				        <div class="row">
+						    <form class="form-signin">       
+						      <h2 class="form-signin-heading">Please login</h2>
+						      <input type="text" class="form-control" name="username" placeholder="«this.userPlaceholder»" required="" autofocus="" />
+						      <input type="password" class="form-control" name="«this.stateID»" placeholder="«this.passwordPlaceholder»" required=""/>      
+						      <p></p>
+						      <button class="btn btn-lg btn-primary btn-block" type="submit">«this.buttonTitle»</button>   
+						    </form>
+						</div>
 «ENDDEFINE-»
 
 «DEFINE componentTemplate FOR InputText-»
@@ -187,9 +195,35 @@
 «ENDDEFINE-»
 
 «DEFINE componentTemplate FOR Card-»
-						Card (TO-DO)
+						<div class="card" style="width: 100%;">
+						  <div class="card-block">
+						    <h4 class="card-title">Card title</h4>
+						    <p class="card-text">	
+							«EXPAND inputComponentDataSourceTemplate FOREACH dataSource-»
+						    </p>
+						  </div>
+						</div>
 «ENDDEFINE-»
 
+«REM» Muestra la estructura de acceso a datos«ENDREM»
+«DEFINE inputComponentDataSourceTemplate FOR Component-»
+                «IF metaType == LoginForm || metaType == InputText || metaType == Picker || metaType == RadioButton-»
+                {
+                  type: '«IF metaType == LoginForm-»login«ELSE-»«getInputComponentKeyGeneral(metaType)»«ENDIF-»',
+                  key: '«IF metaType == LoginForm-»username«stateID»-password«stateID»«ELSE-»«getInputComponentKeyGeneral(metaType)»«stateID»«ENDIF-»',
+                },
+                «ENDIF-»
+«ENDDEFINE»
+
 «DEFINE componentTemplate FOR ListC-»
-						List (TO-DO)
+							<ul class="list-group">
+«FOREACH this.items AS item-»
+								<li class="list-group-item">
+								«REM» Muestro ambas«ENDREM»
+								«item.text»
+								«EXPAND inputComponentDataSourceTemplate FOREACH dataSource-»
+								</li>
+«ENDFOREACH-»
+							</ul>	
+					      </div>
 «ENDDEFINE-»
