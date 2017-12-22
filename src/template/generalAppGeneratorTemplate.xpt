@@ -11,147 +11,144 @@
 «LET getOrderedScreens(flowElements.selectFirst(e|e.metaType == InitialNode)) AS screens-»
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>«this.name»</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="https://pqqqqw.pw/animated-checkboxes.css">
+	<head>
+		<title>«this.name»</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://pqqqqw.pw/animated-checkboxes.css">
 
-<style>
-	div.card {
-		border-radius: 10px;
-		border-width: 1px;
-		border-color: #bbb;
-		border-style: solid;
-		padding: 5px;
-		box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.2); 
-	}
-
-	ul.list-group {
-		margin-left: 15px;
-		margin-right: 15px;
-		margin-bottom: 0;
-	}
-
-	span.checkbox-title {
-		padding-left: 5px;
-	}
-
-	div.form-group {
-		margin-bottom: 0;
-	}
-
-	ul.nav-tabs {
-		display: none;
-	}
-
-	#container-controls {
-		margin-top: 10px;
-		padding-bottom: 10px;
-	}
-
-	.glyphicon {
-		font-size: 200%;
-		color: #4286f4;
-		cursor: pointer;
-	}
-
-	#screen-title {
-		margin: 0 auto;
-		text-align: center;
-	}
-
-	span.screen-title {
-		display: none;
-	}
+		<style>
+			div.card {
+				border-radius: 10px;
+				border-width: 1px;
+				border-color: #bbb;
+				border-style: solid;
+				padding: 5px;
+				box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.2); 
+			}
 	
-	span.checkbox-title {
-	    font-weight: 700;
-	}
-</style>
+			ul.list-group {
+				margin-left: 15px;
+				margin-right: 15px;
+				margin-bottom: 0;
+			}
+	
+			span.checkbox-title {
+				padding-left: 5px;
+			}
+		
+			div.form-group {
+				margin-bottom: 0;
+			}
+		
+			ul.nav-tabs {
+				display: none;
+			}
+		
+			#container-controls {
+				margin-top: 10px;
+				padding-bottom: 10px;
+			}
+		
+			.glyphicon {
+				font-size: 200%;
+				color: #4286f4;
+				cursor: pointer;
+			}
+		
+			#screen-title {
+				margin: 0 auto;
+				text-align: center;
+			}
+		
+			span.screen-title {
+				display: none;
+			}
+			
+			span.checkbox-title {
+			    font-weight: 700;
+			}
+		</style>
 
-<script>
-	var total_tabs = «screens.size»;
-	var cur_tab = 1;
+		<script>
+			var total_tabs = «screens.size»;
+			var cur_tab = 1;
+		
+			function change_tab(dif) {
+				if(cur_tab == 1 && dif == -1 || cur_tab == total_tabs && dif == 1) return;
+				cur_tab += dif;
+				$("#tab-" + cur_tab).tab("show");
+		
+				$("#control-previous").css("visibility", "visible");
+				$("#control-next").css("visibility", "visible");
+		
+				if(cur_tab == 1) {
+					$("#control-previous").css("visibility", "hidden");
+				} else if(cur_tab == total_tabs) {
+					$("#control-next").css("visibility", "hidden");
+				}
+		
+				$("#screen-title").fadeOut(150, function() {
+				  $("#screen-title").text($("#tab-body-" + cur_tab + " span.screen-title").first().text()).fadeIn(150);
+				});
+			}
+		
+			$(function() {
+				$("#control-previous").click(function() {
+					change_tab(-1);
+				});
+		
+				$("#control-next").click(function() {
+					change_tab(+1);
+				});
+		
+				$("#control-next").css("visibility", "visible");
+				$("#screen-title").text($("#tab-body-" + cur_tab + " span.screen-title").first().text())
+			});
+		</script>
+	</head>
 
-	function change_tab(dif) {
-		if(cur_tab == 1 && dif == -1 || cur_tab == total_tabs && dif == 1) return;
-		cur_tab += dif;
-		$("#tab-" + cur_tab).tab("show");
+	<body>
+		<div class="container">
+			<div class="row" id="container-controls">
+				<id class="col-sm-4" style="float: left">
+					<span class="glyphicon glyphicon-chevron-left" id="control-previous" style="visibility: hidden"></span>
+				</id>
+				<id class="col-sm-4" style="float: right">
+					<span class="glyphicon glyphicon-chevron-right" id="control-next" style="visibility: hidden"></span>
+				</id>
+				<h3 id="screen-title"></h3>
+			</div>
 
-		$("#control-previous").css("visibility", "visible");
-		$("#control-next").css("visibility", "visible");
-
-		if(cur_tab == 1) {
-			$("#control-previous").css("visibility", "hidden");
-		} else if(cur_tab == total_tabs) {
-			$("#control-next").css("visibility", "hidden");
-		}
-
-		$("#screen-title").fadeOut(150, function() {
-		  $("#screen-title").text($("#tab-body-" + cur_tab + " span.screen-title").first().text()).fadeIn(150);
-		});
-	}
-
-	$(function() {
-		$("#control-previous").click(function() {
-			change_tab(-1);
-		});
-
-		$("#control-next").click(function() {
-			change_tab(+1);
-		});
-
-		$("#control-next").css("visibility", "visible");
-		$("#screen-title").text($("#tab-body-" + cur_tab + " span.screen-title").first().text())
-	});
-</script>
-
-</head>
-<body>
-
-<div class="container">
-
-  <div class="row" id="container-controls">
-    <id class="col-sm-4" style="float: left">
-      <span class="glyphicon glyphicon-chevron-left" id="control-previous" style="visibility: hidden"></span>
-    </id>
-    <id class="col-sm-4" style="float: right">
-      <span class="glyphicon glyphicon-chevron-right" id="control-next" style="visibility: hidden"></span>
-    </id>
-     
-    <h3 id="screen-title"></h3>
-  </div>
-
-  <ul class="nav nav-tabs">
+			<ul class="nav nav-tabs">
 «FOREACH screens AS s ITERATOR iter-»
-    <li«IF iter.counter1 == 1-» class="active"«ENDIF-»><a data-toggle="tab" href="#tab-body-«iter.counter1-»" id="tab-«iter.counter1-»"></a></li>
+				<li«IF iter.counter1 == 1-» class="active"«ENDIF-»><a data-toggle="tab" href="#tab-body-«iter.counter1-»" id="tab-«iter.counter1-»"></a></li>
 «ENDFOREACH-»
-  </ul>
-  
-  <div class="tab-content">
+			</ul>
+
+			<div class="tab-content">
 «FOREACH screens AS s ITERATOR iter-»
-    <div class="tab-pane fade«IF iter.counter1 == 1-» in active«ENDIF-»" id="tab-body-«iter.counter1»">
+				<div class="tab-pane fade«IF iter.counter1 == 1-» in active«ENDIF-»" id="tab-body-«iter.counter1»">
 «EXPAND screenTemplate FOR (Screen) s-»
-    </div>
+				</div>
 «ENDFOREACH-»
-  </div>
-</div>
-</body>
+			</div>
+		</div>
+	</body>
 </html>
 «ENDLET-»
 «ENDDEFINE-»
 
 «REM» Definición de la plantilla para cada pantalla«ENDREM»
 «DEFINE screenTemplate FOR Screen-»
-      <span class="screen-title">«this.title»</span>
+					<span class="screen-title">«this.title»</span>
 «FOREACH this.components.sortBy(e|e.verticalPosition) AS c-»
 «REM»Esto es horrible, pero no he encontrado ninguna manera de que se haga automáticamente
      según el tipo de componente.«ENDREM-»
-        <id class="row«IF c.metaType == RadioButton-» material-switch form-group«ENDIF-»">
+					<id class="row«IF c.metaType == RadioButton-» material-switch form-group«ENDIF-»">
 «IF c.metaType == RadioButton-»«EXPAND componentTemplate FOR (RadioButton)c-»
 «ELSEIF c.metaType == Picker-»«EXPAND componentTemplate FOR (Picker)c-»
 «ELSEIF c.metaType == LoginForm-»«EXPAND componentTemplate FOR (LoginForm)c-»
@@ -159,40 +156,40 @@
 «ELSEIF c.metaType == Card-»«EXPAND componentTemplate FOR (Card)c-»
 «ELSEIF c.metaType == ListC-»«EXPAND componentTemplate FOR (ListC)c-»
 «ENDIF-»
-        </id>
+					</id>
 «ENDFOREACH-»
 «ENDDEFINE-»
 
 «REM» Definición de las plantillas de cada componente«ENDREM»
 «DEFINE componentTemplate FOR RadioButton-»
-          <span class="checkbox-title col-md-6">«this.title»:</span>
-          <input id="id-checkbox-«this.stateID»" name="checkbox-«this.stateID»" type="checkbox"«IF this.defaultOption» checked«ENDIF»/>
-          <label for="id-checkbox-«this.stateID»" class="label-primary" id="id-label-checkbox-«this.stateID»"></label>
+						<span class="checkbox-title col-md-6">«this.title»:</span>
+						<input id="id-checkbox-«this.stateID»" name="checkbox-«this.stateID»" type="checkbox"«IF this.defaultOption» checked«ENDIF»/>
+						<label for="id-checkbox-«this.stateID»" class="label-primary" id="id-label-checkbox-«this.stateID»"></label>
 «ENDDEFINE-»
 
 «DEFINE componentTemplate FOR Picker-»
-          <div class="form-group">
-            <label for="id-select-«this.stateID»">«this.title»</label>
-            <select class="form-control" id="id-select-«this.stateID»" name="select-«this.stateID»">
+						<div class="form-group">
+							<label for="id-select-«this.stateID»">«this.title»</label>
+							<select class="form-control" id="id-select-«this.stateID»" name="select-«this.stateID»">
 «FOREACH this.elements AS option-»
-              <option«IF option == this.defaultOption» selected«ENDIF»>«option.name»</option>
+								<option«IF option == this.defaultOption» selected«ENDIF»>«option.name»</option>
 «ENDFOREACH-»
-            </select>
-          </div>
+							</select>
+						</div>
 «ENDDEFINE-»
 
 «DEFINE componentTemplate FOR LoginForm-»
-          LoginForm (TO-DO)
+						LoginForm (TO-DO)
 «ENDDEFINE-»
 
 «DEFINE componentTemplate FOR InputText-»
-          <input type="text" class="form-control" id="id-textinput-«this.stateID»" name="textinput-«this.stateID»" placeholder="«this.placeholder»">
+						<input type="text" class="form-control" id="id-textinput-«this.stateID»" name="textinput-«this.stateID»" placeholder="«this.placeholder»">
 «ENDDEFINE-»
 
 «DEFINE componentTemplate FOR Card-»
-          Card (TO-DO)
+						Card (TO-DO)
 «ENDDEFINE-»
 
 «DEFINE componentTemplate FOR ListC-»
-          List (TO-DO)
+						List (TO-DO)
 «ENDDEFINE-»
