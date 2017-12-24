@@ -211,7 +211,7 @@
 «ENDDEFINE-»
 
 «REM» Muestra la estructura de acceso a datos«ENDREM»
-«DEFINE inputComponentDataSourceTemplate FOR Component-»
+«DEFINE inputComponentDataSourceTemplate FOR InputComponent-»
                 «IF metaType == LoginForm || metaType == InputText || metaType == Picker || metaType == RadioButton-»
                 {
                   type: '«IF metaType == LoginForm-»login«ELSE-»«getInputComponentKeyGeneral(metaType)»«ENDIF-»',
