@@ -71,6 +71,10 @@
 			span.checkbox-title {
 			    font-weight: 700;
 			}
+			
+			form.form-signin {
+				margin: 15px;
+			}
 		</style>
 
 		<script>
@@ -178,6 +182,7 @@
 						</div>
 «ENDDEFINE-»
 
+
 «DEFINE componentTemplate FOR LoginForm-»
 				        <div class="row">
 						    <form class="form-signin">       
@@ -217,13 +222,12 @@
 
 «DEFINE componentTemplate FOR ListC-»
 							<ul class="list-group">
-«FOREACH this.items AS item-»
 								<li class="list-group-item">
-								«REM» Muestro ambas«ENDREM»
-								«item.text»
 								«EXPAND inputComponentDataSourceTemplate FOREACH dataSource-»
 								</li>
-«ENDFOREACH-»
+								<li class="list-group-item">
+								«EXPAND inputComponentDataSourceTemplate FOREACH dataSource-»
+								</li>
 							</ul>	
 					      </div>
 «ENDDEFINE-»
