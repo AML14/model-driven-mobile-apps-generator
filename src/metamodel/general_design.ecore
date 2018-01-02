@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="generalAppGenerator" nsURI="http://sma/genappgen" nsPrefix="genAppGen">
+  <eAnnotations source="gmf"/>
   <eClassifiers xsi:type="ecore:EClass" name="GeneralMobileApp">
+    <eAnnotations source="gmf.diagram"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="flowElements" lowerBound="3"
         upperBound="-1" eType="#//FlowElement" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -15,23 +17,57 @@
         eOpposite="#//Transition/input"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Transition">
+    <eAnnotations source="gmf.link">
+      <details key="target" value="output"/>
+      <details key="source" value="input"/>
+      <details key="resizable" value="true"/>
+      <details key="target.decoration" value="arrow"/>
+      <details key="label" value="name"/>
+      <details key="tool.description" value="Nueva transiciÃ³n."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="output" eType="#//FlowElement"
         eOpposite="#//FlowElement/transitionIn"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="input" eType="#//FlowElement"
         eOpposite="#//FlowElement/transitionOut"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InitialNode" eSuperTypes="#//FlowElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="FinalNode" eSuperTypes="#//FlowElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InitialNode" eSuperTypes="#//FlowElement">
+    <eAnnotations source="gmf.node">
+      <details key="label.placement" value="none"/>
+      <details key="label.icon" value="false"/>
+      <details key="resizable" value="true"/>
+      <details key="tool.description" value="Nueva nodo Inicial."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FinalNode" eSuperTypes="#//FlowElement">
+    <eAnnotations source="gmf.node">
+      <details key="label.placement" value="none"/>
+      <details key="label.icon" value="false"/>
+      <details key="resizable" value="true"/>
+      <details key="tool.description" value="Nueva nodo Final."/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Screen" eSuperTypes="#//FlowElement">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="title"/>
+      <details key="label.placement" value="internal"/>
+      <details key="label.icon" value="false"/>
+      <details key="resizable" value="true"/>
+      <details key="tool.description" value="Nueva pantalla."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
-        eType="#//Component" containment="true"/>
+        eType="#//Component" containment="true">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Component" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="verticalPosition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InputComponent" abstract="true" eSuperTypes="#//Component">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="verticalPosition"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="stateID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DynamicComponent" abstract="true" eSuperTypes="#//Component">
@@ -39,28 +75,53 @@
         eType="#//InputComponent"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="stateID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Card" eSuperTypes="#//DynamicComponent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Card" eSuperTypes="#//DynamicComponent">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="verticalPosition"/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InputText" eSuperTypes="#//InputComponent">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="verticalPosition"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="placeholder" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ListC" eSuperTypes="#//DynamicComponent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ListC" eSuperTypes="#//DynamicComponent">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="verticalPosition"/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LoginForm" eSuperTypes="#//InputComponent">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="verticalPosition"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="userPlaceholder" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="passwordPlaceholder" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="buttonTitle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Picker" eSuperTypes="#//InputComponent">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="verticalPosition"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" lowerBound="2"
-        upperBound="-1" eType="#//PickerElement" containment="true"/>
+        upperBound="-1" eType="#//PickerElement" containment="true">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="defaultOption" lowerBound="1"
         eType="#//PickerElement"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RadioButton" eSuperTypes="#//InputComponent">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="defaultOption"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultOption" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PickerElement">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

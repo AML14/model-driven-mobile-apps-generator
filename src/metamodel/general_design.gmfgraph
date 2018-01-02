@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition">
+  <gmfgraph:Canvas name="generalAppGenerator">
+    <figures name="Default">
+      <figures xsi:type="gmfgraph:PolylineDecoration" name="TransitionFigureTargetDecoration"/>
+      <descriptors name="InitialNodeFigure">
+        <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="InitialNodeFigure">
+          <border xsi:type="gmfgraph:MarginBorder">
+            <insets top="5" left="5" bottom="5" right="5"/>
+          </border>
+        </actualFigure>
+      </descriptors>
+      <descriptors name="FinalNodeFigure">
+        <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="FinalNodeFigure">
+          <border xsi:type="gmfgraph:MarginBorder">
+            <insets top="5" left="5" bottom="5" right="5"/>
+          </border>
+        </actualFigure>
+      </descriptors>
+      <descriptors name="ScreenFigure">
+        <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="ScreenFigure">
+          <border xsi:type="gmfgraph:MarginBorder">
+            <insets top="5" left="5" bottom="5" right="5"/>
+          </border>
+          <children xsi:type="gmfgraph:Label" name="ScreenLabelFigure" text="Screen">
+            <maximumSize dx="10000" dy="50"/>
+          </children>
+          <children xsi:type="gmfgraph:Rectangle" name="ScreenComponentsCompartmentFigure" outline="false"/>
+        </actualFigure>
+        <accessors accessor="getFigureScreenLabelFigure" figure="/0/@figures.0/@descriptors.2/@actualFigure/@children.0"/>
+        <accessors accessor="getScreenComponentsCompartmentFigure" figure="/0/@figures.0/@descriptors.2/@actualFigure/@children.1"/>
+      </descriptors>
+      <descriptors name="CardFigure">
+        <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="CardFigure">
+          <border xsi:type="gmfgraph:MarginBorder">
+            <insets top="5" left="5" bottom="5" right="5"/>
+          </border>
+          <children xsi:type="gmfgraph:Label" name="CardLabelFigure" text="Card"/>
+        </actualFigure>
+        <accessors accessor="getFigureCardLabelFigure" figure="/0/@figures.0/@descriptors.3/@actualFigure/@children.0"/>
+      </descriptors>
+      <descriptors name="InputTextFigure">
+        <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="InputTextFigure">
+          <border xsi:type="gmfgraph:MarginBorder">
+            <insets top="5" left="5" bottom="5" right="5"/>
+          </border>
+          <children xsi:type="gmfgraph:Label" name="InputTextLabelFigure" text="InputText"/>
+        </actualFigure>
+        <accessors accessor="getFigureInputTextLabelFigure" figure="/0/@figures.0/@descriptors.4/@actualFigure/@children.0"/>
+      </descriptors>
+      <descriptors name="ListCFigure">
+        <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="ListCFigure">
+          <border xsi:type="gmfgraph:MarginBorder">
+            <insets top="5" left="5" bottom="5" right="5"/>
+          </border>
+          <children xsi:type="gmfgraph:Label" name="ListCLabelFigure" text="ListC"/>
+        </actualFigure>
+        <accessors accessor="getFigureListCLabelFigure" figure="/0/@figures.0/@descriptors.5/@actualFigure/@children.0"/>
+      </descriptors>
+      <descriptors name="LoginFormFigure">
+        <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="LoginFormFigure">
+          <border xsi:type="gmfgraph:MarginBorder">
+            <insets top="5" left="5" bottom="5" right="5"/>
+          </border>
+          <children xsi:type="gmfgraph:Label" name="LoginFormLabelFigure" text="LoginForm"/>
+        </actualFigure>
+        <accessors accessor="getFigureLoginFormLabelFigure" figure="/0/@figures.0/@descriptors.6/@actualFigure/@children.0"/>
+      </descriptors>
+      <descriptors name="PickerFigure">
+        <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="PickerFigure">
+          <border xsi:type="gmfgraph:MarginBorder">
+            <insets top="5" left="5" bottom="5" right="5"/>
+          </border>
+          <children xsi:type="gmfgraph:Label" name="PickerLabelFigure" text="Picker">
+            <maximumSize dx="10000" dy="50"/>
+          </children>
+          <children xsi:type="gmfgraph:Rectangle" name="PickerElementsCompartmentFigure" outline="false"/>
+        </actualFigure>
+        <accessors accessor="getFigurePickerLabelFigure" figure="/0/@figures.0/@descriptors.7/@actualFigure/@children.0"/>
+        <accessors accessor="getPickerElementsCompartmentFigure" figure="/0/@figures.0/@descriptors.7/@actualFigure/@children.1"/>
+      </descriptors>
+      <descriptors name="RadioButtonFigure">
+        <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="RadioButtonFigure">
+          <border xsi:type="gmfgraph:MarginBorder">
+            <insets top="5" left="5" bottom="5" right="5"/>
+          </border>
+          <children xsi:type="gmfgraph:Label" name="RadioButtonLabelFigure" text="RadioButton"/>
+        </actualFigure>
+        <accessors accessor="getFigureRadioButtonLabelFigure" figure="/0/@figures.0/@descriptors.8/@actualFigure/@children.0"/>
+      </descriptors>
+      <descriptors name="PickerElementFigure">
+        <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="PickerElementFigure">
+          <border xsi:type="gmfgraph:MarginBorder">
+            <insets top="5" left="5" bottom="5" right="5"/>
+          </border>
+          <children xsi:type="gmfgraph:Label" name="PickerElementLabelFigure" text="PickerElement"/>
+        </actualFigure>
+        <accessors accessor="getFigurePickerElementLabelFigure" figure="/0/@figures.0/@descriptors.9/@actualFigure/@children.0"/>
+      </descriptors>
+      <descriptors name="TransitionFigure">
+        <actualFigure xsi:type="gmfgraph:PolylineConnection" name="TransitionFigure" targetDecoration="/0/@figures.0/@figures.0"/>
+      </descriptors>
+      <descriptors name="TransitionLabelFigure">
+        <actualFigure xsi:type="gmfgraph:Label" name="TransitionLabelLabel" text="Transition"/>
+      </descriptors>
+    </figures>
+    <nodes name="InitialNode" figure="InitialNodeFigure"/>
+    <nodes name="FinalNode" figure="FinalNodeFigure"/>
+    <nodes name="Screen" figure="ScreenFigure"/>
+    <nodes name="Card" figure="CardFigure"/>
+    <nodes name="InputText" figure="InputTextFigure"/>
+    <nodes name="ListC" figure="ListCFigure"/>
+    <nodes name="LoginForm" figure="LoginFormFigure"/>
+    <nodes name="Picker" figure="PickerFigure"/>
+    <nodes name="RadioButton" figure="RadioButtonFigure"/>
+    <nodes name="PickerElement" figure="PickerElementFigure"/>
+    <connections name="Transition" figure="TransitionFigure"/>
+    <compartments name="ScreenComponentsCompartment" figure="ScreenFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.2/@accessors.1"/>
+    <compartments name="PickerElementsCompartment" figure="PickerFigure" collapsible="true" accessor="/0/@figures.0/@descriptors.7/@accessors.1"/>
+    <labels name="ScreenLabel" figure="ScreenFigure" elementIcon="false" accessor="/0/@figures.0/@descriptors.2/@accessors.0"/>
+    <labels name="CardLabel" figure="CardFigure" accessor="/0/@figures.0/@descriptors.3/@accessors.0"/>
+    <labels name="InputTextLabel" figure="InputTextFigure" accessor="/0/@figures.0/@descriptors.4/@accessors.0"/>
+    <labels name="ListCLabel" figure="ListCFigure" accessor="/0/@figures.0/@descriptors.5/@accessors.0"/>
+    <labels name="LoginFormLabel" figure="LoginFormFigure" accessor="/0/@figures.0/@descriptors.6/@accessors.0"/>
+    <labels name="PickerLabel" figure="PickerFigure" accessor="/0/@figures.0/@descriptors.7/@accessors.0"/>
+    <labels name="RadioButtonLabel" figure="RadioButtonFigure" accessor="/0/@figures.0/@descriptors.8/@accessors.0"/>
+    <labels name="PickerElementLabel" figure="PickerElementFigure" accessor="/0/@figures.0/@descriptors.9/@accessors.0"/>
+    <labels name="TransitionLabel" figure="TransitionLabelFigure" elementIcon="false"/>
+  </gmfgraph:Canvas>
+  <gmfgraph:Label name="InitialNodeLabelFigure" text="InitialNode"/>
+  <gmfgraph:Label name="FinalNodeLabelFigure" text="FinalNode"/>
+</xmi:XMI>
