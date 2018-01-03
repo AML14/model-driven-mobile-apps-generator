@@ -20,7 +20,7 @@ source="input",
 resizable="true",
 target.decoration="arrow", 
 label="name",
-tool.description="Nueva transición.")
+tool.description="New transition.")
 class Transition {
   ref FlowElement#transitionIn output;
   ref FlowElement#transitionOut input;
@@ -29,15 +29,19 @@ class Transition {
 
 @gmf.node(label.placement="none",
 label.icon="false",
+figure="ellipse",
+color="0,0,0",
 resizable="true",
-tool.description="Nueva nodo Inicial.")
+tool.description="New initial node.")
 class InitialNode extends FlowElement {
 }
 
 @gmf.node(label.placement="none",
 label.icon="false",
+figure="ellipse",
+color="0,0,0",
 resizable="true",
-tool.description="Nueva nodo Final.")
+tool.description="New final node.")
 class FinalNode extends FlowElement {
 }
 
@@ -45,7 +49,7 @@ class FinalNode extends FlowElement {
 label.placement="internal",
 label.icon="false",
 resizable="true",
-tool.description="Nueva pantalla.")
+tool.description="New Screen.")
 class Screen extends FlowElement {
   @gmf.compartment()
   val Component[*] components;
@@ -57,7 +61,6 @@ abstract class Component {
   attr int verticalPosition;
 }
 
-@gmf.node(label="stateID", label="verticalPosition")
 abstract class InputComponent extends Component {
   attr int stateID;
 }
@@ -66,27 +69,58 @@ abstract class DynamicComponent extends Component {
   ref InputComponent[0..5] dataSource;
   attr int stateID;
 }
-@gmf.node(label="stateID", label="verticalPosition")
+
+@gmf.node(label="stateID", 
+label="verticalPosition",
+label.placement="internal",
+label.icon="false",
+resizable="true",
+tool.description="New card.")
 class Card extends DynamicComponent {
 }
 
-@gmf.node(label="placeholder",label="stateID", label="verticalPosition")
+@gmf.node(label="placeholder",
+label="stateID", 
+label="verticalPosition",
+label.placement="internal",
+label.icon="false",
+resizable="true",
+tool.description="New inputText.")
 class InputText extends InputComponent {
   attr String placeholder;
 }
 
-@gmf.node(label="stateID", label="verticalPosition")
+@gmf.node(label="stateID", 
+label="verticalPosition",
+label.placement="internal",
+label.icon="false",
+resizable="true",
+tool.description="New listC.")
 class ListC extends DynamicComponent {
 }
 
-@gmf.node(label="userPlaceholder",label="passwordPlaceholder",label="buttonTitle",label="stateID", label="verticalPosition")
+@gmf.node(label="userPlaceholder",
+label="passwordPlaceholder",
+label="buttonTitle",
+label="stateID", 
+label="verticalPosition",
+label.placement="internal",
+label.icon="false",
+resizable="true",
+tool.description="New loginForm.")
 class LoginForm extends InputComponent {
   attr String userPlaceholder;
   attr String passwordPlaceholder;
   attr String buttonTitle;
 }
 
-@gmf.node(label="title", label="stateID", label="verticalPosition")
+@gmf.node(label="title", 
+label="stateID", 
+label="verticalPosition",
+label.placement="internal",
+label.icon="false",
+resizable="true",
+tool.description="New picker.")
 class Picker extends InputComponent {
   @gmf.compartment()
   val PickerElement[2..*] elements;
@@ -94,13 +128,22 @@ class Picker extends InputComponent {
   attr String title;
 }
 
-@gmf.node(label="title",label="defaultOption")
+@gmf.node(label="title",
+label="defaultOption",
+label.placement="internal",
+label.icon="false",
+resizable="true",
+tool.description="New radioButton.")
 class RadioButton extends InputComponent {
   attr String title;
   attr boolean defaultOption;
 }
 
-@gmf.node(label="name")
+@gmf.node(label="name",
+label.placement="internal",
+label.icon="false",
+resizable="true",
+tool.description="New pickerElement.")
 class PickerElement {
   attr String name;
 }
