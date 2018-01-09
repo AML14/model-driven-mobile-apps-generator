@@ -9,7 +9,10 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: generalAppGenerator,
  generalAppGenerator.impl,
- generalAppGenerator.util
+ generalAppGenerator.util,
+ rnAppGenerator,
+ rnAppGenerator.impl,
+ rnAppGenerator.util
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  org.antlr.runtime_3.1.b1;bundle-version="3.1.0",
  org.eclipse.xtend.profiler;resolution:=optional,

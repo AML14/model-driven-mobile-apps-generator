@@ -9,8 +9,15 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated general_design -->
       <package
-            uri="http://sma/genappgen"
+            uri="http://genappgen"
             class="generalAppGenerator.GeneralAppGeneratorPackage"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated rn_design -->
+      <package
+            uri="http://rnappgen"
+            class="rnAppGenerator.RnAppGeneratorPackage"/>
    </extension>
 
 </plugin>

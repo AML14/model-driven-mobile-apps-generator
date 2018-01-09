@@ -1,5 +1,5 @@
 @gmf
-@namespace(uri="http://sma/genappgen", prefix="genAppGen")
+@namespace(uri="http://genappgen", prefix="genAppGen")
 package generalAppGenerator;
 
 @gmf.diagram

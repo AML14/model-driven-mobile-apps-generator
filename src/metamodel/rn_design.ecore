@@ -1,17 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="rnAppGenerator" nsURI="http://rnappgen" nsPrefix="rnAppGen">
+  <eAnnotations source="gmf"/>
   <eClassifiers xsi:type="ecore:EClass" name="MobileApp">
+    <eAnnotations source="gmf.diagram"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="navigator" lowerBound="1"
         eType="#//Navigator" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Navigator">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//NavigatorType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="nestedNavigators" upperBound="-1"
-        eType="#//Navigator" containment="true"/>
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="label.placement" value="internal"/>
+      <details key="label.icon" value="false"/>
+      <details key="resizable" value="true"/>
+      <details key="tool.description" value="New navigator."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="screens" lowerBound="1"
-        upperBound="-1" eType="#//Screen" containment="true"/>
+        upperBound="-1" eType="#//Screen" containment="true">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nestedNavigators" upperBound="-1"
+        eType="#//Navigator" containment="true">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//NavigatorType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="initialScreen" lowerBound="1"
         eType="#//Screen"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -21,12 +34,21 @@
     <eLiterals name="Tab"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Screen">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="title"/>
+      <details key="label.placement" value="internal"/>
+      <details key="label.icon" value="false"/>
+      <details key="resizable" value="true"/>
+      <details key="tool.description" value="New screen."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
+        eType="#//Component" containment="true">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="scrollable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasPreviousScreen" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nextScreen" eType="#//Screen"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
-        eType="#//Component" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nextNavigator" eType="#//Navigator"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Component" abstract="true">
@@ -46,11 +68,27 @@
         defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Image" eSuperTypes="#//Component">
+    <eAnnotations source="gmf.node">
+      <details key="label.placement" value="none"/>
+      <details key="label.icon" value="false"/>
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/model-driven-mobile-apps-generator/editor-icons/image.svg"/>
+      <details key="resizable" value="true"/>
+      <details key="tool.description" value="New image."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Button" eSuperTypes="#//Component">
+    <eAnnotations source="gmf.node">
+      <details key="label.placement" value="none"/>
+      <details key="label.icon" value="false"/>
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/model-driven-mobile-apps-generator/editor-icons/button.svg"/>
+      <details key="resizable" value="true"/>
+      <details key="tool.description" value="New button."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="theme" eType="#//ButtonTheme"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ButtonType"/>
@@ -58,10 +96,25 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="disabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ListC" eSuperTypes="#//DynamicComponent">
+    <eAnnotations source="gmf.node">
+      <details key="label.placement" value="none"/>
+      <details key="label.icon" value="false"/>
+      <details key="resizable" value="true"/>
+      <details key="tool.description" value="New list."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
-        eType="#//ListItem" containment="true"/>
+        eType="#//ListItem" containment="true">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ListItem" eSuperTypes="#//Component">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="text"/>
+      <details key="label.placement" value="internal"/>
+      <details key="label.icon" value="false"/>
+      <details key="resizable" value="true"/>
+      <details key="tool.description" value="New list item."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="leftIcon" eType="#//Icon"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rightIcon" eType="#//Icon"
@@ -69,6 +122,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//Component">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="text"/>
+      <details key="label.placement" value="internal"/>
+      <details key="label.icon" value="false"/>
+      <details key="resizable" value="true"/>
+      <details key="tool.description" value="New text."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral=""/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fontSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
@@ -77,6 +137,13 @@
         defaultValueLiteral="black"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InputText" eSuperTypes="#//InputComponent">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="placeholder"/>
+      <details key="label.placement" value="internal"/>
+      <details key="label.icon" value="false"/>
+      <details key="resizable" value="true"/>
+      <details key="tool.description" value="New text input."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//InputType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="placeholder" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -103,10 +170,26 @@
     <eLiterals name="large"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Card" eSuperTypes="#//DynamicComponent">
+    <eAnnotations source="gmf.node">
+      <details key="label.placement" value="none"/>
+      <details key="label.icon" value="false"/>
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/model-driven-mobile-apps-generator/editor-icons/card.svg"/>
+      <details key="resizable" value="true"/>
+      <details key="tool.description" value="New card."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="header" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="body" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Icon" eSuperTypes="#//Component">
+    <eAnnotations source="gmf.node">
+      <details key="label.placement" value="none"/>
+      <details key="label.icon" value="false"/>
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/model-driven-mobile-apps-generator/editor-icons/icon.svg"/>
+      <details key="resizable" value="true"/>
+      <details key="tool.description" value="New icon."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="black"/>
@@ -122,22 +205,49 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="AlignmentType">
     <eLiterals name="center"/>
-    <eLiterals name="flex_start" literal="flex-start"/>
-    <eLiterals name="flex_end" literal="flex-end"/>
+    <eLiterals name="flex_start"/>
+    <eLiterals name="flex_end"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LoginForm" eSuperTypes="#//InputComponent">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="buttonTitle"/>
+      <details key="label.placement" value="external"/>
+      <details key="label.icon" value="false"/>
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/model-driven-mobile-apps-generator/editor-icons/login.svg"/>
+      <details key="resizable" value="true"/>
+      <details key="tool.description" value="New login."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="userPlaceholder" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="passwordPlaceholder" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="buttonTitle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Picker" eSuperTypes="#//InputComponent">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="title"/>
+      <details key="label.placement" value="internal"/>
+      <details key="label.icon" value="false"/>
+      <details key="resizable" value="true"/>
+      <details key="tool.description" value="New picker."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" lowerBound="2"
-        upperBound="-1" eType="#//PickerElement" containment="true"/>
+        upperBound="-1" eType="#//PickerElement" containment="true">
+      <eAnnotations source="gmf.compartment"/>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="defaultOption" lowerBound="1"
         eType="#//PickerElement"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RadioButton" eSuperTypes="#//InputComponent">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="title"/>
+      <details key="label.placement" value="external"/>
+      <details key="label.icon" value="false"/>
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/model-driven-mobile-apps-generator/editor-icons/check-box.svg"/>
+      <details key="resizable" value="true"/>
+      <details key="tool.description" value="New radioButton."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultOption" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
@@ -150,6 +260,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="stateID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PickerElement">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="label.placement" value="internal"/>
+      <details key="label.icon" value="false"/>
+      <details key="resizable" value="true"/>
+      <details key="tool.description" value="New pickerElement."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

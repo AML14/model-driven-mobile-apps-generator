@@ -1,0 +1,240 @@
+@gmf
+@namespace(uri="http://rnappgen", prefix="rnAppGen")
+package rnAppGenerator;
+
+@gmf.diagram
+class MobileApp {
+  val Navigator[1] navigator;
+  attr String name;
+}
+
+@gmf.node(label="name",
+label.placement="internal",
+label.icon="false",
+resizable="true",
+tool.description="New navigator.")
+class Navigator {
+  @gmf.compartment()
+  val Screen[+] screens;
+  @gmf.compartment()
+  val Navigator[*] nestedNavigators;
+  attr NavigatorType type;
+  ref Screen[1] initialScreen;
+  attr String name;
+}
+
+enum NavigatorType {
+  Stack = 0;
+  Tab = 0;
+}
+
+@gmf.node(label="title",
+label.placement="internal",
+label.icon="false",
+resizable="true",
+tool.description="New screen.")
+class Screen {
+  @gmf.compartment()
+  val Component[*] components;
+  attr String title;
+  attr boolean scrollable;
+  attr boolean hasPreviousScreen;
+  ref Screen nextScreen;
+  ref Navigator nextNavigator;
+}
+
+abstract class Component {
+  attr int flexVerticalPosition;
+  attr float flexVerticalSize;
+  attr int flexHorizontalPosition = 1;
+  attr float flexHorizontalSize = "4";
+  attr int margin;
+  attr int padding;
+  attr AlignmentType verticalAlignment = "center";
+  attr AlignmentType horizontalAlignment = "center";
+  attr boolean isLastHorizontal = false;
+}
+
+@gmf.node(label.placement="none",
+label.icon="false",
+figure="svg",
+svg.uri="platform:/plugin/model-driven-mobile-apps-generator/editor-icons/image.svg",
+resizable="true",
+tool.description="New image.")
+class Image extends Component {
+  attr int height;
+  attr int width;
+  attr String source;
+}
+
+@gmf.node(label.placement="none",
+label.icon="false",
+figure="svg",
+svg.uri="platform:/plugin/model-driven-mobile-apps-generator/editor-icons/button.svg",
+resizable="true",
+tool.description="New button.")
+class Button extends Component {
+  attr String text;
+  attr ButtonTheme theme;
+  attr ButtonType type;
+  attr ButtonSize size;
+  attr boolean disabled;
+}
+
+@gmf.node(label.placement="none",
+label.icon="false",
+resizable="true",
+tool.description="New list.")
+class ListC extends DynamicComponent {
+  @gmf.compartment()
+  val ListItem[*] items;
+}
+
+@gmf.node(label="text",
+label.placement="internal",
+label.icon="false",
+resizable="true",
+tool.description="New list item.")
+class ListItem extends Component {
+  val Icon leftIcon;
+  val Icon rightIcon;
+  attr String text;
+}
+
+@gmf.node(label="text",
+label.placement="internal",
+label.icon="false",
+resizable="true",
+tool.description="New text.")
+class Text extends Component {
+  attr String text = "";
+  attr int fontSize = 16;
+  attr String color = "black";
+}
+
+@gmf.node(label="placeholder",
+label.placement="internal",
+label.icon="false",
+resizable="true",
+tool.description="New text input.")
+class InputText extends InputComponent {
+  attr InputType type;
+  attr String placeholder;
+}
+
+enum ButtonTheme {
+  primary = 0;
+  light = 0;
+  success = 0;
+  info = 0;
+  danger = 0;
+  warning = 0;
+  dark = 0;
+}
+
+enum ButtonType {
+  defaultType = 0;
+  transparent = 0;
+  outline = 0;
+  rounded = 0;
+  block = 0;
+  full = 0;
+}
+
+enum ButtonSize {
+  regular = 0;
+  small = 0;
+  large = 0;
+}
+
+@gmf.node(label.placement="none",
+label.icon="false",
+figure="svg",
+svg.uri="platform:/plugin/model-driven-mobile-apps-generator/editor-icons/card.svg",
+resizable="true",
+tool.description="New card.")
+class Card extends DynamicComponent {
+  attr String header;
+  attr String body;
+}
+
+@gmf.node(label.placement="none",
+label.icon="false",
+figure="svg",
+svg.uri="platform:/plugin/model-driven-mobile-apps-generator/editor-icons/icon.svg",
+resizable="true",
+tool.description="New icon.")
+class Icon extends Component {
+  attr String name;
+  attr String color = "black";
+  attr int size = 27;
+  attr boolean active = false;
+}
+
+enum InputType {
+  regular = 0;
+  rounded = 0;
+  underlined = 0;
+}
+
+enum AlignmentType {
+  center = 0;
+  flex_start = 0;
+  flex_end = 0;
+}
+
+@gmf.node(label="buttonTitle",
+label.placement="external",
+label.icon="false",
+figure="svg",
+svg.uri="platform:/plugin/model-driven-mobile-apps-generator/editor-icons/login.svg",
+resizable="true",
+tool.description="New login.")
+class LoginForm extends InputComponent {
+  attr String userPlaceholder;
+  attr String passwordPlaceholder;
+  attr String buttonTitle;
+}
+
+@gmf.node(label="title",
+label.placement="internal",
+label.icon="false",
+resizable="true",
+tool.description="New picker.")
+class Picker extends InputComponent {
+@gmf.compartment()
+  val PickerElement[2..*] elements;
+  ref PickerElement[1] defaultOption;
+  attr String title;
+}
+
+@gmf.node(label="title",
+label.placement="external",
+label.icon="false",
+figure="svg",
+svg.uri="platform:/plugin/model-driven-mobile-apps-generator/editor-icons/check-box.svg",
+resizable="true",
+tool.description="New radioButton.")
+class RadioButton extends InputComponent {
+  attr String title;
+  attr boolean defaultOption;
+}
+
+class InputComponent extends Component {
+  attr int stateID;
+}
+
+class DynamicComponent extends Component {
+  ref InputComponent[0..5] dataSource;
+  attr int stateID;
+}
+
+@gmf.node(label="name",
+label.placement="internal",
+label.icon="false",
+resizable="true",
+tool.description="New pickerElement.")
+class PickerElement {
+  attr String name;
+}
+
