@@ -29,18 +29,18 @@ class Transition {
 
 @gmf.node(label.placement="none",
 label.icon="false",
-figure="ellipse",
-color="0,0,0",
-resizable="true",
+figure="svg",
+svg.uri="platform:/plugin/model-driven-mobile-apps-generator/editor-icons/initial-node.svg",
+resizable="false",
 tool.description="New initial node.")
 class InitialNode extends FlowElement {
 }
 
 @gmf.node(label.placement="none",
 label.icon="false",
-figure="ellipse",
-color="0,0,0",
-resizable="true",
+figure="svg",
+svg.uri="platform:/plugin/model-driven-mobile-apps-generator/editor-icons/final-node.svg",
+resizable="false",
 tool.description="New final node.")
 class FinalNode extends FlowElement {
 }
@@ -70,18 +70,16 @@ abstract class DynamicComponent extends Component {
   attr int stateID;
 }
 
-@gmf.node(label="stateID", 
-label="verticalPosition",
-label.placement="internal",
+@gmf.node(label.placement="none",
 label.icon="false",
-resizable="true",
+figure="svg",
+svg.uri="platform:/plugin/model-driven-mobile-apps-generator/editor-icons/card.svg",
+resizable="false",
 tool.description="New card.")
 class Card extends DynamicComponent {
 }
 
 @gmf.node(label="placeholder",
-label="stateID", 
-label="verticalPosition",
 label.placement="internal",
 label.icon="false",
 resizable="true",
@@ -90,23 +88,21 @@ class InputText extends InputComponent {
   attr String placeholder;
 }
 
-@gmf.node(label="stateID", 
-label="verticalPosition",
-label.placement="internal",
+@gmf.node(label.placement="none",
 label.icon="false",
-resizable="true",
+figure="svg",
+svg.uri="platform:/plugin/model-driven-mobile-apps-generator/editor-icons/list.svg",
+resizable="false",
 tool.description="New listC.")
 class ListC extends DynamicComponent {
 }
 
-@gmf.node(label="userPlaceholder",
-label="passwordPlaceholder",
-label="buttonTitle",
-label="stateID", 
-label="verticalPosition",
-label.placement="internal",
+@gmf.node(label="buttonTitle",
+label.placement="external",
 label.icon="false",
-resizable="true",
+figure="svg",
+svg.uri="platform:/plugin/model-driven-mobile-apps-generator/editor-icons/login.svg",
+resizable="false",
 tool.description="New loginForm.")
 class LoginForm extends InputComponent {
   attr String userPlaceholder;
@@ -114,9 +110,7 @@ class LoginForm extends InputComponent {
   attr String buttonTitle;
 }
 
-@gmf.node(label="title", 
-label="stateID", 
-label="verticalPosition",
+@gmf.node(label="title",
 label.placement="internal",
 label.icon="false",
 resizable="true",
@@ -129,10 +123,11 @@ class Picker extends InputComponent {
 }
 
 @gmf.node(label="title",
-label="defaultOption",
-label.placement="internal",
+label.placement="external",
 label.icon="false",
-resizable="true",
+figure="svg",
+svg.uri="platform:/plugin/model-driven-mobile-apps-generator/editor-icons/check-box.svg",
+resizable="false",
 tool.description="New radioButton.")
 class RadioButton extends InputComponent {
   attr String title;

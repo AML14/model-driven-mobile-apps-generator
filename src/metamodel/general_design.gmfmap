@@ -58,13 +58,6 @@
         <ownedChild>
           <domainMetaElement
               href="general_design.ecore#//Card"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="general_design.gmfgraph#CardLabel"/>
-            <features
-                href="general_design.ecore#//Component/verticalPosition"/>
-          </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="general_design.gmftool#//@palette/@tools.0/@tools.0"/>
@@ -84,7 +77,7 @@
             <diagramLabel
                 href="general_design.gmfgraph#InputTextLabel"/>
             <features
-                href="general_design.ecore#//Component/verticalPosition"/>
+                href="general_design.ecore#//InputText/placeholder"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
@@ -100,13 +93,6 @@
         <ownedChild>
           <domainMetaElement
               href="general_design.ecore#//ListC"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="general_design.gmfgraph#ListCLabel"/>
-            <features
-                href="general_design.ecore#//Component/verticalPosition"/>
-          </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="general_design.gmftool#//@palette/@tools.0/@tools.4"/>
@@ -126,7 +112,7 @@
             <diagramLabel
                 href="general_design.gmfgraph#LoginFormLabel"/>
             <features
-                href="general_design.ecore#//Component/verticalPosition"/>
+                href="general_design.ecore#//LoginForm/buttonTitle"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
@@ -148,7 +134,7 @@
             <diagramLabel
                 href="general_design.gmfgraph#PickerLabel"/>
             <features
-                href="general_design.ecore#//Component/verticalPosition"/>
+                href="general_design.ecore#//Picker/title"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
@@ -195,7 +181,7 @@
             <diagramLabel
                 href="general_design.gmfgraph#RadioButtonLabel"/>
             <features
-                href="general_design.ecore#//RadioButton/defaultOption"/>
+                href="general_design.ecore#//RadioButton/title"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"

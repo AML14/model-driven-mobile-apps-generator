@@ -10,19 +10,14 @@
     <childNodes visualID="3001" editPartClassName="CardEditPart" itemSemanticEditPolicyClassName="CardItemSemanticEditPolicy" canonicalEditPolicyClassName="CardCanonicalEditPolicy" graphicalNodeEditPolicyClassName="CardGraphicalNodeEditPolicy" createCommandClassName="CardCreateCommand" containers="//@diagram/@compartments.0">
       <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="CardEditHelper"/>
-      <viewmap xsi:type="gmfgen:InnerClassViewmap" className="CardFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class CardFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureCardLabelFigure; &#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public CardFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureCardLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureCardLabelFigure.setText(&quot;Card&quot;);&#xA;&#xA;this.add(fFigureCardLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureCardLabelFigure() {&#xA;&#x9;&#x9;return fFigureCardLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+      <viewmap xsi:type="gmfgen:InnerClassViewmap" className="CardFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class CardFigure extends org.eclipse.gmf.runtime.lite.svg.SVGFigure {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public CardFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setURI(&quot;platform:/plugin/model-driven-mobile-apps-generator/editor-icons/card.svg&quot;);&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes xsi:type="gmfgen:ResizeConstraints" nonResizeHandles="31"/>
+      </viewmap>
       <modelFacet>
         <metaClass href="general_design.genmodel#//generalAppGenerator/Card"/>
         <containmentMetaFeature href="general_design.genmodel#//generalAppGenerator/Screen/components"/>
         <childMetaFeature href="general_design.genmodel#//generalAppGenerator/Screen/components"/>
       </modelFacet>
-      <labels visualID="5003" editPartClassName="CardVerticalPositionEditPart" itemSemanticEditPolicyClassName="CardVerticalPositionItemSemanticEditPolicy" elementIcon="true">
-        <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigureCardLabelFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0">
-          <metaFeatures href="general_design.genmodel#//generalAppGenerator/Component/verticalPosition"/>
-        </modelFacet>
-      </labels>
     </childNodes>
     <childNodes visualID="3002" editPartClassName="InputTextEditPart" itemSemanticEditPolicyClassName="InputTextItemSemanticEditPolicy" canonicalEditPolicyClassName="InputTextCanonicalEditPolicy" graphicalNodeEditPolicyClassName="InputTextGraphicalNodeEditPolicy" createCommandClassName="InputTextCreateCommand" containers="//@diagram/@compartments.0">
       <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -33,45 +28,42 @@
         <containmentMetaFeature href="general_design.genmodel#//generalAppGenerator/Screen/components"/>
         <childMetaFeature href="general_design.genmodel#//generalAppGenerator/Screen/components"/>
       </modelFacet>
-      <labels visualID="5004" editPartClassName="InputTextVerticalPositionEditPart" itemSemanticEditPolicyClassName="InputTextVerticalPositionItemSemanticEditPolicy" elementIcon="true">
+      <labels visualID="5004" editPartClassName="InputTextPlaceholderEditPart" itemSemanticEditPolicyClassName="InputTextPlaceholderItemSemanticEditPolicy">
         <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigureInputTextLabelFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0">
-          <metaFeatures href="general_design.genmodel#//generalAppGenerator/Component/verticalPosition"/>
+          <metaFeatures href="general_design.genmodel#//generalAppGenerator/InputText/placeholder"/>
         </modelFacet>
       </labels>
     </childNodes>
     <childNodes visualID="3003" editPartClassName="ListCEditPart" itemSemanticEditPolicyClassName="ListCItemSemanticEditPolicy" canonicalEditPolicyClassName="ListCCanonicalEditPolicy" graphicalNodeEditPolicyClassName="ListCGraphicalNodeEditPolicy" createCommandClassName="ListCCreateCommand" containers="//@diagram/@compartments.0">
       <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="ListCEditHelper"/>
-      <viewmap xsi:type="gmfgen:InnerClassViewmap" className="ListCFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ListCFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureListCLabelFigure; &#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ListCFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureListCLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureListCLabelFigure.setText(&quot;ListC&quot;);&#xA;&#xA;this.add(fFigureListCLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureListCLabelFigure() {&#xA;&#x9;&#x9;return fFigureListCLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+      <viewmap xsi:type="gmfgen:InnerClassViewmap" className="ListCFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ListCFigure extends org.eclipse.gmf.runtime.lite.svg.SVGFigure {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ListCFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setURI(&quot;platform:/plugin/model-driven-mobile-apps-generator/editor-icons/list.svg&quot;);&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes xsi:type="gmfgen:ResizeConstraints" nonResizeHandles="31"/>
+      </viewmap>
       <modelFacet>
         <metaClass href="general_design.genmodel#//generalAppGenerator/ListC"/>
         <containmentMetaFeature href="general_design.genmodel#//generalAppGenerator/Screen/components"/>
         <childMetaFeature href="general_design.genmodel#//generalAppGenerator/Screen/components"/>
       </modelFacet>
-      <labels visualID="5005" editPartClassName="ListCVerticalPositionEditPart" itemSemanticEditPolicyClassName="ListCVerticalPositionItemSemanticEditPolicy" elementIcon="true">
-        <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigureListCLabelFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-        <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0">
-          <metaFeatures href="general_design.genmodel#//generalAppGenerator/Component/verticalPosition"/>
-        </modelFacet>
-      </labels>
     </childNodes>
     <childNodes visualID="3004" editPartClassName="LoginFormEditPart" itemSemanticEditPolicyClassName="LoginFormItemSemanticEditPolicy" canonicalEditPolicyClassName="LoginFormCanonicalEditPolicy" graphicalNodeEditPolicyClassName="LoginFormGraphicalNodeEditPolicy" createCommandClassName="LoginFormCreateCommand" containers="//@diagram/@compartments.0">
       <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="LoginFormEditHelper"/>
-      <viewmap xsi:type="gmfgen:InnerClassViewmap" className="LoginFormFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class LoginFormFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureLoginFormLabelFigure; &#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public LoginFormFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureLoginFormLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureLoginFormLabelFigure.setText(&quot;LoginForm&quot;);&#xA;&#xA;this.add(fFigureLoginFormLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureLoginFormLabelFigure() {&#xA;&#x9;&#x9;return fFigureLoginFormLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+      <viewmap xsi:type="gmfgen:InnerClassViewmap" className="LoginFormFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class LoginFormFigure extends org.eclipse.gmf.runtime.lite.svg.SVGFigure {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public LoginFormFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setURI(&quot;platform:/plugin/model-driven-mobile-apps-generator/editor-icons/login.svg&quot;);&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes xsi:type="gmfgen:ResizeConstraints" nonResizeHandles="31"/>
+      </viewmap>
       <modelFacet>
         <metaClass href="general_design.genmodel#//generalAppGenerator/LoginForm"/>
         <containmentMetaFeature href="general_design.genmodel#//generalAppGenerator/Screen/components"/>
         <childMetaFeature href="general_design.genmodel#//generalAppGenerator/Screen/components"/>
       </modelFacet>
-      <labels visualID="5006" editPartClassName="LoginFormVerticalPositionEditPart" itemSemanticEditPolicyClassName="LoginFormVerticalPositionItemSemanticEditPolicy" elementIcon="true">
+      <labels xsi:type="gmfgen:GenExternalNodeLabel" visualID="5006" editPartClassName="LoginFormButtonTitleEditPart" itemSemanticEditPolicyClassName="LoginFormButtonTitleItemSemanticEditPolicy">
         <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigureLoginFormLabelFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <viewmap xsi:type="gmfgen:InnerClassViewmap" className="LoginFormLabelFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class LoginFormLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public LoginFormLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;LoginForm&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
         <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0">
-          <metaFeatures href="general_design.genmodel#//generalAppGenerator/Component/verticalPosition"/>
+          <metaFeatures href="general_design.genmodel#//generalAppGenerator/LoginForm/buttonTitle"/>
         </modelFacet>
       </labels>
     </childNodes>
@@ -85,11 +77,11 @@
         <containmentMetaFeature href="general_design.genmodel#//generalAppGenerator/Screen/components"/>
         <childMetaFeature href="general_design.genmodel#//generalAppGenerator/Screen/components"/>
       </modelFacet>
-      <labels visualID="5008" editPartClassName="PickerVerticalPositionEditPart" itemSemanticEditPolicyClassName="PickerVerticalPositionItemSemanticEditPolicy" elementIcon="true">
+      <labels visualID="5008" editPartClassName="PickerTitleEditPart" itemSemanticEditPolicyClassName="PickerTitleItemSemanticEditPolicy">
         <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigurePickerLabelFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0">
-          <metaFeatures href="general_design.genmodel#//generalAppGenerator/Component/verticalPosition"/>
+          <metaFeatures href="general_design.genmodel#//generalAppGenerator/Picker/title"/>
         </modelFacet>
       </labels>
     </childNodes>
@@ -102,7 +94,7 @@
         <containmentMetaFeature href="general_design.genmodel#//generalAppGenerator/Picker/elements"/>
         <childMetaFeature href="general_design.genmodel#//generalAppGenerator/Picker/elements"/>
       </modelFacet>
-      <labels visualID="5007" editPartClassName="PickerElementNameEditPart" itemSemanticEditPolicyClassName="PickerElementNameItemSemanticEditPolicy" elementIcon="true">
+      <labels visualID="5007" editPartClassName="PickerElementNameEditPart" itemSemanticEditPolicyClassName="PickerElementNameItemSemanticEditPolicy">
         <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigurePickerElementLabelFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0">
@@ -113,24 +105,28 @@
     <childNodes visualID="3007" editPartClassName="RadioButtonEditPart" itemSemanticEditPolicyClassName="RadioButtonItemSemanticEditPolicy" canonicalEditPolicyClassName="RadioButtonCanonicalEditPolicy" graphicalNodeEditPolicyClassName="RadioButtonGraphicalNodeEditPolicy" createCommandClassName="RadioButtonCreateCommand" containers="//@diagram/@compartments.0">
       <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="RadioButtonEditHelper"/>
-      <viewmap xsi:type="gmfgen:InnerClassViewmap" className="RadioButtonFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class RadioButtonFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureRadioButtonLabelFigure; &#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public RadioButtonFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureRadioButtonLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureRadioButtonLabelFigure.setText(&quot;RadioButton&quot;);&#xA;&#xA;this.add(fFigureRadioButtonLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureRadioButtonLabelFigure() {&#xA;&#x9;&#x9;return fFigureRadioButtonLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+      <viewmap xsi:type="gmfgen:InnerClassViewmap" className="RadioButtonFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class RadioButtonFigure extends org.eclipse.gmf.runtime.lite.svg.SVGFigure {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public RadioButtonFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setURI(&quot;platform:/plugin/model-driven-mobile-apps-generator/editor-icons/check-box.svg&quot;);&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes xsi:type="gmfgen:ResizeConstraints" nonResizeHandles="31"/>
+      </viewmap>
       <modelFacet>
         <metaClass href="general_design.genmodel#//generalAppGenerator/RadioButton"/>
         <containmentMetaFeature href="general_design.genmodel#//generalAppGenerator/Screen/components"/>
         <childMetaFeature href="general_design.genmodel#//generalAppGenerator/Screen/components"/>
       </modelFacet>
-      <labels visualID="5009" editPartClassName="RadioButtonDefaultOptionEditPart" itemSemanticEditPolicyClassName="RadioButtonDefaultOptionItemSemanticEditPolicy" elementIcon="true">
+      <labels xsi:type="gmfgen:GenExternalNodeLabel" visualID="5009" editPartClassName="RadioButtonTitleEditPart" itemSemanticEditPolicyClassName="RadioButtonTitleItemSemanticEditPolicy">
         <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap xsi:type="gmfgen:ParentAssignedViewmap" getterName="getFigureRadioButtonLabelFigure" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <viewmap xsi:type="gmfgen:InnerClassViewmap" className="RadioButtonLabelFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class RadioButtonLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public RadioButtonLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;RadioButton&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
         <modelFacet xsi:type="gmfgen:FeatureLabelModelFacet" parser="//@labelParsers/@implementations.0">
-          <metaFeatures href="general_design.genmodel#//generalAppGenerator/RadioButton/defaultOption"/>
+          <metaFeatures href="general_design.genmodel#//generalAppGenerator/RadioButton/title"/>
         </modelFacet>
       </labels>
     </childNodes>
     <topLevelNodes visualID="2003" editPartClassName="InitialNodeEditPart" itemSemanticEditPolicyClassName="InitialNodeItemSemanticEditPolicy" canonicalEditPolicyClassName="InitialNodeCanonicalEditPolicy" graphicalNodeEditPolicyClassName="InitialNodeGraphicalNodeEditPolicy" createCommandClassName="InitialNodeCreateCommand">
       <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="InitialNodeEditHelper"/>
-      <viewmap xsi:type="gmfgen:InnerClassViewmap" className="InitialNodeFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class InitialNodeFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public InitialNodeFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+      <viewmap xsi:type="gmfgen:InnerClassViewmap" className="InitialNodeFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class InitialNodeFigure extends org.eclipse.gmf.runtime.lite.svg.SVGFigure {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public InitialNodeFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setURI(&quot;platform:/plugin/model-driven-mobile-apps-generator/editor-icons/initial-node.svg&quot;);&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes xsi:type="gmfgen:ResizeConstraints" nonResizeHandles="31"/>
+      </viewmap>
       <modelFacet>
         <metaClass href="general_design.genmodel#//generalAppGenerator/InitialNode"/>
         <containmentMetaFeature href="general_design.genmodel#//generalAppGenerator/GeneralMobileApp/flowElements"/>
@@ -140,7 +136,9 @@
     <topLevelNodes visualID="2004" editPartClassName="FinalNodeEditPart" itemSemanticEditPolicyClassName="FinalNodeItemSemanticEditPolicy" canonicalEditPolicyClassName="FinalNodeCanonicalEditPolicy" graphicalNodeEditPolicyClassName="FinalNodeGraphicalNodeEditPolicy" createCommandClassName="FinalNodeCreateCommand">
       <diagramRunTimeClass href="platform:/plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="FinalNodeEditHelper"/>
-      <viewmap xsi:type="gmfgen:InnerClassViewmap" className="FinalNodeFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class FinalNodeFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public FinalNodeFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+      <viewmap xsi:type="gmfgen:InnerClassViewmap" className="FinalNodeFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class FinalNodeFigure extends org.eclipse.gmf.runtime.lite.svg.SVGFigure {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public FinalNodeFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setURI(&quot;platform:/plugin/model-driven-mobile-apps-generator/editor-icons/final-node.svg&quot;);&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes xsi:type="gmfgen:ResizeConstraints" nonResizeHandles="31"/>
+      </viewmap>
       <modelFacet>
         <metaClass href="general_design.genmodel#//generalAppGenerator/FinalNode"/>
         <containmentMetaFeature href="general_design.genmodel#//generalAppGenerator/GeneralMobileApp/flowElements"/>
@@ -196,19 +194,19 @@
     </compartments>
     <palette>
       <groups title="Objects" collapse="true">
-        <entries xsi:type="gmfgen:ToolEntry" title="Card" description="Create new Card" genNodes="//@diagram/@childNodes.0"/>
-        <entries xsi:type="gmfgen:ToolEntry" title="FinalNode" description="Nueva nodo Final." genNodes="//@diagram/@topLevelNodes.1"/>
-        <entries xsi:type="gmfgen:ToolEntry" title="InitialNode" description="Nueva nodo Inicial." genNodes="//@diagram/@topLevelNodes.0"/>
-        <entries xsi:type="gmfgen:ToolEntry" title="InputText" description="Create new InputText" genNodes="//@diagram/@childNodes.1"/>
-        <entries xsi:type="gmfgen:ToolEntry" title="ListC" description="Create new ListC" genNodes="//@diagram/@childNodes.2"/>
-        <entries xsi:type="gmfgen:ToolEntry" title="LoginForm" description="Create new LoginForm" genNodes="//@diagram/@childNodes.3"/>
-        <entries xsi:type="gmfgen:ToolEntry" title="Picker" description="Create new Picker" genNodes="//@diagram/@childNodes.4"/>
-        <entries xsi:type="gmfgen:ToolEntry" title="PickerElement" description="Create new PickerElement" genNodes="//@diagram/@childNodes.5"/>
-        <entries xsi:type="gmfgen:ToolEntry" title="RadioButton" description="Create new RadioButton" genNodes="//@diagram/@childNodes.6"/>
-        <entries xsi:type="gmfgen:ToolEntry" title="Screen" description="Nueva pantalla." genNodes="//@diagram/@topLevelNodes.2"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="Card" description="New card." genNodes="//@diagram/@childNodes.0"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="FinalNode" description="New final node." genNodes="//@diagram/@topLevelNodes.1"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="InitialNode" description="New initial node." genNodes="//@diagram/@topLevelNodes.0"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="InputText" description="New inputText." genNodes="//@diagram/@childNodes.1"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="ListC" description="New listC." genNodes="//@diagram/@childNodes.2"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="LoginForm" description="New loginForm." genNodes="//@diagram/@childNodes.3"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="Picker" description="New picker." genNodes="//@diagram/@childNodes.4"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="PickerElement" description="New pickerElement." genNodes="//@diagram/@childNodes.5"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="RadioButton" description="New radioButton." genNodes="//@diagram/@childNodes.6"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="Screen" description="New Screen." genNodes="//@diagram/@topLevelNodes.2"/>
       </groups>
       <groups title="Connections" collapse="true">
-        <entries xsi:type="gmfgen:ToolEntry" title="Transition" description="Nueva transiciÃ³n." genLinks="//@diagram/@links.0"/>
+        <entries xsi:type="gmfgen:ToolEntry" title="Transition" description="New transition." genLinks="//@diagram/@links.0"/>
       </groups>
     </palette>
     <preferencePages xsi:type="gmfgen:GenStandardPreferencePage" iD="model-driven-mobile-apps-generator.diagram.general" name="GeneralAppGenerator Diagram">
@@ -222,6 +220,7 @@
     <requiredPlugins>org.eclipse.gmf.tooling.runtime</requiredPlugins>
     <requiredPlugins>org.eclipse.draw2d</requiredPlugins>
     <requiredPlugins>org.eclipse.gmf.runtime.draw2d.ui</requiredPlugins>
+    <requiredPlugins>org.eclipse.gmf.runtime.lite.svg</requiredPlugins>
   </plugin>
   <editor/>
   <navigator>
@@ -264,7 +263,7 @@
   </propertySheet>
   <domainGenModel href="general_design.genmodel#/"/>
   <labelParsers extensibleViaService="true">
-    <implementations xsi:type="gmfgen:PredefinedParser" uses="//@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.1/@labels.0/@modelFacet //@diagram/@childNodes.2/@labels.0/@modelFacet //@diagram/@childNodes.3/@labels.0/@modelFacet //@diagram/@childNodes.5/@labels.0/@modelFacet //@diagram/@childNodes.4/@labels.0/@modelFacet //@diagram/@childNodes.6/@labels.0/@modelFacet //@diagram/@topLevelNodes.2/@labels.0/@modelFacet //@diagram/@links.0/@labels.0/@modelFacet"/>
+    <implementations xsi:type="gmfgen:PredefinedParser" uses="//@diagram/@childNodes.1/@labels.0/@modelFacet //@diagram/@childNodes.3/@labels.0/@modelFacet //@diagram/@childNodes.5/@labels.0/@modelFacet //@diagram/@childNodes.4/@labels.0/@modelFacet //@diagram/@childNodes.6/@labels.0/@modelFacet //@diagram/@topLevelNodes.2/@labels.0/@modelFacet //@diagram/@links.0/@labels.0/@modelFacet"/>
   </labelParsers>
   <contextMenus context="//@diagram">
     <items xsi:type="gmfgen:LoadResourceAction"/>

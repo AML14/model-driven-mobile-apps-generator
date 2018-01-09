@@ -21,11 +21,7 @@
       queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sma/genappgen' and _eClass_.name = 'FinalNode') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sma/genappgen' and _eClass_.name = 'GeneralMobileApp') and _containmentMF_.name = 'flowElements')"/>
   <childNodeTraces
       visualID="3001"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sma/genappgen' and _eClass_.name = 'Card') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sma/genappgen' and _eClass_.name = 'Screen') and _containmentMF_.name = 'components')">
-    <nodeLabelTraces
-        visualID="5003"
-        queryText="true"/>
-  </childNodeTraces>
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sma/genappgen' and _eClass_.name = 'Card') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sma/genappgen' and _eClass_.name = 'Screen') and _containmentMF_.name = 'components')"/>
   <childNodeTraces
       visualID="3002"
       queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sma/genappgen' and _eClass_.name = 'InputText') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sma/genappgen' and _eClass_.name = 'Screen') and _containmentMF_.name = 'components')">
@@ -35,11 +31,7 @@
   </childNodeTraces>
   <childNodeTraces
       visualID="3003"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sma/genappgen' and _eClass_.name = 'ListC') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sma/genappgen' and _eClass_.name = 'Screen') and _containmentMF_.name = 'components')">
-    <nodeLabelTraces
-        visualID="5005"
-        queryText="true"/>
-  </childNodeTraces>
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sma/genappgen' and _eClass_.name = 'ListC') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sma/genappgen' and _eClass_.name = 'Screen') and _containmentMF_.name = 'components')"/>
   <childNodeTraces
       visualID="3004"
       queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sma/genappgen' and _eClass_.name = 'LoginForm') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sma/genappgen' and _eClass_.name = 'Screen') and _containmentMF_.name = 'components')">

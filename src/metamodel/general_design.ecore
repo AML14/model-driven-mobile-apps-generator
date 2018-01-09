@@ -23,7 +23,7 @@
       <details key="resizable" value="true"/>
       <details key="target.decoration" value="arrow"/>
       <details key="label" value="name"/>
-      <details key="tool.description" value="Nueva transiciÃ³n."/>
+      <details key="tool.description" value="New transition."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="output" eType="#//FlowElement"
         eOpposite="#//FlowElement/transitionIn"/>
@@ -35,16 +35,20 @@
     <eAnnotations source="gmf.node">
       <details key="label.placement" value="none"/>
       <details key="label.icon" value="false"/>
-      <details key="resizable" value="true"/>
-      <details key="tool.description" value="Nueva nodo Inicial."/>
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/model-driven-mobile-apps-generator/editor-icons/initial-node.svg"/>
+      <details key="resizable" value="false"/>
+      <details key="tool.description" value="New initial node."/>
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FinalNode" eSuperTypes="#//FlowElement">
     <eAnnotations source="gmf.node">
       <details key="label.placement" value="none"/>
       <details key="label.icon" value="false"/>
-      <details key="resizable" value="true"/>
-      <details key="tool.description" value="Nueva nodo Final."/>
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/model-driven-mobile-apps-generator/editor-icons/final-node.svg"/>
+      <details key="resizable" value="false"/>
+      <details key="tool.description" value="New final node."/>
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Screen" eSuperTypes="#//FlowElement">
@@ -53,7 +57,7 @@
       <details key="label.placement" value="internal"/>
       <details key="label.icon" value="false"/>
       <details key="resizable" value="true"/>
-      <details key="tool.description" value="Nueva pantalla."/>
+      <details key="tool.description" value="New Screen."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
         eType="#//Component" containment="true">
@@ -65,9 +69,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="verticalPosition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InputComponent" abstract="true" eSuperTypes="#//Component">
-    <eAnnotations source="gmf.node">
-      <details key="label" value="verticalPosition"/>
-    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="stateID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DynamicComponent" abstract="true" eSuperTypes="#//Component">
@@ -77,23 +78,43 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Card" eSuperTypes="#//DynamicComponent">
     <eAnnotations source="gmf.node">
-      <details key="label" value="verticalPosition"/>
+      <details key="label.placement" value="none"/>
+      <details key="label.icon" value="false"/>
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/model-driven-mobile-apps-generator/editor-icons/card.svg"/>
+      <details key="resizable" value="false"/>
+      <details key="tool.description" value="New card."/>
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InputText" eSuperTypes="#//InputComponent">
     <eAnnotations source="gmf.node">
-      <details key="label" value="verticalPosition"/>
+      <details key="label" value="placeholder"/>
+      <details key="label.placement" value="internal"/>
+      <details key="label.icon" value="false"/>
+      <details key="resizable" value="true"/>
+      <details key="tool.description" value="New inputText."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="placeholder" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ListC" eSuperTypes="#//DynamicComponent">
     <eAnnotations source="gmf.node">
-      <details key="label" value="verticalPosition"/>
+      <details key="label.placement" value="none"/>
+      <details key="label.icon" value="false"/>
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/model-driven-mobile-apps-generator/editor-icons/list.svg"/>
+      <details key="resizable" value="false"/>
+      <details key="tool.description" value="New listC."/>
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LoginForm" eSuperTypes="#//InputComponent">
     <eAnnotations source="gmf.node">
-      <details key="label" value="verticalPosition"/>
+      <details key="label" value="buttonTitle"/>
+      <details key="label.placement" value="external"/>
+      <details key="label.icon" value="false"/>
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/model-driven-mobile-apps-generator/editor-icons/login.svg"/>
+      <details key="resizable" value="false"/>
+      <details key="tool.description" value="New loginForm."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="userPlaceholder" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="passwordPlaceholder" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -101,7 +122,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Picker" eSuperTypes="#//InputComponent">
     <eAnnotations source="gmf.node">
-      <details key="label" value="verticalPosition"/>
+      <details key="label" value="title"/>
+      <details key="label.placement" value="internal"/>
+      <details key="label.icon" value="false"/>
+      <details key="resizable" value="true"/>
+      <details key="tool.description" value="New picker."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" lowerBound="2"
         upperBound="-1" eType="#//PickerElement" containment="true">
@@ -113,7 +138,13 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RadioButton" eSuperTypes="#//InputComponent">
     <eAnnotations source="gmf.node">
-      <details key="label" value="defaultOption"/>
+      <details key="label" value="title"/>
+      <details key="label.placement" value="external"/>
+      <details key="label.icon" value="false"/>
+      <details key="figure" value="svg"/>
+      <details key="svg.uri" value="platform:/plugin/model-driven-mobile-apps-generator/editor-icons/check-box.svg"/>
+      <details key="resizable" value="false"/>
+      <details key="tool.description" value="New radioButton."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultOption" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -121,6 +152,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="PickerElement">
     <eAnnotations source="gmf.node">
       <details key="label" value="name"/>
+      <details key="label.placement" value="internal"/>
+      <details key="label.icon" value="false"/>
+      <details key="resizable" value="true"/>
+      <details key="tool.description" value="New pickerElement."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>

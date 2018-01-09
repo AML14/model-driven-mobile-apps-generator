@@ -73,9 +73,9 @@
         stateID="6"/>
     <components
         xsi:type="genAppGen:ListC"
-        verticalPosition="7"
+        verticalPosition="2"
         dataSource="//@flowElements.1/@components.0 //@flowElements.2/@components.0 //@flowElements.2/@components.1 //@flowElements.2/@components.2 //@flowElements.2/@components.3"
-        stateID="1"/>
+        stateID="7"/>
   </flowElements>
   <flowElements
       xsi:type="genAppGen:FinalNode"

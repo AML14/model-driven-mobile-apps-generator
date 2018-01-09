@@ -13,7 +13,7 @@
       <tools
           xsi:type="gmftool:CreationTool"
           title="Card"
-          description="Create new Card">
+          description="New card.">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -22,7 +22,7 @@
       <tools
           xsi:type="gmftool:CreationTool"
           title="FinalNode"
-          description="Nueva nodo Final.">
+          description="New final node.">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -31,7 +31,7 @@
       <tools
           xsi:type="gmftool:CreationTool"
           title="InitialNode"
-          description="Nueva nodo Inicial.">
+          description="New initial node.">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -40,7 +40,7 @@
       <tools
           xsi:type="gmftool:CreationTool"
           title="InputText"
-          description="Create new InputText">
+          description="New inputText.">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -49,7 +49,7 @@
       <tools
           xsi:type="gmftool:CreationTool"
           title="ListC"
-          description="Create new ListC">
+          description="New listC.">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -58,7 +58,7 @@
       <tools
           xsi:type="gmftool:CreationTool"
           title="LoginForm"
-          description="Create new LoginForm">
+          description="New loginForm.">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -67,7 +67,7 @@
       <tools
           xsi:type="gmftool:CreationTool"
           title="Picker"
-          description="Create new Picker">
+          description="New picker.">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -76,7 +76,7 @@
       <tools
           xsi:type="gmftool:CreationTool"
           title="PickerElement"
-          description="Create new PickerElement">
+          description="New pickerElement.">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -85,7 +85,7 @@
       <tools
           xsi:type="gmftool:CreationTool"
           title="RadioButton"
-          description="Create new RadioButton">
+          description="New radioButton.">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -94,7 +94,7 @@
       <tools
           xsi:type="gmftool:CreationTool"
           title="Screen"
-          description="Nueva pantalla.">
+          description="New Screen.">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -108,7 +108,7 @@
       <tools
           xsi:type="gmftool:CreationTool"
           title="Transition"
-          description="Nueva transici&#xc3;&#xb3;n.">
+          description="New transition.">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
