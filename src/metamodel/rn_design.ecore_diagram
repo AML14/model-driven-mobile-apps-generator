@@ -684,6 +684,33 @@
     <element xsi:nil="true"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Nj93Y-NPEeeUSrAARmD7EQ" x="1056" y="128" width="229" height="93"/>
   </children>
+  <children xmi:type="notation:Shape" xmi:id="_BYIzwPYTEeeq59H0Z0yy9A" type="2003" fontName=".SF NS Text">
+    <children xmi:type="notation:DecorationNode" xmi:id="_BYIzwvYTEeeq59H0Z0yy9A" type="5003"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_BYIzw_YTEeeq59H0Z0yy9A" type="7009">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_BYIzxPYTEeeq59H0Z0yy9A"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_BYIzxfYTEeeq59H0Z0yy9A"/>
+    </children>
+    <element xmi:type="ecore:EAnnotation" href="rn_design.ecore#//%gmf%"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BYIzwfYTEeeq59H0Z0yy9A"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_JciIAPYTEeeq59H0Z0yy9A" type="2003" fontName=".SF NS Text">
+    <children xmi:type="notation:DecorationNode" xmi:id="_JciIAvYTEeeq59H0Z0yy9A" type="5003"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_JciIA_YTEeeq59H0Z0yy9A" type="7009">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_JciIBPYTEeeq59H0Z0yy9A"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_JciIBfYTEeeq59H0Z0yy9A"/>
+    </children>
+    <element xmi:type="ecore:EAnnotation" href="rn_design.ecore#//%http:%2F%2Fwww.eclipse.org%2FOCL%2FImport%"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JciIAfYTEeeq59H0Z0yy9A" x="1216" y="-88"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_JcivEPYTEeeq59H0Z0yy9A" type="2003" fontName=".SF NS Text">
+    <children xmi:type="notation:DecorationNode" xmi:id="_JcivEvYTEeeq59H0Z0yy9A" type="5003"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_JcivE_YTEeeq59H0Z0yy9A" type="7009">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_JcivFPYTEeeq59H0Z0yy9A"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_JcivFfYTEeeq59H0Z0yy9A"/>
+    </children>
+    <element xmi:type="ecore:EAnnotation" href="rn_design.ecore#//%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FEcore%"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JcivEfYTEeeq59H0Z0yy9A" x="1156" y="-36"/>
+  </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_f2PREdKJEee1tpFIdlqd2w"/>
   <element xmi:type="ecore:EPackage" href="rn_design.ecore#/"/>
   <edges xmi:type="notation:Connector" xmi:id="_AmrgINK9EeeE2JZ1cne_YQ" type="4003" source="_OXU3cNK7EeeVud-sjBzr9w" target="_iKGo8NK8EeeE2JZ1cne_YQ" routing="Rectilinear">

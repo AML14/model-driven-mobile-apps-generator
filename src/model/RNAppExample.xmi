@@ -9,71 +9,6 @@
   <navigator
       initialScreen="//@navigator/@screens.0"
       name="Navegador1">
-    <nestedNavigators
-        type="Tab"
-        initialScreen="//@navigator/@nestedNavigators.0/@screens.0"
-        name="Navegador2">
-      <screens
-          title="Segunda Pantalla"
-          hasPreviousScreen="true"
-          nextScreen="//@navigator/@nestedNavigators.0/@screens.1">
-        <components
-            xsi:type="rnAppGen:Card"
-            flexVerticalPosition="1"
-            flexVerticalSize="6.0"
-            dataSource="//@navigator/@screens.0/@components.2 //@navigator/@screens.0/@components.5"
-            stateID="5"/>
-        <components
-            xsi:type="rnAppGen:Card"
-            flexVerticalPosition="2"
-            flexVerticalSize="6.0"
-            margin="20"
-            verticalAlignment="flex-end"
-            header="Senseless card"
-            body="regu hwlgk jawheg kljewgwek gw lgjw alkjsgehr akjegw jkger gajgL JWGAR JGER GJBS bjlk ljskg aejl gsjtgsek je rkjer gjkser gsjekrgeskjr ger jge rgjerg j  j ej esr jgaer jkg"/>
-      </screens>
-      <screens
-          title="Tercera Pantalla"
-          scrollable="true"
-          hasPreviousScreen="true"
-          nextScreen="//@navigator/@nestedNavigators.0/@screens.2">
-        <components
-            xsi:type="rnAppGen:Picker"
-            flexVerticalPosition="1"
-            stateID="2"
-            defaultOption="//@navigator/@nestedNavigators.0/@screens.1/@components.0/@elements.0"
-            title="Select an option">
-          <elements
-              name="Football"/>
-          <elements
-              name="Basketball"/>
-          <elements
-              name="Tennis"/>
-        </components>
-        <components
-            xsi:type="rnAppGen:LoginForm"
-            flexVerticalPosition="2"
-            stateID="4"
-            userPlaceholder="Username"
-            passwordPlaceholder="Password"
-            buttonTitle="Log in"/>
-        <components
-            xsi:type="rnAppGen:Text"
-            flexVerticalPosition="3"
-            horizontalAlignment="flex-start"
-            text="Algo de texto"/>
-      </screens>
-      <screens
-          title="Cuarta Pantalla"
-          scrollable="true"
-          hasPreviousScreen="true">
-        <components
-            xsi:type="rnAppGen:ListC"
-            flexVerticalPosition="1"
-            dataSource="//@navigator/@nestedNavigators.0/@screens.1/@components.0 //@navigator/@nestedNavigators.0/@screens.1/@components.1"
-            stateID="6"/>
-      </screens>
-    </nestedNavigators>
     <screens
         title="Primera Pantalla"
         nextNavigator="//@navigator/@nestedNavigators.0">
@@ -106,7 +41,7 @@
           flexHorizontalPosition="2"
           flexHorizontalSize="1.0"
           margin="10"
-          horizontalAlignment="flex-end"
+          horizontalAlignment="flex_end"
           isLastHorizontal="true"
           text="Enviar"/>
       <components
@@ -159,5 +94,70 @@
           title="Add ketchup"
           defaultOption="true"/>
     </screens>
+    <nestedNavigators
+        type="Tab"
+        initialScreen="//@navigator/@nestedNavigators.0/@screens.0"
+        name="Navegador2">
+      <screens
+          title="Segunda Pantalla"
+          hasPreviousScreen="true"
+          nextScreen="//@navigator/@nestedNavigators.0/@screens.1">
+        <components
+            xsi:type="rnAppGen:Card"
+            flexVerticalPosition="1"
+            flexVerticalSize="6.0"
+            dataSource="//@navigator/@screens.0/@components.2 //@navigator/@screens.0/@components.5"
+            stateID="5"/>
+        <components
+            xsi:type="rnAppGen:Card"
+            flexVerticalPosition="2"
+            flexVerticalSize="6.0"
+            margin="20"
+            verticalAlignment="flex_end"
+            header="Senseless card"
+            body="regu hwlgk jawheg kljewgwek gw lgjw alkjsgehr akjegw jkger gajgL JWGAR JGER GJBS bjlk ljskg aejl gsjtgsek je rkjer gjkser gsjekrgeskjr ger jge rgjerg j  j ej esr jgaer jkg"/>
+      </screens>
+      <screens
+          title="Tercera Pantalla"
+          scrollable="true"
+          hasPreviousScreen="true"
+          nextScreen="//@navigator/@nestedNavigators.0/@screens.2">
+        <components
+            xsi:type="rnAppGen:Picker"
+            flexVerticalPosition="1"
+            stateID="2"
+            defaultOption="//@navigator/@nestedNavigators.0/@screens.1/@components.0/@elements.0"
+            title="Select an option">
+          <elements
+              name="Football"/>
+          <elements
+              name="Basketball"/>
+          <elements
+              name="Tennis"/>
+        </components>
+        <components
+            xsi:type="rnAppGen:LoginForm"
+            flexVerticalPosition="2"
+            stateID="4"
+            userPlaceholder="Username"
+            passwordPlaceholder="Password"
+            buttonTitle="Log in"/>
+        <components
+            xsi:type="rnAppGen:Text"
+            flexVerticalPosition="3"
+            horizontalAlignment="flex_start"
+            text="Algo de texto"/>
+      </screens>
+      <screens
+          title="Cuarta Pantalla"
+          scrollable="true"
+          hasPreviousScreen="true">
+        <components
+            xsi:type="rnAppGen:ListC"
+            flexVerticalPosition="1"
+            dataSource="//@navigator/@nestedNavigators.0/@screens.1/@components.0 //@navigator/@nestedNavigators.0/@screens.1/@components.1"
+            stateID="6"/>
+      </screens>
+    </nestedNavigators>
   </navigator>
 </rnAppGen:MobileApp>

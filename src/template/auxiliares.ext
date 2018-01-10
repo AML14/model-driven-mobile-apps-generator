@@ -21,6 +21,14 @@ String getInputComponentKeyGeneral(Object m):
 	}
 ;
 
+String getAlignment(rnAppGenerator::AlignmentType a):
+    switch (a) {
+		case AlignmentType::flex_end: 'flex-end'
+		case AlignmentType::flex_start: 'flex-start'
+		default: 'center'
+	}
+;
+
 List getOrderedScreens(FlowElement f):
 	if(f.metaType == InitialNode) then
 		getOrderedScreens(f.transitionOut.output)

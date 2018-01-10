@@ -269,7 +269,7 @@ class «title.replaceAll(' ','')» extends Component {
         «IF scrollable == false-»
         <Content scrollEnabled={false} style={{ flex: 1 }} contentContainerStyle={{ flex: 1 }}>
           <View style={{ flex: 12 }}>
-            «FOREACH components AS c-»
+            «FOREACH components.sortBy(e|e.flexHorizontalPosition).sortBy(e|e.flexVerticalPosition) AS c-»
             «IF c.flexHorizontalSize < 4 && c.flexHorizontalPosition == 1-»
             <View style={{ flex: «c.flexVerticalSize», flexDirection: 'row' }}>
             «ENDIF-»
@@ -277,8 +277,8 @@ class «title.replaceAll(' ','')» extends Component {
             <View style={{
                 flex: «c.flexVerticalSize»,
                 flexDirection: 'row',
-                justifyContent: '«c.horizontalAlignment»',
-                alignItems: '«c.verticalAlignment»',
+                justifyContent: '«getAlignment(c.horizontalAlignment)»',
+                alignItems: '«getAlignment(c.verticalAlignment)»',
                 «IF c.margin != null-»
                 margin: «c.margin»,
                 «ENDIF-»
@@ -290,8 +290,8 @@ class «title.replaceAll(' ','')» extends Component {
             «ELSE-»
             <View style={{
                 flex: «c.flexHorizontalSize»,
-                justifyContent: '«c.verticalAlignment»',
-                alignItems: '«c.horizontalAlignment»',
+                justifyContent: '«getAlignment(c.verticalAlignment)»',
+                alignItems: '«getAlignment(c.horizontalAlignment)»',
                 «IF c.margin != null-»
                 margin: «c.margin»,
                 «ENDIF-»
@@ -311,7 +311,7 @@ class «title.replaceAll(' ','')» extends Component {
         </Content>
         «ELSE-»
         <Content>
-          «FOREACH components AS c-»
+          «FOREACH components.sortBy(e|e.flexHorizontalPosition).sortBy(e|e.flexVerticalPosition) AS c-»
           «IF c.flexHorizontalSize < 4 && c.flexHorizontalPosition == 1-»
           <View style={{ flex: 1, flexDirection: 'row' }}>
           «ENDIF-»
@@ -319,8 +319,8 @@ class «title.replaceAll(' ','')» extends Component {
           <View style={{
               flex: 1,
               flexDirection: 'row',
-              justifyContent: '«c.horizontalAlignment»',
-              alignItems: '«c.verticalAlignment»',
+              justifyContent: '«getAlignment(c.horizontalAlignment)»',
+              alignItems: '«getAlignment(c.verticalAlignment)»',
               «IF c.margin != null-»
               margin: «c.margin»,
               «ENDIF-»
@@ -332,8 +332,8 @@ class «title.replaceAll(' ','')» extends Component {
           «ELSE-»
           <View style={{
               flex: '«c.flexHorizontalSize»',
-              justifyContent: '«c.verticalAlignment»',
-              alignItems: '«c.horizontalAlignment»',
+              justifyContent: '«getAlignment(c.verticalAlignment)»',
+              alignItems: '«getAlignment(c.horizontalAlignment)»',
               «IF c.margin != null-»
               margin: «c.margin»,
               «ENDIF-»
@@ -481,7 +481,7 @@ const «name.replaceAll(' ','')» = «IF type == NavigatorType::Stack»StackNavi
                 «text»
               </Text>
             «ELSEIF metaType == rnAppGenerator::Button-»
-              <Button «theme»«IF type != ButtonType::defaultType» «type»«ENDIF»«IF size != ButtonSize::regular» «size»«ENDIF» style={{ alignSelf: '«horizontalAlignment»' }}>
+              <Button «theme»«IF type != ButtonType::defaultType» «type»«ENDIF»«IF size != ButtonSize::regular» «size»«ENDIF» style={{ alignSelf: '«getAlignment(horizontalAlignment)»' }}>
                 <Text>«text»</Text>
               </Button>
             «ELSEIF metaType == rnAppGenerator::ListC-»
