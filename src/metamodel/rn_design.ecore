@@ -50,10 +50,11 @@
       <details key="tool.description" value="New screen."/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="OnlyOneNextElement"/>
+      <details key="constraints" value="OnlyOneNextElement NextScreenDifferentToSelf"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="OnlyOneNextElement" value="&#xA;&#x9;&#x9;if nextScreen &lt;> null then nextNavigator = null&#xA;&#x9;&#x9;else if nextNavigator &lt;> null then nextScreen = null&#xA;&#x9;&#x9;else true endif&#xA;&#x9;&#x9;endif"/>
+      <details key="OnlyOneNextElement" value="&#xA;&#x9;&#x9;&#x9;if nextScreen &lt;> null then nextNavigator = null&#xA;&#x9;&#x9;&#x9;else if nextNavigator &lt;> null then nextScreen = null&#xA;&#x9;&#x9;&#x9;else true endif&#xA;&#x9;&#x9;&#x9;endif"/>
+      <details key="NextScreenDifferentToSelf" value="&#xA;&#x9;&#x9;&#x9;nextScreen &lt;> self"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
         eType="#//Component" containment="true">

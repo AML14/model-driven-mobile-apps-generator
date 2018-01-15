@@ -97,7 +97,7 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_balAedK9EeeE2JZ1cne_YQ"/>
     </children>
     <element xmi:type="ecore:EClass" href="rn_design.ecore#//Screen"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bakZYdK9EeeE2JZ1cne_YQ" x="328" y="-5" width="176"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bakZYdK9EeeE2JZ1cne_YQ" x="328" y="-16" width="176"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_Uo6p8NK-EeeE2JZ1cne_YQ" type="2001" fontName=".SF NS Text">
     <children xmi:type="notation:DecorationNode" xmi:id="_Uo7RANK-EeeE2JZ1cne_YQ" type="5001"/>
@@ -702,14 +702,14 @@
     <element xmi:type="ecore:EAnnotation" href="rn_design.ecore#//%http:%2F%2Fwww.eclipse.org%2FOCL%2FImport%"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JciIAfYTEeeq59H0Z0yy9A" x="1216" y="-88"/>
   </children>
-  <children xmi:type="notation:Shape" xmi:id="_JcivEPYTEeeq59H0Z0yy9A" type="2003" fontName=".SF NS Text">
-    <children xmi:type="notation:DecorationNode" xmi:id="_JcivEvYTEeeq59H0Z0yy9A" type="5003"/>
-    <children xmi:type="notation:BasicCompartment" xmi:id="_JcivE_YTEeeq59H0Z0yy9A" type="7009">
-      <styles xmi:type="notation:SortingStyle" xmi:id="_JcivFPYTEeeq59H0Z0yy9A"/>
-      <styles xmi:type="notation:FilteringStyle" xmi:id="_JcivFfYTEeeq59H0Z0yy9A"/>
+  <children xmi:type="notation:Shape" xmi:id="_rwqekPYeEeeq59H0Z0yy9A" type="2003" fontName=".SF NS Text">
+    <children xmi:type="notation:DecorationNode" xmi:id="_rwrFoPYeEeeq59H0Z0yy9A" type="5003"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_rwrFofYeEeeq59H0Z0yy9A" type="7009">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_rwrFovYeEeeq59H0Z0yy9A"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_rwrFo_YeEeeq59H0Z0yy9A"/>
     </children>
     <element xmi:type="ecore:EAnnotation" href="rn_design.ecore#//%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FEcore%"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JcivEfYTEeeq59H0Z0yy9A" x="1156" y="-36"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rwqekfYeEeeq59H0Z0yy9A" x="1160" y="-32"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_f2PREdKJEee1tpFIdlqd2w"/>
   <element xmi:type="ecore:EPackage" href="rn_design.ecore#/"/>

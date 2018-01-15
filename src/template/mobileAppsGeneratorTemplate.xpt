@@ -43,7 +43,7 @@ const tabNavigatorConfig = {
 export default class App extends Component {
   render() {
     return (
-      <«navigator.name» />
+      <«navigator.name.replaceAll(' ','')» />
     );
   }
 }
@@ -484,6 +484,11 @@ const «name.replaceAll(' ','')» = «IF type == NavigatorType::Stack»StackNavi
               <Button «theme»«IF type != ButtonType::defaultType» «type»«ENDIF»«IF size != ButtonSize::regular» «size»«ENDIF» style={{ alignSelf: '«getAlignment(horizontalAlignment)»' }}>
                 <Text>«text»</Text>
               </Button>
+            «ELSEIF metaType == rnAppGenerator::Image-»
+              <Image
+                style={{ height: «height», width: «width» }}
+                source={require('«source»')}
+              />
             «ELSEIF metaType == rnAppGenerator::ListC-»
             «IF stateID == null || stateID == 0-»
               <ScrollView>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rnAppGen:MobileApp
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:rnAppGen="http://rnappgen"
+    xsi:schemaLocation="http://rnappgen file:/Users/Alberto/workspace/Eclipse-Epsilon/model-driven-mobile-apps-generator/src/metamodel/rn_design.ecore">
+  <navigator
+      initialScreen="//@navigator/@screens.0"
+      name="Navigator 1">
+    <screens
+        title="Login"
+        scrollable="true"
+        nextNavigator="//@navigator/@nestedNavigators.0">
+      <components
+          xsi:type="rnAppGen:LoginForm"
+          stateID="1"
+          userPlaceholder="Username"
+          passwordPlaceholder="Password"
+          buttonTitle="Log in "/>
+    </screens>
+    <nestedNavigators
+        type="Tab"
+        initialScreen="//@navigator/@nestedNavigators.0/@screens.0"
+        name="Navigator 2">
+      <screens
+          title="Recent Posts"
+          scrollable="true"
+          hasPreviousScreen="true">
+        <components
+            xsi:type="rnAppGen:Card"
+            padding="5"
+            header="Post 1"
+            body="This is a simple post, it's quite short."/>
+        <components
+            xsi:type="rnAppGen:Card"
+            padding="5"
+            header="Post 2"
+            body="This is another post. A bit longer. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus consectetur lectus sed dui interdum cursus. Integer sollicitudin felis mi, vitae aliquet ex placerat ut. Duis diam velit, dapibus in viverra ac, vehicula in eros."/>
+        <components
+            xsi:type="rnAppGen:Card"
+            padding="5"
+            header="Post 3"
+            body="Yet another post. This is much longer. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus consectetur lectus sed dui interdum cursus. Integer sollicitudin felis mi, vitae aliquet ex placerat ut. Duis diam velit, dapibus in viverra ac, vehicula in eros. Sed non eros mollis, placerat nulla eget, vestibulum erat. Nulla facilisi. Integer ac nulla ut elit placerat porttitor. Fusce metus nibh, feugiat quis scelerisque nec, pulvinar sed metus. Fusce id arcu in nisi porttitor pellentesque vel non erat. Proin non vulputate tellus, quis lacinia nulla. Fusce varius nunc ac lacinia viverra. Aenean quis est massa. Vivamus vel commodo neque. Vestibulum sit amet purus at lectus vulputate lobortis ac sit amet felis."/>
+      </screens>
+      <screens
+          title="My Posts"
+          scrollable="true"
+          hasPreviousScreen="true">
+        <components
+            xsi:type="rnAppGen:ListC">
+          <items
+              text="Life outside">
+            <leftIcon
+                name="home"
+                color="darkgreen"
+                active="true"/>
+            <rightIcon
+                name="arrow-forward"
+                color="grey"/>
+          </items>
+          <items
+              text="Sports">
+            <leftIcon
+                name="football"
+                color="blue"
+                active="true"/>
+            <rightIcon
+                name="arrow-forward"
+                color="grey"/>
+          </items>
+          <items
+              text="Relationships">
+            <leftIcon
+                name="heart"
+                color="red"
+                active="true"/>
+            <rightIcon
+                name="arrow-forward"
+                color="grey"/>
+          </items>
+          <items
+              text="How to deal with your boss">
+            <leftIcon
+                name="contact"
+                color="darkgray"
+                active="true"/>
+            <rightIcon
+                name="arrow-forward"
+                color="grey"/>
+          </items>
+        </components>
+      </screens>
+      <screens
+          title="Settings"
+          scrollable="true"
+          hasPreviousScreen="true">
+        <components
+            xsi:type="rnAppGen:Image"
+            margin="10"
+            height="150"
+            width="150"
+            source="../../../settings.png"/>
+        <components
+            xsi:type="rnAppGen:Text"
+            margin="10"
+            text="Customize your settings!"/>
+        <components
+            xsi:type="rnAppGen:RadioButton"
+            stateID="2"
+            title="Option 1"/>
+        <components
+            xsi:type="rnAppGen:RadioButton"
+            stateID="3"
+            title="Option 2"
+            defaultOption="true"/>
+      </screens>
+      <nestedNavigators
+          initialScreen="//@navigator/@nestedNavigators.0/@nestedNavigators.0/@screens.0"
+          name="Write Post">
+        <screens
+            title="Post Content"
+            scrollable="true"
+            hasPreviousScreen="true"
+            nextScreen="//@navigator/@nestedNavigators.0/@nestedNavigators.0/@screens.1">
+          <components
+              xsi:type="rnAppGen:InputText"
+              margin="5"
+              stateID="4"
+              type="rounded"
+              placeholder="Enter post title"/>
+          <components
+              xsi:type="rnAppGen:InputText"
+              margin="5"
+              stateID="5"
+              type="rounded"
+              placeholder="Enter post content"/>
+          <components
+              xsi:type="rnAppGen:Picker"
+              margin="5"
+              stateID="6"
+              defaultOption="//@navigator/@nestedNavigators.0/@nestedNavigators.0/@screens.0/@components.2/@elements.0"
+              title="Post category">
+            <elements
+                name="Personal life"/>
+            <elements
+                name="Sports"/>
+            <elements
+                name="Work"/>
+            <elements
+                name="Food"/>
+          </components>
+          <components
+              xsi:type="rnAppGen:RadioButton"
+              stateID="7"
+              title="Publish anonymously"/>
+        </screens>
+        <screens
+            title="Post Created"
+            hasPreviousScreen="true">
+          <components
+              xsi:type="rnAppGen:Card"
+              flexVerticalPosition="1"
+              flexVerticalSize="4.0"
+              padding="5"
+              dataSource="//@navigator/@screens.0/@components.0 //@navigator/@nestedNavigators.0/@nestedNavigators.0/@screens.0/@components.0 //@navigator/@nestedNavigators.0/@nestedNavigators.0/@screens.0/@components.1 //@navigator/@nestedNavigators.0/@nestedNavigators.0/@screens.0/@components.2 //@navigator/@nestedNavigators.0/@nestedNavigators.0/@screens.0/@components.3"
+              stateID="8"
+              body=""/>
+        </screens>
+      </nestedNavigators>
+    </nestedNavigators>
+  </navigator>
+</rnAppGen:MobileApp>
