@@ -150,8 +150,6 @@
 «DEFINE screenTemplate FOR Screen-»
 					<span class="screen-title">«this.title»</span>
 «FOREACH this.components.sortBy(e|e.verticalPosition) AS c-»
-«REM»Esto es horrible, pero no he encontrado ninguna manera de que se haga automáticamente
-     según el tipo de componente.«ENDREM-»
 					<id class="row«IF c.metaType == RadioButton-» material-switch form-group«ENDIF-»">
 «IF c.metaType == RadioButton-»«EXPAND componentTemplate FOR (RadioButton)c-»
 «ELSEIF c.metaType == Picker-»«EXPAND componentTemplate FOR (Picker)c-»
