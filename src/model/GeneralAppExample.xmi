@@ -3,97 +3,145 @@
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:genAppGen="http://sma/genappgen"
-    xsi:schemaLocation="http://sma/genappgen ../metamodel/general_design.ecore"
+    xmlns:genAppGen="http://genappgen"
+    xsi:schemaLocation="http://genappgen ../metamodel/general_design.ecore"
     name="Test App">
   <flowElements
       xsi:type="genAppGen:InitialNode"
       transitionOut="//@transitions.0"/>
   <flowElements
+      xsi:type="genAppGen:FinalNode"
+      transitionIn="//@transitions.5"/>
+  <flowElements
       xsi:type="genAppGen:Screen"
       transitionIn="//@transitions.0"
       transitionOut="//@transitions.1"
-      title="First Screen">
+      title="Login">
     <components
         xsi:type="genAppGen:LoginForm"
-        verticalPosition="1"
-        stateID="1"
-        userPlaceholder="Username"
-        passwordPlaceholder="Password"
-        buttonTitle="Log in"/>
+        userPlaceholder="AML14"
+        passwordPlaceholder="********"
+        buttonTitle="Log In"/>
   </flowElements>
   <flowElements
       xsi:type="genAppGen:Screen"
       transitionIn="//@transitions.1"
-      transitionOut="//@transitions.2"
-      title="Second Screen">
+      transitionOut="//@transitions.6"
+      title="Recent Posts">
     <components
-        xsi:type="genAppGen:InputText"
-        verticalPosition="5"
-        stateID="2"
-        placeholder="Post title"/>
+        xsi:type="genAppGen:Card"
+        dataSource="//@flowElements.2/@components.0"
+        stateID="1"/>
     <components
-        xsi:type="genAppGen:InputText"
+        xsi:type="genAppGen:Card"
+        verticalPosition="1"
+        dataSource="//@flowElements.2/@components.0"
+        stateID="2"/>
+    <components
+        xsi:type="genAppGen:Card"
         verticalPosition="2"
-        stateID="4"
-        placeholder="Post content"/>
+        dataSource="//@flowElements.2/@components.0"
+        stateID="3"/>
+  </flowElements>
+  <flowElements
+      xsi:type="genAppGen:Screen"
+      transitionIn="//@transitions.6"
+      transitionOut="//@transitions.2"
+      title="My Posts">
     <components
-        xsi:type="genAppGen:RadioButton"
-        verticalPosition="3"
-        stateID="3"
-        title="Publish anonymously"
-        defaultOption="true"/>
-    <components
-        xsi:type="genAppGen:Picker"
-        verticalPosition="4"
-        stateID="5"
-        defaultOption="//@flowElements.2/@components.3/@elements.3"
-        title="Subject">
-      <elements
-          name="Sports"/>
-      <elements
-          name="Food"/>
-      <elements
-          name="Free time"/>
-      <elements
-          name="Work life"/>
-      <elements
-          name="Relationships"/>
-    </components>
+        xsi:type="genAppGen:ListC"
+        dataSource="//@flowElements.2/@components.0"
+        stateID="4"/>
   </flowElements>
   <flowElements
       xsi:type="genAppGen:Screen"
       transitionIn="//@transitions.2"
       transitionOut="//@transitions.3"
-      title="Third Screen">
+      title="Settings">
     <components
-        xsi:type="genAppGen:Card"
+        xsi:type="genAppGen:RadioButton"
+        stateID="5"
+        title="Option 1"/>
+    <components
+        xsi:type="genAppGen:RadioButton"
         verticalPosition="1"
-        dataSource="//@flowElements.1/@components.0 //@flowElements.2/@components.0 //@flowElements.2/@components.1 //@flowElements.2/@components.2 //@flowElements.2/@components.3"
-        stateID="6"/>
-    <components
-        xsi:type="genAppGen:ListC"
-        verticalPosition="2"
-        dataSource="//@flowElements.1/@components.0 //@flowElements.2/@components.0 //@flowElements.2/@components.1 //@flowElements.2/@components.2 //@flowElements.2/@components.3"
-        stateID="7"/>
+        stateID="6"
+        title="Option 2"
+        defaultOption="true"/>
   </flowElements>
   <flowElements
-      xsi:type="genAppGen:FinalNode"
-      transitionIn="//@transitions.3"/>
-  <transitions
-      output="//@flowElements.1"
-      input="//@flowElements.0"
-      name="iniToFirst"/>
+      xsi:type="genAppGen:Screen"
+      transitionIn="//@transitions.3"
+      transitionOut="//@transitions.4"
+      title="Post Content">
+    <components
+        xsi:type="genAppGen:InputText"
+        stateID="7"
+        placeholder="Enter post title"/>
+    <components
+        xsi:type="genAppGen:InputText"
+        verticalPosition="1"
+        stateID="8"
+        placeholder="Enter post content"/>
+    <components
+        xsi:type="genAppGen:Picker"
+        verticalPosition="2"
+        stateID="9"
+        defaultOption="//@flowElements.6/@components.2/@elements.0"
+        title="Post category">
+      <elements
+          name="Personal life"/>
+      <elements
+          name="Life outside"/>
+      <elements
+          name="Sports"/>
+      <elements
+          name="Relationships"/>
+      <elements
+          name="How to deal with your boss"/>
+    </components>
+    <components
+        xsi:type="genAppGen:RadioButton"
+        verticalPosition="3"
+        stateID="10"
+        title="Publish anonymously"/>
+  </flowElements>
+  <flowElements
+      xsi:type="genAppGen:Screen"
+      transitionIn="//@transitions.4"
+      transitionOut="//@transitions.5"
+      title="Post Created">
+    <components
+        xsi:type="genAppGen:Card"
+        dataSource="//@flowElements.6/@components.0"
+        stateID="11"/>
+  </flowElements>
   <transitions
       output="//@flowElements.2"
-      input="//@flowElements.1"
-      name="firstToSec"/>
+      input="//@flowElements.0"
+      name="InitialToLogin"/>
   <transitions
       output="//@flowElements.3"
       input="//@flowElements.2"
-      name="secToThird"/>
+      name="LoginToRecent"/>
+  <transitions
+      output="//@flowElements.5"
+      input="//@flowElements.4"
+      name="MyPostsToSettings"/>
+  <transitions
+      output="//@flowElements.6"
+      input="//@flowElements.5"
+      name="SettingsToPostContent"/>
+  <transitions
+      output="//@flowElements.7"
+      input="//@flowElements.6"
+      name="PostContentToPostCreated"/>
+  <transitions
+      output="//@flowElements.1"
+      input="//@flowElements.7"
+      name="PostCreatedToFinal"/>
   <transitions
       output="//@flowElements.4"
       input="//@flowElements.3"
-      name="thirdToEnd"/>
+      name="RecentToMyPosts"/>
 </genAppGen:GeneralMobileApp>
