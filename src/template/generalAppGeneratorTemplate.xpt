@@ -226,6 +226,5 @@
 								<li class="list-group-item">
 								«EXPAND inputComponentDataSourceTemplate FOREACH dataSource-»
 								</li>
-							</ul>	
-					      </div>
+							</ul>
 «ENDDEFINE-»
