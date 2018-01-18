@@ -1,6 +1,7 @@
 package workflow;
 
 import java.io.File;
+import java.io.IOException;
 
 import org.eclipse.emf.mwe.core.WorkflowComponent;
 import org.eclipse.emf.mwe.core.WorkflowContext;
@@ -23,11 +24,16 @@ public class RNHelper implements WorkflowComponent {
 	@Override
 	// Código para copiar los elementos generados y compilarlos
 	public void invoke(WorkflowContext wc, ProgressMonitor pm, Issues issues) {
-		/*
-		ProcessBuilder pb = new ProcessBuilder("/ruta/al/script.sh");
-		pb.directory(new File("/ruta/al/working/directory"));
-		Process p = pb.start();
-		*/
+		
+		ProcessBuilder pb = new ProcessBuilder("/Users/Alberto/workspace/Eclipse-Epsilon/model-driven-mobile-apps-generator/src/workflow/runRN.sh").inheritIO();
+		pb.directory(new File("/Users/Alberto/workspace/Eclipse-Epsilon/model-driven-mobile-apps-generator/src/workflow"));
+		try {
+			Process p = pb.start();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 	@Override public void setContainer(CompositeComponent arg0) {  }

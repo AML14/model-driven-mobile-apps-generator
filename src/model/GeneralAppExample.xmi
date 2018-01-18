@@ -19,6 +19,7 @@
       title="Login">
     <components
         xsi:type="genAppGen:LoginForm"
+        verticalPosition="1"
         userPlaceholder="AML14"
         passwordPlaceholder="********"
         buttonTitle="Log In"/>
@@ -30,16 +31,17 @@
       title="Recent Posts">
     <components
         xsi:type="genAppGen:Card"
+        verticalPosition="1"
         dataSource="//@flowElements.2/@components.0"
         stateID="1"/>
     <components
         xsi:type="genAppGen:Card"
-        verticalPosition="1"
+        verticalPosition="2"
         dataSource="//@flowElements.2/@components.0"
         stateID="2"/>
     <components
         xsi:type="genAppGen:Card"
-        verticalPosition="2"
+        verticalPosition="3"
         dataSource="//@flowElements.2/@components.0"
         stateID="3"/>
   </flowElements>
@@ -50,6 +52,7 @@
       title="My Posts">
     <components
         xsi:type="genAppGen:ListC"
+        verticalPosition="1"
         dataSource="//@flowElements.2/@components.0"
         stateID="4"/>
   </flowElements>
@@ -60,11 +63,12 @@
       title="Settings">
     <components
         xsi:type="genAppGen:RadioButton"
+        verticalPosition="1"
         stateID="5"
         title="Option 1"/>
     <components
         xsi:type="genAppGen:RadioButton"
-        verticalPosition="1"
+        verticalPosition="2"
         stateID="6"
         title="Option 2"
         defaultOption="true"/>
@@ -76,16 +80,17 @@
       title="Post Content">
     <components
         xsi:type="genAppGen:InputText"
+        verticalPosition="1"
         stateID="7"
         placeholder="Enter post title"/>
     <components
         xsi:type="genAppGen:InputText"
-        verticalPosition="1"
+        verticalPosition="2"
         stateID="8"
         placeholder="Enter post content"/>
     <components
         xsi:type="genAppGen:Picker"
-        verticalPosition="2"
+        verticalPosition="3"
         stateID="9"
         defaultOption="//@flowElements.6/@components.2/@elements.0"
         title="Post category">
@@ -102,7 +107,7 @@
     </components>
     <components
         xsi:type="genAppGen:RadioButton"
-        verticalPosition="3"
+        verticalPosition="4"
         stateID="10"
         title="Publish anonymously"/>
   </flowElements>
@@ -113,6 +118,7 @@
       title="Post Created">
     <components
         xsi:type="genAppGen:Card"
+        verticalPosition="1"
         dataSource="//@flowElements.6/@components.0"
         stateID="11"/>
   </flowElements>
