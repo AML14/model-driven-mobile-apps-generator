@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<rnAppGen:MobileApp xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rnAppGen="http://rnappgen" name="Test App">
-  <navigator initialScreen="//@navigator/@screens.1" name="Navigator1">
+<rnAppGen:MobileApp xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rnAppGen="platform:/resource/model-driven-mobile-apps-generator/src/metamodel/rn_design.ecore" name="Test App">
+  <navigator initialScreen="//@navigator/@screens.0" name="Navigator1">
+    <screens title="First Screen" scrollable="true" nextScreen="//@navigator/@screens.1">
+      <components xsi:type="rnAppGen:LoginForm" stateID="1" userPlaceholder="Username" passwordPlaceholder="Password" buttonTitle="Log in"/>
+    </screens>
     <screens title="Second Screen" scrollable="true" hasPreviousScreen="true" nextScreen="//@navigator/@screens.2">
-      <components xsi:type="rnAppGen:InputText" flexVerticalPosition="5" stateID="2" placeholder="Post title"/>
+      <components xsi:type="rnAppGen:InputText" stateID="2" placeholder="Post title"/>
       <components xsi:type="rnAppGen:InputText" flexVerticalPosition="2" stateID="4" placeholder="Post content"/>
       <components xsi:type="rnAppGen:RadioButton" flexVerticalPosition="3" stateID="3" title="Publish anonymously" defaultOption="true"/>
-      <components xsi:type="rnAppGen:Picker" flexVerticalPosition="4" stateID="5" defaultOption="//@navigator/@screens.0/@components.3/@elements.3" title="Subject">
+      <components xsi:type="rnAppGen:Picker" flexVerticalPosition="4" stateID="5" defaultOption="//@navigator/@screens.1/@components.3/@elements.3" title="Subject">
         <elements name="Sports"/>
         <elements name="Food"/>
         <elements name="Free time"/>
@@ -13,11 +16,8 @@
         <elements name="Relationships"/>
       </components>
     </screens>
-    <screens title="First Screen" scrollable="true" nextScreen="//@navigator/@screens.0">
-      <components xsi:type="rnAppGen:LoginForm" flexVerticalPosition="1" stateID="1" userPlaceholder="Username" passwordPlaceholder="Password" buttonTitle="Log in"/>
-    </screens>
     <screens title="Third Screen" scrollable="true" hasPreviousScreen="true">
-      <components xsi:type="rnAppGen:Card" flexVerticalPosition="1" dataSource="//@navigator/@screens.1/@components.0 //@navigator/@screens.0/@components.0 //@navigator/@screens.0/@components.1 //@navigator/@screens.0/@components.2 //@navigator/@screens.0/@components.3" stateID="6"/>
+      <components xsi:type="rnAppGen:Card" dataSource="//@navigator/@screens.0/@components.0 //@navigator/@screens.1/@components.0 //@navigator/@screens.1/@components.1 //@navigator/@screens.1/@components.2 //@navigator/@screens.1/@components.3" stateID="6"/>
     </screens>
   </navigator>
 </rnAppGen:MobileApp>
