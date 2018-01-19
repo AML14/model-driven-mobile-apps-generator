@@ -25,10 +25,11 @@
       <details key="tool.description" value="New navigator."/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="DifferentScreenNames"/>
+      <details key="constraints" value="DifferentScreenNames FirstScreenContainedInNavigator"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
       <details key="DifferentScreenNames" value="self.screens.title->excludes(self.name)"/>
+      <details key="FirstScreenContainedInNavigator" value="screens->includes(initialScreen)"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="screens" lowerBound="1"
         upperBound="-1" eType="#//Screen" containment="true">
