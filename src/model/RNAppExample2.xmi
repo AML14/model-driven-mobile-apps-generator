@@ -4,7 +4,7 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:rnAppGen="http://rnappgen"
-    xsi:schemaLocation="http://rnappgen file:/Users/Alberto/workspace/Eclipse-Epsilon/model-driven-mobile-apps-generator/src/metamodel/rn_design.ecore">
+    xsi:schemaLocation="http://rnappgen ../metamodel/rn_design.ecore">
   <navigator
       initialScreen="//@navigator/@screens.0"
       name="Navigator 1">
