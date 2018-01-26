@@ -3,19 +3,17 @@
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:rnAppGen="http://rnappgen"
-    xsi:schemaLocation="http://rnappgen ../metamodel/rn_design.ecore"
+    xmlns:rnAppGen="platform:/resource/model-driven-mobile-apps-generator/src/metamodel/rn_design.ecore"
     name="Test App">
   <navigator
       initialScreen="//@navigator/@screens.0"
-      name="Navegador1">
+      name="Navigator1">
     <screens
         title="First Screen"
         scrollable="true"
         nextScreen="//@navigator/@screens.1">
       <components
           xsi:type="rnAppGen:LoginForm"
-          flexVerticalPosition="1"
           stateID="1"
           userPlaceholder="Username"
           passwordPlaceholder="Password"
@@ -28,7 +26,6 @@
         nextScreen="//@navigator/@screens.2">
       <components
           xsi:type="rnAppGen:InputText"
-          flexVerticalPosition="1"
           stateID="2"
           placeholder="Post title"/>
       <components
